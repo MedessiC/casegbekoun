@@ -1,0 +1,273 @@
+/* ===== VARIABLES CSS POUR UNE GESTION CENTRALISÉE ===== */
+:root {
+  /* Polices */
+  --font-gbekoun: 'Gbekoun', 'Noto Sans', 'Arial Unicode MS', sans-serif;
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-mono: 'Fira Code', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
+  
+  /* Échelles de taille pour Togbé (réduites) */
+  --tog-scale-factor: 0.9; /* Facteur de réduction global */
+  --tog-h1-size: calc(2.2rem * var(--tog-scale-factor));
+  --tog-h2-size: calc(1.8rem * var(--tog-scale-factor));
+  --tog-h3-size: calc(1.5rem * var(--tog-scale-factor));
+  --tog-h4-size: calc(1.3rem * var(--tog-scale-factor));
+  --tog-h5-size: calc(1.1rem * var(--tog-scale-factor));
+  --tog-h6-size: calc(1rem * var(--tog-scale-factor));
+  --tog-base-size: calc(1rem * var(--tog-scale-factor));
+  --tog-small-size: calc(0.9rem * var(--tog-scale-factor));
+  
+  /* Échelles normales pour autres langues */
+  --normal-h1-size: 2.2rem;
+  --normal-h2-size: 1.8rem;
+  --normal-h3-size: 1.5rem;
+  --normal-h4-size: 1.3rem;
+  --normal-h5-size: 1.1rem;
+  --normal-h6-size: 1rem;
+  --normal-base-size: 1rem;
+  
+  /* Espacements et hauteurs de ligne */
+  --tog-line-height: 1.6;
+  --tog-letter-spacing: 0.025em;
+  --normal-line-height: 1.5;
+  --normal-letter-spacing: normal;
+}
+
+/* ===== CHARGEMENT DE POLICE OPTIMISÉ ===== */
+@font-face {
+  font-family: 'Gbekoun';
+  src: url('../assets/fonts/gbekoun.woff2') format('woff2'),
+       url('../assets/fonts/gbekoun.woff') format('woff'),
+       url('../assets/fonts/gbekoun.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F; /* Ajustez selon les caractères Togbé */
+}
+
+/* ===== SYSTÈME DE CLASSES MODULAIRE ===== */
+
+/* Classes de base pour les polices */
+.font-gbekoun { font-family: var(--font-gbekoun); }
+.font-system { font-family: var(--font-system); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Classes pour les différentes langues */
+.lang-tog {
+  font-family: var(--font-gbekoun);
+  font-size: var(--tog-base-size);
+  line-height: var(--tog-line-height);
+  letter-spacing: var(--tog-letter-spacing);
+}
+
+.lang-fr,
+.lang-en {
+  font-family: var(--font-system);
+  font-size: var(--normal-base-size);
+  line-height: var(--normal-line-height);
+  letter-spacing: var(--normal-letter-spacing);
+}
+
+/* ===== SÉLECTEURS AUTOMATIQUES PAR ATTRIBUT DE LANGUE ===== */
+
+/* Togbé */
+[data-lang="tog"],
+[lang="tog"] {
+  font-family: var(--font-gbekoun);
+  font-size: var(--tog-base-size);
+  line-height: var(--tog-line-height);
+  letter-spacing: var(--tog-letter-spacing);
+}
+
+/* Français et Anglais */
+[data-lang="fr"],
+[data-lang="en"],
+[lang="fr"],
+[lang="en"] {
+  font-family: var(--font-system);
+  font-size: var(--normal-base-size);
+  line-height: var(--normal-line-height);
+}
+
+/* ===== SYSTÈME DE TITRES RESPONSIVE ===== */
+
+/* Titres en Togbé */
+[data-lang="tog"] h1, .lang-tog h1 { font-size: var(--tog-h1-size); }
+[data-lang="tog"] h2, .lang-tog h2 { font-size: var(--tog-h2-size); }
+[data-lang="tog"] h3, .lang-tog h3 { font-size: var(--tog-h3-size); }
+[data-lang="tog"] h4, .lang-tog h4 { font-size: var(--tog-h4-size); }
+[data-lang="tog"] h5, .lang-tog h5 { font-size: var(--tog-h5-size); }
+[data-lang="tog"] h6, .lang-tog h6 { font-size: var(--tog-h6-size); }
+
+/* Titres normaux */
+[data-lang="fr"] h1, [data-lang="en"] h1, .lang-fr h1, .lang-en h1 { font-size: var(--normal-h1-size); }
+[data-lang="fr"] h2, [data-lang="en"] h2, .lang-fr h2, .lang-en h2 { font-size: var(--normal-h2-size); }
+[data-lang="fr"] h3, [data-lang="en"] h3, .lang-fr h3, .lang-en h3 { font-size: var(--normal-h3-size); }
+[data-lang="fr"] h4, [data-lang="en"] h4, .lang-fr h4, .lang-en h4 { font-size: var(--normal-h4-size); }
+[data-lang="fr"] h5, [data-lang="en"] h5, .lang-fr h5, .lang-en h5 { font-size: var(--normal-h5-size); }
+[data-lang="fr"] h6, [data-lang="en"] h6, .lang-fr h6, .lang-en h6 { font-size: var(--normal-h6-size); }
+
+/* ===== CLASSES UTILITAIRES AVANCÉES ===== */
+
+/* Tailles spéciales pour Togbé */
+.tog-compact { 
+  font-size: calc(var(--tog-base-size) * 0.85) !important; 
+  line-height: 1.4;
+}
+
+.tog-large-text { 
+  font-size: calc(var(--tog-base-size) * 1.1) !important; 
+}
+
+.tog-small { 
+  font-size: var(--tog-small-size) !important; 
+}
+
+/* Classes pour différents contextes */
+.tog-navigation {
+  font-size: var(--tog-small-size);
+  font-weight: 500;
+}
+
+.tog-body-text {
+  font-size: var(--tog-base-size);
+  line-height: var(--tog-line-height);
+}
+
+.tog-caption {
+  font-size: calc(var(--tog-base-size) * 0.8);
+  opacity: 0.8;
+}
+
+/* ===== COMPOSANTS INTERFACE UTILISATEUR ===== */
+
+/* Boutons adaptatifs */
+button[data-lang="tog"],
+.button.lang-tog {
+  font-size: var(--tog-small-size);
+  padding: 0.6em 1.2em;
+}
+
+button[data-lang="fr"],
+button[data-lang="en"],
+.button.lang-fr,
+.button.lang-en {
+  font-size: var(--normal-base-size);
+  padding: 0.5em 1em;
+}
+
+/* Formulaires adaptatifs */
+input[data-lang="tog"],
+textarea[data-lang="tog"],
+select[data-lang="tog"] {
+  font-size: var(--tog-small-size);
+  line-height: var(--tog-line-height);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Ajustements pour mobiles */
+@media (max-width: 768px) {
+  :root {
+    --tog-scale-factor: 0.8; /* Encore plus petit sur mobile */
+  }
+  
+  [data-lang="tog"] {
+    letter-spacing: 0.005em; /* Moins d'espacement sur mobile */
+  }
+  
+  /* Navigation encore plus compacte sur mobile */
+  [data-lang="tog"] .navigation,
+  [data-lang="tog"] nav,
+  .lang-tog .navigation,
+  .lang-tog nav {
+    font-size: calc(var(--tog-small-size) * 0.65) !important;
+  }
+}
+
+/* Ajustements pour tablettes */
+@media (min-width: 769px) and (max-width: 1199px) {
+  :root {
+    --tog-scale-factor: 0.85;
+  }
+  
+  [data-lang="tog"] .navigation,
+  [data-lang="tog"] nav,
+  .lang-tog .navigation,
+  .lang-tog nav {
+    font-size: calc(var(--tog-small-size) * 0.8);
+  }
+}
+
+/* Ajustements pour grands écrans */
+@media (min-width: 1200px) {
+  :root {
+    --tog-scale-factor: 0.95; /* Légèrement plus grand sur desktop */
+  }
+  
+  [data-lang="tog"] .navigation,
+  [data-lang="tog"] nav,
+  .lang-tog .navigation,
+  .lang-tog nav {
+    font-size: calc(var(--tog-small-size) * 0.85);
+  }
+}
+
+/* ===== PERFORMANCE ET ACCESSIBILITÉ ===== */
+
+/* Préchargement de police critique */
+.preload-gbekoun {
+  font-family: var(--font-gbekoun);
+  visibility: hidden;
+  position: absolute;
+}
+
+/* Amélioration du contraste pour Togbé */
+[data-lang="tog"] {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Classes d'aide pour l'accessibilité */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== CLASSES D'EXCEPTION ET OVERRIDES ===== */
+
+/* Forcer une police spécifique */
+.force-gbekoun { font-family: var(--font-gbekoun) !important; }
+.force-system { font-family: var(--font-system) !important; }
+.force-mono { font-family: var(--font-mono) !important; }
+
+/* Code et éléments techniques */
+pre, code, .code {
+  font-family: var(--font-mono) !important;
+  font-size: 0.9em;
+}
+
+/* ===== THÈME SOMBRE (BONUS) ===== */
+@media (prefers-color-scheme: dark) {
+  [data-lang="tog"] {
+    /* Ajustements spécifiques au mode sombre si nécessaire */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ===== ANIMATIONS ET TRANSITIONS ===== */
+.lang-switcher {
+  transition: font-family 0.3s ease, font-size 0.3s ease;
+}
+
+/* Animation lors du changement de langue */
+[data-lang] {
+  transition: font-size 0.2s ease-out, line-height 0.2s ease-out;
+}

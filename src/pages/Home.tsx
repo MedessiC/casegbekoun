@@ -53,41 +53,51 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-sky-50">
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-sky-300 via-blue-500 to-sky-200 text-gray-900">
-  <div className="max-w-7xl mx-auto text-center">
-    <div className="mb-8">
+  {/* Hero Section */}
+  <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    {/* Background Image */}
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+      style={{ backgroundImage: "url('/bg_home.jpg')" }}
+    />
+
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
+
+    {/* Content */}
+    <div className="relative z-20 max-w-7xl mx-auto text-center text-white">
       <div className="inline-block px-4 py-2 bg-sky-300 text-blue-700 rounded-full text-sm font-semibold mb-6">
         ✨ Système d'écriture innovant pour l'Afrique
       </div>
-    </div>
 
-    <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
-  <span className="text-white">{t('welcome')}</span>
-  <br />
-  <span className="text-yellow-400">{t('gbekoun')}</span>
-</h1>
+      <h1 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
+        <span>{t('welcome')}</span>
+        <br />
+        <span className="text-yellow-400">{t('gbekoun')}</span>
+      </h1>
 
+      <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed">
+        {t('subtitle')}
+      </p>
 
-    <p className="text-xl text-white mb-6 max-w-3xl mx-auto leading-relaxed">
-  {t('subtitle')}
-</p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <Link
+          to="/alphabet"
+          className="inline-flex items-center px-8 py-4 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+        >
+          {t('explore')}
+          <ArrowRight size={20} className="ml-2" />
+        </Link>
+        <Link
+          to="/history"
+          className="inline-flex items-center px-8 py-4 border-2 border-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-200"
+        >
+          {t('learnMore')}
+        </Link>
+      </div>
+      
+  
 
-<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-  <Link
-    to="/alphabet"
-    className="inline-flex items-center px-8 py-4 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-  >
-    {t('explore')}
-    <ArrowRight size={20} className="ml-2" />
-  </Link>
-  <Link
-    to="/history"
-    className="inline-flex items-center px-8 py-4 border-2 border-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-200"
-  >
-    {t('learnMore')}
-  </Link>
-</div>
 
 
 

@@ -31,7 +31,23 @@ const resources = {
       evolutionText: 'Développé progressivement, l\'alphabet s\'est enrichi pour répondre aux besoins linguistiques.',
       impact: 'Impact culturel',
       impactText: 'Le Gbekoun a révolutionné l\'écriture et la préservation des langues africaines.',
-      
+      id: "revelation",
+      period: "1976-1995",
+      title: "Révélation et Mission Transcendante",
+      shortTitle: "Les origines mystiques",
+      description: "ADIGBE Togbédji, originaire du petit village de Mondotokpa à Dangbo, reçoit une mission transcendante pour créer le script d'incarnation des langues africaines. En 1976, il adresse un message prophétique aux gouvernants sur la sécheresse financière qui guetterait le pays. Cette prophétie lui vaut une incarcération de 7 années sans procès ni jugement. Paradoxalement, la crise annoncée frappe effectivement le Bénin en 1983.",
+      detailedStory: "Au cours de sa 7ème année d'emprisonnement, il réitère le même message aux mêmes gouvernants qui, cette fois, décident de l'amnistier et de le libérer. Après sa libération en 1983, ADIGBE Togbédji entreprend une quête spirituelle et scientifique extraordinaire. Pour découvrir la 'maquette de développement' qu'est le script d'incarnation, l'homme s'impose des conditions de vie extrêmes : il reste sans manger ni boire pendant plusieurs semaines. Quand il s'alimente, c'est comme les hommes de l'époque primitive : une boule d'akassa accompagnée d'huile rouge sans sel ni piment. Il parcourt toutes ses distances à pied, quelles qu'elles soient.",
+      context: "Cette période s'inscrit dans la théorie développée selon laquelle l'Afrique a perdu sa souveraineté en adoptant des langues étrangères. Le 'couple originel ancestral' (Terre + Langues maternelles) s'est refermé comme une tortue face au danger, bloquant l'accès aux ressources. ADIGBE Togbédji est choisi par le 'consortium des langues en voie de disparition' pour briser cette malédiction.",
+      keyPoint: "19 années de recherche dans des conditions mystiques",
+      quote: "Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra.",
+      author: "ADIGBE Togbédji (1989)",
+      keyEvents: [
+        "1976 : Prophétie sur la crise financière - Incarcération de 7 ans sans procès",
+        "1983 : Confirmation de la prophétie - Libération",
+        "1983-1995 : 12 années de recherche ascétique et mystique",
+        "Conditions de vie primitives volontaires (jeûnes prolongés, alimentation primitive)",
+        "Quête du 'Script pour l'autonomie des nations'"
+      ],
       // Alphabet page
       alphabetTitle: 'L\'Alphabet Gbekoun',
       alphabetDescription: 'Découvrez chaque lettre avec sa prononciation et des exemples d\'usage',
@@ -93,6 +109,25 @@ const resources = {
       impact: 'Cultural impact',
       impactText: 'Gbekoun revolutionized writing and preservation of African languages.',
       
+  id: "revelation",
+  period: "1976–1995",
+  title: "Revelation and Transcendent Mission",
+  shortTitle: "Mystical Origins",
+  description: "ADIGBE Togbédji, a native of the small village of Mondotokpa in Dangbo, receives a transcendent mission to create the incarnation script for African languages. In 1976, he delivers a prophetic message to the nation's leaders about an impending financial drought. This prophecy leads to his imprisonment for 7 years without trial or judgment. Paradoxically, the predicted crisis strikes Benin in 1983.",
+  detailedStory: "During his seventh year of imprisonment, he repeats the same message to the same leaders, who this time decide to grant him amnesty and release him. After his liberation in 1983, ADIGBE Togbédji embarks on an extraordinary spiritual and scientific quest. To uncover the 'development blueprint' that is the incarnation script, he imposes extreme living conditions on himself: going without food or water for several weeks. When he does eat, it is like the men of the primitive era — a ball of akassa with red oil, without salt or pepper. He travels all distances on foot, regardless of length.",
+  context: "This period aligns with the theory that Africa lost its sovereignty by adopting foreign languages. The 'ancestral original couple' (Earth + Mother Tongues) closed itself off like a turtle facing danger, blocking access to resources. ADIGBE Togbédji is chosen by the 'consortium of endangered languages' to break this curse.",
+  keyPoint: "19 years of research under mystical conditions",
+  quote: "My brothers, our era is historically unparalleled... When nature speaks from this small country, the whole world will hear.",
+  author: "ADIGBE Togbédji (1989)",
+  keyEvents: [
+    "1976: Prophecy of financial crisis – 7-year imprisonment without trial",
+    "1983: Prophecy confirmed – Release",
+    "1983–1995: 12 years of ascetic and mystical research",
+    "Voluntary primitive living conditions (prolonged fasting, primitive diet)",
+    "Quest for the 'Script for the autonomy of nations'"
+  ],
+
+
       // Alphabet page
       alphabetTitle: 'The Gbekoun Alphabet',
       alphabetDescription: 'Discover each letter with its pronunciation and usage examples',

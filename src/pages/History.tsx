@@ -172,58 +172,9 @@ const History: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       
-      {/* Navigation fixe sur le côté (desktop) */}
-      <div className="hidden lg:block fixed left-6 top-1/2 transform -translate-y-1/2 z-40">
-        <div className="bg-white shadow-lg rounded-full p-2">
-          <nav className="space-y-2">
-            {navigationItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
-                  activeTab === item.id 
-                    ? 'bg-blue-600 text-white shadow-lg' 
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
-                title={item.label}
-              >
-                <item.icon size={20} />
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      {/* Menu mobile */}
-      <div className="lg:hidden fixed top-4 right-4 z-50">
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="bg-white shadow-lg rounded-full p-3 text-gray-600"
-        >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+      
         
-        {isMobileMenuOpen && (
-          <div className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-xl p-4 w-48">
-            <nav className="space-y-2">
-              {navigationItems.map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors ${
-                    activeTab === item.id 
-                      ? 'bg-blue-600 text-white' 
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
-                >
-                  <item.icon size={16} />
-                  <span className="text-sm font-medium">{item.label}</span>
-                </button>
-              ))}
-            </nav>
-          </div>
-        )}
-      </div>
+  
 
       {/* Bouton retour en haut */}
       {showScrollTop && (

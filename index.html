@@ -1,14 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
+    <!-- Encodage universel -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <link rel="icon" type="image/png" sizes="16x16"  href="src/assets/img/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+    <!-- Responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" href="/src/assets/font/gbekoun.ttf" as="font" type="font/ttf" crossorigin>
-    <title>Case-Gbekoun</title>
+
+    <!-- Préchargement de la police Gbekoun -->
+    <link rel="preload" href="/src/assets/font/gbekoun.ttf" as="font" type="font/ttf" crossorigin />
+
+    <!-- SEO : titre et description -->
+    <title>Case-Gbekoun — Centre Académique des Savoirs Endogène</title>
+    <meta name="description" content="Découvrez le script Gbekoun, conçu pour l’autonomie éducative et civilisationnelle de l’Afrique. 47 ans d’histoire, 33 lettres, 3 générations de gardiens." />
+    <meta name="keywords" content="Gbekoun, écriture africaine, script béninois, autonomie linguistique, Windotoche, langue maternelle" />
+    <meta name="author" content="casegbekoun" />
+
+    <!-- Accessibilité et langue -->
+    <meta http-equiv="Content-Language" content="fr" />
+
+    <!-- Open Graph pour les partages sociaux -->
+    <meta property="og:title" content="Case-Gbekoun — Script pour l’Afrique" />
+    <meta property="og:description" content="Le système Gbekoun : 33 lettres, 3 générations, une mission pour l’autonomie éducative du continent." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://casegbekoun.netlify.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Case-Gbekoun — Centre Académique des Savoirs Endogène" />
+    <meta name="twitter:description" content="Découvrez le système d’écriture Gbekoun, conçu pour reconnecter les langues maternelles africaines à leur terre." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Manifest pour PWA (si activé) -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Feuille de style principale (si tu en as une) -->
+    <!-- <link rel="stylesheet" href="/src/styles/main.css" /> -->
   </head>
-  <body>
+  <body class="bg-gradient-to-br from-sky-300 via-blue-500 to-sky-200 text-gray-900">
     <div id="root"></div>
+
+    <!-- Script principal -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

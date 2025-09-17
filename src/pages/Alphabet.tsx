@@ -22,7 +22,7 @@ const Alphabet: React.FC = () => {
     // VOYELLES (9)
     {
       letter: 'a',
-      name: 'AS',
+      name: '',
       pronunciation: '/a/',
       examples: ['àkɔ́n (chien)', 'àla (route)'],
       description: 'A à tonnation aigu',
@@ -30,7 +30,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'e',
-      name: 'AMAN',
+      name: '',
       pronunciation: '/e/',
       examples: ['éwé (feuille)', 'kélé (voir)'],
       description: 'A à tonnation calme',
@@ -38,7 +38,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'i',
-      name: 'IVI',
+      name: '',
       pronunciation: '/i/',
       examples: ['ɛ̀nɛ̀ (oui)', 'kɛ́kɛ́ (regarder)'],
       description: 'I à tonnation calme',
@@ -46,7 +46,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'I',
-      name: 'IYO',
+      name: '',
       pronunciation: '/I/',
       examples: ['ìgbé (vie)', 'kìní (quoi)'],
       description: 'I a tonnation aigu',
@@ -59,7 +59,7 @@ const Alphabet: React.FC = () => {
     // CONSONNES (24)
     {
       letter: 'b',
-      name: 'AGFA',
+      name: '',
       pronunciation: '/b/',
       examples: ['óko (mari)', 'odò (rivière)'],
       description: 'Gor',
@@ -67,7 +67,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'c',
-      name: 'ZAMAN',
+      name: '',
       pronunciation: '/c/',
       examples: ['ɔ̀dɔ̀ (rivière)', 'hɔ̂n (ventre)'],
       description: 'Zor',
@@ -75,7 +75,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'd',
-      name: 'SIWE',
+      name: '',
       pronunciation: '/d/',
       examples: ['ùkù (mort)', 'gbúru (profond)'],
       description: 'Sor',
@@ -83,7 +83,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'f',
-      name: 'NIWE',
+      name: '',
       pronunciation: '/f/',
       examples: ['dɛ̃́ (cuire)', 'hɛ̃́ (respirer)'],
       description: 'Non',
@@ -92,7 +92,7 @@ const Alphabet: React.FC = () => {
     
     {
       letter: 'h',
-      name: 'MOUE',
+      name: '',
       pronunciation: '/h/',
       examples: ['kɔ̃́ (construire)', 'sɔ̃́ (dormir)'],
       description: 'Mon',
@@ -100,7 +100,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'j',
-      name: 'OUVI',
+      name: '',
       pronunciation: '/j/',
       examples: ['bá (venir)', 'gbó (entendre)'],
       description: 'Vor',
@@ -108,7 +108,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'k',
-      name: 'WALI',
+      name: '',
       pronunciation: '/k/',
       examples: ['cá (dire)', 'àcí (vinaigre)'],
       description: 'Lor',
@@ -116,7 +116,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'l',
-      name: 'GBEMAN',
+      name: '',
       pronunciation: '/l/',
       examples: ['dá (créer)', 'odò (rivière)'],
       description: 'Gbor',
@@ -124,7 +124,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'm',
-      name: 'WAMAN',
+      name: '',
       pronunciation: '/m/',
       examples: ['ɖò (sur)', 'àɖú (poison)'],
       description: 'Wor',
@@ -132,7 +132,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'n',
-      name: 'IFI',
+      name: '',
       pronunciation: '/n/',
       examples: ['fé (vouloir)', 'àfí (là où)'],
       description: 'For',
@@ -140,7 +140,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'p',
-      name: 'AKPOMAN',
+      name: '',
       pronunciation: '/p/',
       examples: ['gá (comprendre)', 'àgó (camp)'],
       description: 'KPOR',
@@ -148,7 +148,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'q',
-      name: 'CHIOU',
+      name: '',
       pronunciation: '/q/',
       examples: ['gbá (recevoir)', 'àgbà (aîné)'],
       description: 'Chor',
@@ -156,7 +156,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'r',
-      name: 'OUJI',
+      name: '',
       pronunciation: '/r/',
       examples: ['hàn (montrer)', 'ohùn (voix)'],
       description: 'Jor',
@@ -164,7 +164,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 's',
-      name: 'TIWE',
+      name: '',
       pronunciation: '/s/',
       examples: ['já (danser)', 'àjá (chien)'],
       description: 'TOR',
@@ -172,7 +172,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 't',
-      name: 'KIWE',
+      name: '',
       pronunciation: '/t/',
       examples: ['ká (lire)', 'àkó (enseignement)'],
       description: 'Kor',
@@ -180,7 +180,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'u',
-      name: 'EYEME',
+      name: '',
       pronunciation: '/u/',
       examples: ['kpá (tuer)', 'àkpó (crapaud)'],
       description: 'E tonnation aigue',
@@ -188,7 +188,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'v',
-      name: 'BETE',
+      name: '',
       pronunciation: '/v/',
       examples: ['lọ (aller)', 'àlá (rêve)'],
       description: 'Bor',
@@ -196,7 +196,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'w',
-      name: 'EYOMAN',
+      name: '',
       pronunciation: '/w/',
       examples: ['má (ne pas)', 'omi (eau)'],
       description: 'Yor',
@@ -204,7 +204,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'x',
-      name: 'HÔMAN',
+      name: '',
       pronunciation: '/x/',
       examples: ['ná (celui)', 'inú (ventre)'],
       description: 'Hôr',
@@ -212,7 +212,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'y',
-      name: 'RALI',
+      name: '',
       pronunciation: '/y/',
       examples: ['ɲá (pincer)', 'àɲá (belle-mère)'],
       description: 'Ror',
@@ -220,7 +220,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'z',
-      name: 'AHIWE',
+      name: '',
       pronunciation: '/z/',
       examples: ['ŋù (boire)', 'àŋɔ̀ (corps)'],
       description: 'RHOR',
@@ -228,7 +228,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: '&',
-      name: 'RWALI',
+      name: '',
       pronunciation: '/&/',
       examples: ['ɳà (donner)', 'àɳí (feu)'],
       description: 'Rouwor',
@@ -236,7 +236,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'g',
-      name: 'OROUA',
+      name: '',
       pronunciation: '/g/',
       examples: ['pá (tuer)', 'àpá (bras)'],
       description: 'Rlor',
@@ -244,7 +244,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'A',
-      name: 'OULI',
+      name: '',
       pronunciation: '/A/',
       examples: ['rí (voir)', 'àrá (corps)'],
       description: "'OU' rotation",
@@ -252,7 +252,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: '(',
-      name: 'DIOU',
+      name: '',
       pronunciation: '/(/',
       examples: ['sá (fuir)', 'àsá (culture)'],
       description: 'D-or',
@@ -260,7 +260,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: ')',
-      name: 'DESSI',
+      name: '',
       pronunciation: '/)/',
       examples: ['ʃá (faire)', 'àʃá (hache)'],
       description: "Dor'or",
@@ -268,7 +268,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'E',
-      name: 'YOWE',
+      name: '',
       pronunciation: '/E/',
       examples: ['tá (vendre)', 'àtá (piment)'],
       description: 'O aigui',
@@ -276,7 +276,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'o',
-      name: 'YORSSI',
+      name: '',
       pronunciation: '/o/',
       examples: ['ʋò (toi)', 'àʋɔ̀ (peau)'],
       description: 'Or aigui',
@@ -284,7 +284,7 @@ const Alphabet: React.FC = () => {
     },
     {
       letter: 'O',
-      name: 'AIMAN',
+      name: '',
       pronunciation: '/w/',
       examples: ['wá (venir)', 'àwá (nous)'],
       description: 'E',
@@ -296,7 +296,7 @@ const Alphabet: React.FC = () => {
   const gbekounNumbers = [
     {
       number: '0',
-      name: 'YAYA',
+      name: '',
       pronunciation: '/Yàyà/',
       meaning: 'zéro',
       examples: ['gbou akwe (zéro livre)', 'gbou daho (rien du tout)'],
@@ -304,7 +304,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '1',
-      name: 'DE',
+      name: '',
       pronunciation: '/Déé/',
       meaning: 'un',
       examples: ['kpon su (une personne)', 'kpon we (un jour)'],
@@ -312,7 +312,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '2',
-      name: 'WE',
+      name: '',
       pronunciation: '/wéé/',
       meaning: 'deux',
       examples: ['we su (deux personnes)', 'we azɔ̃ (deux mains)'],
@@ -320,7 +320,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '3',
-      name: "ATON",
+      name: "",
       pronunciation: "/atɔon'on/",
       meaning: 'trois',
       examples: ['aton kpevi (trois enfants)', 'aton akɔ́n (trois chiens)'],
@@ -328,7 +328,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '4',
-      name: 'ENE',
+      name: '',
       pronunciation: '/ènin/',
       meaning: 'quatre',
       examples: ['ene gbɛ (quatre calebasses)', 'ene afɔ (quatre pieds)'],
@@ -336,7 +336,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '5',
-      name: "ATON-ON",
+      name: "",
       pronunciation: '/aton-on/',
       meaning: 'cinq',
       examples: ['atɔn asɔ́n (cinq doigts)', 'atɔn kudo (cinq étoiles)'],
@@ -344,7 +344,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '6',
-      name: 'AÏZIN',
+      name: '',
       pronunciation: '/aïzin/',
       meaning: 'six',
       examples: ['ake asu (six mois)', 'ake kɛ́kɛ́ (six regards)'],
@@ -352,7 +352,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '7',
-      name: 'TINWE',
+      name: '',
       pronunciation: '/tinwé/',
       meaning: 'sept',
       examples: ['adre we (sept jours)', 'adre gbɛ̀ (sept fois)'],
@@ -360,7 +360,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '8',
-      name: 'TIN-NIN',
+      name: '',
       pronunciation: '/tin-nin/',
       meaning: 'huit',
       examples: ['awli mɛ (huit personnes)', 'awli azɔ̃ (huit bras)'],
@@ -368,7 +368,7 @@ const Alphabet: React.FC = () => {
     },
     {
       number: '9',
-      name: 'TAN-TON',
+      name: '',
       pronunciation: '/tan-ton/',
       meaning: 'neuf',
       examples: ['asikpe su (neuf personnes)', 'asikpe kpó (neuf noix)'],

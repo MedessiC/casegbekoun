@@ -1,387 +1,1129 @@
-import React, { useState } from 'react';
+
+
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Calendar, Users, BookOpen, Globe, Award, ChevronDown, ChevronUp, Play, Quote } from 'lucide-react';
+import { Calendar, Users, BookOpen, Globe, Award, ChevronDown, ChevronUp, Clock, MapPin, Quote, User, Scroll, ArrowUp, Menu, X } from 'lucide-react';
 
 const History: React.FC = () => {
   const { t } = useTranslation();
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [selectedPeriod, setSelectedPeriod] = useState(0);
+  const [activeTab, setActiveTab] = useState('introduction');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Gestion du scroll pour le bouton "retour en haut"
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    setActiveTab(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const navigationItems = [
+    { id: 'introduction', label: 'Introduction', icon: BookOpen },
+    { id: 'context', label: 'Contexte', icon: Globe },
+    { id: 'chronology', label: 'Chronologie', icon: Clock },
+    { id: 'figures', label: 'Figures clés', icon: User },
+    { id: 'technical', label: 'Le système', icon: Scroll },
+    { id: 'mission', label: 'Mission', icon: Award }
+  ];
 
   const historicalPeriods = [
     {
-      id: "creation",
-      period: "1994-2000",
-      title: "Création et fondation",
-      subtitle: "Togbédji Adigbé invente Gbekoun",
-      description:
-        "L'écriture Gbekoun est créée en 1994 par Togbédji Adigbé de Dangbo (Bénin), locuteur du dialecte wémè du fon. Destinée à être un alphabet autochtone capable de transcrire fidèlement toutes les langues nationales du Bénin. Elle comprend 33 lettres (24 consonnes, 9 voyelles), avec chiffres décimaux, ponctuation et diacritiques.",
-      image:
-        "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+      id: "revelation",
+      period: "1976-1995",
+      title: "Révélation et Mission Transcendante",
+      shortTitle: "Les origines mystiques",
+      description: "ADIGBE Togbédji, originaire du petit village de Mondotokpa à Dangbo, reçoit une mission transcendante pour créer le script d'incarnation des langues africaines. En 1976, il adresse un message prophétique aux gouvernants sur la sécheresse financière qui guetterait le pays. Cette prophétie lui vaut une incarcération de 7 années sans procès ni jugement. Paradoxalement, la crise annoncée frappe effectivement le Bénin en 1983.",
+      detailedStory: "Au cours de sa 7ème année d'emprisonnement, il réitère le même message aux mêmes gouvernants qui, cette fois, décident de l'amnistier et de le libérer. Après sa libération en 1983, ADIGBE Togbédji entreprend une quête spirituelle et scientifique extraordinaire. Pour découvrir la 'maquette de développement' qu'est le script d'incarnation, l'homme s'impose des conditions de vie extrêmes : il reste sans manger ni boire pendant plusieurs semaines. Quand il s'alimente, c'est comme les hommes de l'époque primitive : une boule d'akassa accompagnée d'huile rouge sans sel ni piment. Il parcourt toutes ses distances à pied, quelles qu'elles soient.",
+      context: "Cette période s'inscrit dans la théorie développée selon laquelle l'Afrique a perdu sa souveraineté en adoptant des langues étrangères. Le 'couple originel ancestral' (Terre + Langues maternelles) s'est refermé comme une tortue face au danger, bloquant l'accès aux ressources. ADIGBE Togbédji est choisi par le 'consortium des langues en voie de disparition' pour briser cette malédiction.",
+      keyPoint: "19 années de recherche dans des conditions mystiques",
+      quote: "Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra.",
+      author: "ADIGBE Togbédji (1989)",
       keyEvents: [
-        "1994 : Création de l'écriture Gbekoun par Togbédji Adigbé",
-        "Premiers essais de transcription en fon",
-        "Développement des règles d'écriture de base",
-      ],
-      impact:
-        "Établit les fondements d'une écriture autochtone pour les langues du Bénin.",
-      testimonial: {
-        text: "Mon objectif était de créer un système d'écriture qui respecte la phonétique de nos langues africaines.",
-        author: "Togbédji Adigbé",
-        role: "Créateur du Gbekoun",
-      },
+        "1976 : Prophétie sur la crise financière - Incarcération de 7 ans sans procès",
+        "1983 : Confirmation de la prophétie - Libération",
+        "1983-1995 : 12 années de recherche ascétique et mystique",
+        "Conditions de vie primitives volontaires (jeûnes prolongés, alimentation primitive)",
+        "Quête du 'Script pour l'autonomie des nations'"
+      ]
     },
     {
-      id: 'development',
-      period: '2000-2010',
-      title: 'Développement et application',
-      subtitle: 'Extension aux langues béninoises',
-      description: 'Après sa création, le système Gbekoun est progressivement appliqué à différentes langues du Bénin. L\'alphabet est testé et adapté pour le fon, l\'adja, le yoruba, le dendi, le boo, le yom et l\'ayizo, démontrant sa polyvalence.',
-      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg',
+      id: 'conception',
+      period: '1995-2007',
+      title: 'Achèvement et Transmission du Gbekoun',
+      shortTitle: 'La révélation finale',
+      description: 'En 1995, après 19 années de recherche, ADIGBE Togbédji fait une annonce historique : "ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles." Le système Gbekoun est né, conçu comme un script à la fois syllabique et phonétique, doté de chiffres décimaux, de ponctuation et de diacritiques.',
+      detailedStory: 'Pendant 13 années consécutives, ADIGBE Togbédji enseigne le script Gbekoun et utilise ce système pour écrire de nombreux livres aux titres variés. Il établit deux groupes d\'instruction : l\'un à Dangbo dans son village natal de Mondoto, l\'autre à Cotonou. Le système est présenté comme capable de transcrire fidèlement toutes les langues nationales du Bénin et, par extension, toutes les langues maternelles africaines. L\'objectif déclaré est de permettre l\'éducation en langues maternelles pour reconquérir la souveraineté des nations africaines.',
+      context: 'Cette période marque la matérialisation concrète de la vision. Le Gbekoun est présenté non pas comme un simple alphabet, mais comme un "Script pour l\'autonomie de chaque nation du monde sans le moindre appui". Il s\'inscrit dans une philosophie révolutionnaire qui inverse la hiérarchie linguistique : les langues maternelles deviennent les "propriétaires" et les langues européennes les simples "locataires".',
+      keyPoint: '13 années d\'enseignement et formation de disciples',
+      quote: 'ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles.',
+      author: 'ADIGBE Togbédji (1995)',
       keyEvents: [
-        'Extension au fon et à l\'adja',
-        'Application au yoruba béninois',
-        'Tests sur le dendi et le boo',
-        'Adaptation pour le yom et l\'ayizo',
-        'Premières expériences d\'enseignement'
-      ],
-      impact: 'Démonstration de la capacité du système à transcrire plusieurs langues béninoises',
-      testimonial: {
-        text: "Voir notre langue écrite dans un alphabet qui respecte nos sons était révolutionnaire.",
-        author: "Témoignage d'un utilisateur",
-        role: "Locuteur fon"
-      }
+        "1995 : Annonce officielle de l'achèvement du Script Gbekoun",
+        "Création de 33 lettres (24 consonnes, 9 voyelles) syllabiques et phonétiques",
+        "Établissement de deux centres d'enseignement (Dangbo/Mondoto et Cotonou)",
+        "Rédaction de nombreux ouvrages en script Gbekoun",
+        "Formation de la première génération de disciples",
+        "25 janvier 2007 : Décès d'ADIGBE Togbédji (Noudhetongbë 13e Nouyon-eîn, 1er siècle, 16e année de l'ère Gbekoun)"
+      ]
     },
     {
-      id: 'education',
-      period: '2010-2020',
-      title: 'Introduction dans l\'éducation',
-      subtitle: 'Usage dans l\'enseignement en langue maternelle',
-      description: 'Le Gbekoun trouve sa place dans des écoles spécialisées pour l\'enseignement en langue maternelle. Cette période marque l\'institutionnalisation progressive du système d\'écriture dans le contexte éducatif béninois.',
-      image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg',
+      id: 'succession',
+      period: '2007-2019',
+      title: 'Renaissance Mystique et Expansion Académique',
+      shortTitle: 'Le successeur providentiel',
+      description: 'Après le décès d\'ADIGBE Togbédji le 25 janvier 2007, les disciples maintiennent les deux groupes d\'instruction. En 2013, un événement extraordinaire se produit : un "apprenant peu ordinaire" apparaît. Cet homme s\'approche, enlève sa chemise et demande si les gens de Gbekoun peuvent guérir les multiples lésions de son corps. Rapidement, il développe des capacités étonnantes et parvient à décoder des messages codés du concepteur sans l\'avoir jamais côtoyé.',
+      detailedStory: 'Cet homme mystérieux adopte le style vestimentaire de Togbédji et un régime alimentaire particulier. Les témoins déclarent : "Nul doute ; de façon spectaculaire, le successeur de Togbédji venait de naître." Il se fait appeler HOUESSE AYIGBEDEKIN Vidéhouénou et développe un système éducatif pluridisciplinaire en un temps record, fondé sur l\'usage du script Gbekoun. Il baptise son système académique "Premier Centre d\'Éveil du Continent Noir". De 2013 à 2016, il établit une école de formation des formateurs, puis en 2016, lance le centre de formation académique qu\'il dirige magistralement pendant 3 ans.',
+      context: 'Cette période représente l\'institutionnalisation du Gbekoun. Le script n\'est plus seulement un système d\'écriture, mais devient la base d\'un cursus éducatif complet visant à "corriger les théories occidentales" dans l\'enseignement et à les adapter aux réalités africaines. Le "Premier Centre d\'Éveil du Continent Noir" incarne la vision d\'une éducation décolonisée.',
+      keyPoint: 'Transformation en système éducatif pluridisciplinaire complet',
+      quote: 'De façon spectaculaire, le successeur de Togbédji venait de naître.',
+      author: 'Témoins oculaires du mouvement Gbekoun',
       keyEvents: [
-        'Intégration dans des écoles spécialisées',
-        'Formation d\'enseignants',
-        'Création de matériel pédagogique',
-        'Programmes d\'alphabétisation',
-        'Documentation des méthodes d\'enseignement'
-      ],
-      impact: 'Établissement du Gbekoun comme outil pédagogique viable',
-      testimonial: {
-        text: "Les enfants apprennent plus facilement à lire dans leur langue maternelle avec cet alphabet.",
-        author: "Témoignage d'enseignant",
-        role: "Éducateur au Bénin"
-      }
+        "2007 : Maintien des enseignements par les disciples orphelins",
+        "2013 : Apparition mystérieuse de HOUESSE AYIGBEDEKIN Vidéhouénou",
+        "2013-2016 : École de formation des formateurs",
+        "2016 : Lancement du Premier Centre d'Éveil du Continent Noir",
+        "2016-2019 : Direction du système éducatif pluridisciplinaire",
+        "9 mars 2019 : Décès de HOUESSE AYIGBEDEKIN Vidéhouénou (Mydéësyï 19e Gbetchëzon, 1er siècle, 35e année de l'ère Gbekoun)"
+      ]
     },
     {
-      id: 'recent',
-      period: '2020-Aujourd\'hui',
-      title: 'Reconnaissance et préservation',
-      subtitle: 'Documentation et sensibilisation',
-      description: 'La période récente voit une attention accrue portée au Gbekoun par les chercheurs et les défenseurs des langues africaines. Le système est documenté dans diverses sources académiques et fait l\'objet d\'efforts de préservation et de promotion.',
-      image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg',
+      id: 'legacy',
+      period: '2019-Présent',
+      title: 'Héritage et Mission Contemporaine',
+      shortTitle: 'Les témoins gardiens',
+      description: 'Le 9 mars 2019, HOUESSE AYIGBEDEKIN Vidéhouénou s\'en va à son tour, laissant une fois de plus les disciples "orphelins de maître". Cependant, le groupe de "témoins oculaires" des événements liés au script continue la mission avec une conviction inébranlable. Ils déclarent : "Le monde a changé d\'ombre ; et le monde nouveau en cours, celui de développement et de l\'éveil du Continent Noir a établi son soleil levant au Bénin pour s\'étendre sur le reste du continent et sur le monde entier."',
+      detailedStory: 'Dirigé par COOVI Azotêgnon, Premier Président du Conseil Académique et Pédagogique du système éducatif en langue nationale, le groupe maintient fermement la mission malgré "la tergiversation des gouvernants qui s\'abstiennent d\'accompagner l\'œuvre avec une volonté politique". Ils sont convaincus qu\'aussi longtemps qu\'un peuple n\'aura pas découvert le script d\'incarnation de ses langues identitaires, un développement civilisationnel rationnel, tangible et évolutif lui sera difficile. Leur message aux dirigeants africains est clair : cesser de faire des langues nationales de simples matières d\'alphabétisation et créer de véritables écoles d\'enseignement en langues maternelles.',
+      context: 'Cette période s\'inscrit dans l\'urgence d\'une reconnaissance officielle. Les gardiens contemporains estiment que l\'Afrique doit se préparer car "l\'Occident finira par se départir un jour de l\'Afrique". Ils prônent une inversion complète du système éducatif : les langues maternelles comme langues d\'enseignement principales, les langues européennes reléguées au rang de simples matières optionnelles.',
+      keyPoint: 'Préservation de l\'héritage et quête de reconnaissance officielle',
+      quote: 'Le monde a changé d\'ombre ; et le monde nouveau en cours, celui de développement et de l\'éveil du Continent Noir a établi son soleil levant au Bénin pour s\'étendre sur le reste du continent et sur le monde entier.',
+      author: 'Groupe des témoins oculaires (post-2019)',
       keyEvents: [
-        'Documentation sur Wikipedia',
-        'Inclusion dans l\'Atlas des alphabets menacés',
-        'Recherches linguistiques',
-        'Sensibilisation communautaire',
-        'Efforts de numérisation'
-      ],
-      impact: 'Reconnaissance internationale comme système d\'écriture africain indigène',
-      testimonial: {
-        text: "Il est important de préserver et documenter ces innovations linguistiques africaines.",
-        author: "Chercheur en linguistique",
-        role: "Spécialiste des écritures africaines"
-      }
+        "2019 : Prise de relais par les témoins oculaires dirigés par COOVI Azotêgnon",
+        "Formation du Conseil Académique et Pédagogique",
+        "Continuation de la sensibilisation malgré le manque de soutien officiel",
+        "Documentation de l'héritage historique",
+        "Plaidoyer pour l'adoption officielle du système",
+        "Mission d'éveil continental depuis le Bénin"
+      ]
     }
   ];
 
-  const culturalImpact = [
+  const keyFigures = [
     {
-      icon: BookOpen,
-      title: 'Langues supportées',
-      description: 'Appliqué à 7 langues du Bénin : fon, adja, yoruba, dendi, boo, yom, ayizo',
-      stats: '7 langues',
-      color: 'from-blue-500 to-blue-600'
+      name: 'ADIGBE Togbédji',
+      role: 'Concepteur et Fondateur Mystique',
+      period: '1976-2007',
+      birthPlace: 'Village de Mondotokpa, Dangbo',
+      summary: 'Visionnaire choisi par le "consortium des langues africaines" pour créer le script d\'incarnation des langues maternelles.',
+      detailedBio: 'Originaire du petit village de Mondotokpa à Dangbo, ADIGBE Togbédji devient une figure prophétique de l\'histoire du Bénin. En 1976, il adresse un message d\'avertissement aux gouvernants sur une crise financière imminente, prophétie qui lui vaut 7 années d\'incarcération sans procès. La crise annoncée frappe effectivement le pays en 1983. Libéré la même année, il consacre 12 années à une quête spirituelle et scientifique exceptionnelle.',
+      researchMethod: 'Pour découvrir le script d\'incarnation, il s\'impose des conditions de vie extrêmes : jeûnes prolongés de plusieurs semaines, alimentation primitive (boule d\'akassa et huile rouge sans assaisonnement), déplacements exclusivement à pied. Ces pratiques ascétiques visent à atteindre un état de conscience transcendante nécessaire à sa mission.',
+      philosophy: 'Sa vision révolutionnaire repose sur la théorie du "couple originel ancestral" : Terre + Langues maternelles. Selon lui, l\'adoption de langues étrangères a rompu cette alliance sacrée, privant l\'Afrique de l\'accès à ses ressources. Le Gbekoun doit restaurer cette connexion mystique.',
+      achievement: 'Système de 33 lettres (24 consonnes, 9 voyelles) syllabique et phonétique',
+      legacy: 'Fondation théorique et mystique de l\'autonomie linguistique africaine',
+      famousQuote: '"Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra." (1989)',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
     },
     {
-      icon: Users,
-      title: 'Éducation',
-      description: 'Utilisé dans l\'enseignement en langue maternelle dans des écoles spécialisées',
-      stats: 'Écoles spécialisées',
-      color: 'from-green-500 to-green-600'
+      name: 'HOUESSE AYIGBEDEKIN Vidéhouénou',
+      role: 'Successeur Mystique et Développeur Académique',
+      period: '2013-2019',
+      birthPlace: 'République du Bénin',
+      summary: 'Figure mystérieuse apparue en 2013, transformateur du Gbekoun en système éducatif complet.',
+      detailedBio: 'Son apparition en 2013 est décrite comme mystérieuse. Lors de sa première rencontre avec le groupe Gbekoun, cet homme enlève sa chemise pour montrer les multiples lésions de son corps, demandant s\'il peut être guéri. Rapidement, il développe des capacités extraordinaires, décodant des messages codés d\'ADIGBE Togbédji sans l\'avoir jamais rencontré.',
+      researchMethod: 'Il adopte intégralement le style de vie de Togbédji : même style vestimentaire, régime alimentaire particulier, et approche ascétique. Cette mimesis parfaite convainc les témoins qu\'il est le successeur désigné par des forces transcendantes.',
+      philosophy: 'Il développe la dimension pédagogique du Gbekoun, créant un "système éducatif pluridisciplinaire" visant à "corriger les théories occidentales" inadaptées aux réalités africaines. Son approche vise une décolonisation complète de l\'éducation.',
+      achievement: 'Fondation du "Premier Centre d\'Éveil du Continent Noir" et formation de formateurs',
+      legacy: 'Infrastructure académique et institutionnalisation de l\'enseignement en Gbekoun',
+      famousQuote: 'Les témoins déclarent : "De façon spectaculaire, le successeur de Togbédji venait de naître."',
+      image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg'
     },
     {
-      icon: Globe,
-      title: 'Portée géographique',
-      description: 'Concentré principalement au Bénin, avec potentiel d\'extension régionale',
-      stats: 'Bénin',
-      color: 'from-yellow-500 to-orange-500'
-    },
-    {
-      icon: Award,
-      title: 'Reconnaissance',
-      description: 'Documenté comme système d\'écriture africain indigène',
-      stats: 'Atlas mondial',
-      color: 'from-purple-500 to-purple-600'
+      name: 'COOVI Azotêgnon',
+      role: 'Gardien Contemporain et Président du Conseil Académique',
+      period: '2019-Présent',
+      birthPlace: 'République du Bénin',
+      summary: 'Premier Président du Conseil Académique et Pédagogique, gardien de l\'héritage et militant pour la reconnaissance officielle.',
+      detailedBio: 'Témoin oculaire des événements liés au script Gbekoun, COOVI Azotêgnon prend la direction du mouvement après la disparition de HOUESSE AYIGBEDEKIN en 2019. Il incarne la continuité institutionnelle et la préservation de l\'héritage dans un contexte difficile.',
+      researchMethod: 'Son approche est documentaire et militante. Il compile les témoignages, organise les enseignements et structure la promotion du système malgré "l\'absence de volonté politique" des gouvernants béninois.',
+      philosophy: 'Il prône une révolution éducative complète : "Il ne s\'agit pas de faire de vos langues une matière [...] mais de créer une école propre à votre langue maternelle officielle." Les langues européennes doivent devenir de simples matières optionnelles.',
+      achievement: 'Organisation du Conseil Académique et documentation de l\'histoire complète',
+      legacy: 'Préservation documentaire et continuité de la mission d\'éveil continental',
+      famousQuote: '"Le monde a changé d\'ombre ; et le monde nouveau en cours, celui de développement et de l\'éveil du Continent Noir a établi son soleil levant au Bénin pour s\'étendre sur le reste du continent et sur le monde entier."',
+      image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg'
     }
   ];
-
-  const toggleSection = (sectionId: string) => {
-    setExpandedSection(expandedSection === sectionId ? null : sectionId);
-  };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Header avec citation inspirante */}
-        <div className="text-center mb-16">
-          <div className="mb-8">
-            <Quote size={48} className="text-blue-600 mx-auto mb-4" />
-            <blockquote className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 italic">
-              "Chaque langue mérite un système d'écriture qui respecte ses sons"
-            </blockquote>
-            <cite className="text-lg text-gray-600">- Philosophie du Gbekoun</cite>
-          </div>
-          
-          <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-6">
-            L'Histoire du <span className="bg-gradient-to-r from-blue-600 to-yellow-500 bg-clip-text text-transparent">Gbekoun</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Découvrez l'histoire authentique de l'alphabet Gbekoun, créé en 1994 par Togbédji Adigbé 
-            pour transcrire fidèlement les langues du Bénin dans leur richesse phonétique originale.
-          </p>
-        </div>
-
-        {/* Timeline Interactive */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Chronologie Historique</h2>
-          
-          {/* Sélecteur de période */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {historicalPeriods.map((period, index) => (
+    <div className="min-h-screen bg-white">
+      
+      {/* Navigation fixe sur le côté (desktop) */}
+      <div className="hidden lg:block fixed left-6 top-1/2 transform -translate-y-1/2 z-40">
+        <div className="bg-white shadow-lg rounded-full p-2">
+          <nav className="space-y-2">
+            {navigationItems.map(item => (
               <button
-                key={period.id}
-                onClick={() => setSelectedPeriod(index)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  selectedPeriod === index
-                    ? 'bg-blue-600 text-white shadow-lg transform scale-105'
-                    : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-sm'
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
+                  activeTab === item.id 
+                    ? 'bg-blue-600 text-white shadow-lg' 
+                    : 'text-gray-600 hover:bg-gray-100'
                 }`}
+                title={item.label}
               >
-                {period.period}
+                <item.icon size={20} />
               </button>
             ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* Menu mobile */}
+      <div className="lg:hidden fixed top-4 right-4 z-50">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="bg-white shadow-lg rounded-full p-3 text-gray-600"
+        >
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+        
+        {isMobileMenuOpen && (
+          <div className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-xl p-4 w-48">
+            <nav className="space-y-2">
+              {navigationItems.map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors ${
+                    activeTab === item.id 
+                      ? 'bg-blue-600 text-white' 
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <item.icon size={16} />
+                  <span className="text-sm font-medium">{item.label}</span>
+                </button>
+              ))}
+            </nav>
           </div>
+        )}
+      </div>
 
-          {/* Contenu de la période sélectionnée */}
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              {/* Image */}
-              <div className="relative h-64 lg:h-auto">
-                <img
-                  src={historicalPeriods[selectedPeriod].image}
-                  alt={historicalPeriods[selectedPeriod].title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-yellow-500/20"></div>
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2">
-                  <span className="text-sm font-semibold text-gray-800">
-                    {historicalPeriods[selectedPeriod].period}
-                  </span>
-                </div>
+      {/* Bouton retour en haut */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-40"
+        >
+          <ArrowUp size={20} />
+        </button>
+      )}
+
+      {/* Hero Section */}
+<section
+  id="introduction"
+  className="relative bg-gradient-to-br from-sky-300 via-blue-500 to-sky-200 text-white min-h-screen flex items-center"
+>
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-4xl mx-auto px-6 py-24">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              Histoire Authentique du <span className="text-yellow-400">Gbekoun</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+              L'épopée mystique du script révolutionnaire pour l'autonomie éducative de l'Afrique
+            </p>
+            
+            {/* Infos rapides */}
+            <div className="inline-flex flex-wrap gap-6 bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-4 mb-12">
+              <div className="flex items-center gap-2 text-sm">
+                <Calendar size={18} className="text-yellow-400" />
+                <span>1976 - Présent</span>
               </div>
-
-              {/* Contenu */}
-              <div className="p-8 lg:p-12">
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                  {historicalPeriods[selectedPeriod].title}
-                </h3>
-                <p className="text-lg text-blue-600 font-semibold mb-6">
-                  {historicalPeriods[selectedPeriod].subtitle}
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  {historicalPeriods[selectedPeriod].description}
-                </p>
-
-                {/* Impact */}
-                <div className="bg-yellow-50 rounded-xl p-6 mb-8">
-                  <h4 className="font-bold text-gray-900 mb-2">Impact:</h4>
-                  <p className="text-gray-700">{historicalPeriods[selectedPeriod].impact}</p>
-                </div>
-
-                {/* Témoignage */}
-                <div className="bg-blue-50 rounded-xl p-6">
-                  <Quote size={24} className="text-blue-600 mb-3" />
-                  <blockquote className="text-gray-700 italic mb-4">
-                    "{historicalPeriods[selectedPeriod].testimonial.text}"
-                  </blockquote>
-                  <cite className="text-sm font-semibold text-blue-600">
-                    — {historicalPeriods[selectedPeriod].testimonial.author}, {historicalPeriods[selectedPeriod].testimonial.role}
-                  </cite>
-                </div>
+              <div className="flex items-center gap-2 text-sm">
+                <MapPin size={18} className="text-yellow-400" />
+                <span>Dangbo, Bénin</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <Scroll size={18} className="text-yellow-400" />
+                <span>33 lettres</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <Users size={18} className="text-yellow-400" />
+                <span>3 générations</span>
               </div>
             </div>
 
-            {/* Événements clés (section extensible) */}
-            <div className="border-t border-gray-200">
-              <button
-                onClick={() => toggleSection(historicalPeriods[selectedPeriod].id)}
-                className="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-              >
-                <span className="text-lg font-semibold text-gray-900">Événements clés de cette période</span>
-                {expandedSection === historicalPeriods[selectedPeriod].id ? 
-                  <ChevronUp size={24} className="text-gray-600" /> : 
-                  <ChevronDown size={24} className="text-gray-600" />
-                }
-              </button>
+            {/* Citation d'introduction */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 mb-8">
+              <Quote size={32} className="text-yellow-400 mx-auto mb-4" />
+              <blockquote className="text-lg italic mb-3">
+                "Le Script des peuples pour l'autonomie de chaque nation du monde sans le moindre appui"
+              </blockquote>
+              <cite className="text-sm text-blue-200">— Définition officielle du Gbekoun</cite>
+            </div>
+
+            {/* Bouton d'action */}
+            <button
+              onClick={() => scrollToSection('context')}
+              className="bg-yellow-400 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-yellow-300 transition-colors"
+            >
+              Découvrir l'épopée complète
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-6">
+
+        {/* Section Contexte */}
+        <section id="context" className="py-20">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Contexte : La Théorie du "Couple Originel"
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Pour comprendre la mission du Gbekoun, il faut saisir la théorie révolutionnaire 
+              qui sous-tend cette épopée : l'alliance sacrée entre la Terre et ses Langues maternelles.
+            </p>
+          </div>
+
+          {/* Diagnostic de l'Afrique */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">Le Diagnostic : L'Afrique "Complètement Nue"</h3>
+            
+            <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8 mb-8">
+              <Quote size={32} className="text-red-600 mb-4" />
+              <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
+                "Dépourvue de toutes capacités inventives et productrices, l'Afrique aujourd'hui ne peut même pas authentiquement vêtir son peuple ; et ce peuple est complètement nu. Mirez-vous de la tête aux pieds, vous vous rendrez compte qu'en réalité, rien de tout ce que nous portons ne provient authentiquement d'un pays africain, encore moins de la République du Bénin."
+              </blockquote>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <h4 className="font-bold text-gray-900 mb-3">Perte des Découvertes Ancestrales</h4>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• Où est passé le "feu" découvert par nos ancêtres ?</li>
+                  <li>• Où est passé le "fer" découvert par nos ancêtres ?</li>
+                  <li>• Où sont les "machines artisanales ancestrales" ?</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <h4 className="font-bold text-gray-900 mb-3">Rupture du Lien Sacré</h4>
+                <p className="text-sm text-gray-600">L'adoption des langues étrangères a brisé l'alliance entre la Terre et ses langues maternelles, provoquant la fermeture de l'accès aux ressources.</p>
+              </div>
+              <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <h4 className="font-bold text-gray-900 mb-3">Conséquence Actuelle</h4>
+                <p className="text-sm text-gray-600">"L'Afrique, sous le joug des langues étrangères, a eu son destin primitif à capacité inventive rayé et devra tout reprendre à zéro."</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Théorie du couple originel */}
+          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border border-yellow-200 p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">La Théorie du "Couple Originel Ancestral"</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">🌍 Terre + 🗣️ Langues Maternelles</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    "Le couple originel ancestral (Terre, Langues maternelles) ; un noyau dur et seul géniteur de la capacité inventive de son peuple et donc alors constructeur de son développement, est un noyau sacré."
+                  </p>
+                </div>
+                <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">Mécanisme de Fonctionnement</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    "Pour bénéficier des ressources de sa terre identitaire : partant de l'extraction à la transformation et à la mise en usage, il faut lui faire entendre le langage de son premier et vrai partenaire authentique."
+                  </p>
+                </div>
+              </div>
               
-              {expandedSection === historicalPeriods[selectedPeriod].id && (
-                <div className="px-8 pb-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {historicalPeriods[selectedPeriod].keyEvents.map((event, index) => (
-                      <div key={index} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-700">{event}</span>
-                      </div>
-                    ))}
+              <div className="space-y-6">
+                <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">Mécanisme de "Profanation"</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    "En cas d'adoption d'une langue étrangère par le peuple, le couple originel se sent profané et tout comme le comportement de la tortue face au danger ; se referme dans sa carapace et bloque toutes les voies d'accès à ses ressources."
+                  </p>
+                </div>
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">La Solution Gbekoun</h4>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    "Les langues maternelles parlées au sein d'un peuple sont les seuls porte-paroles de ce peuple auprès de sa terre identitaire."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Les 6 facteurs de régression */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Les 6 Facteurs de Régression Africaine
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Divinisation du naturel",
+                  description: "Facteur d'ombrage et d'obstruction à la conscience d'éveil de l'homme et à son génie de recherches approfondies et d'invention",
+                  icon: "1"
+                },
+                {
+                  title: "Régimes de royauté",
+                  description: "Système totalitaire sanglant qui aura coûté la vie à des génies africains, capables de théories éducationnelles",
+                  icon: "2"
+                },
+                {
+                  title: "Esclavage et traite négrière",
+                  description: "Facteur qui a décimé de grandes valeurs africaines et formé le commerce triangulaire",
+                  icon: "3"
+                },
+                {
+                  title: "Impérialisme et colonisation",
+                  description: "Outil qui a permis au colonisateur de se sentir seul Maître de la terre et de parler au nom des pays les moins avancés",
+                  icon: "4"
+                },
+                {
+                  title: "Adoption de langues étrangères",
+                  description: "Facteur principal : langues européennes imposées comme seules langues officielles de travail",
+                  icon: "5"
+                },
+                {
+                  title: "Trahison des dirigeants",
+                  description: "Sacrifice de la souveraineté et des intérêts nationaux au profit de l'occident pour préserver leurs biens illicites",
+                  icon: "6"
+                }
+              ].map((factor, index) => (
+                <div key={index} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                      {factor.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-2">{factor.title}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">{factor.description}</p>
+                    </div>
                   </div>
                 </div>
-              )}
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Impact Culturel */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Impact et Portée Actuels</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {culturalImpact.map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
-                <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center mx-auto mb-6`}>
-                  <item.icon size={32} className="text-white" />
+        {/* Section Chronologie Complète */}
+        <section id="chronology" className="py-20">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Chronologie Complète de l'Épopée
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              47 années d'histoire extraordinaire, de la révélation mystique de 1976 
+              à la mission contemporaine des témoins gardiens.
+            </p>
+          </div>
+
+          {/* Timeline détaillée */}
+          <div className="relative">
+            {/* Ligne de temps verticale */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
+            
+            <div className="space-y-16">
+              {historicalPeriods.map((period, index) => (
+                <div key={period.id} className="relative">
+                  
+                  {/* Point sur la timeline */}
+                  <div className="absolute left-0 flex-shrink-0">
+                    <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                      {index + 1}
+                    </div>
+                  </div>
+                  
+                  {/* Contenu principal */}
+                  <div className="ml-24 bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+                    
+                    {/* Header de la période */}
+                    <div className="bg-gradient-to-r from-blue-50 to-gray-50 p-6 border-b border-gray-200">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                            {period.title}
+                          </h3>
+                          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+                            <span className="flex items-center gap-1">
+                              <Clock size={16} />
+                              {period.period}
+                            </span>
+                            <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium">
+                              {period.keyPoint}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Contenu détaillé */}
+                    <div className="p-6 space-y-6">
+                      
+                      {/* Description principale */}
+                      <div>
+                        <p className="text-gray-700 leading-relaxed">
+                          {period.description}
+                        </p>
+                      </div>
+
+                      {/* Histoire détaillée */}
+                      {period.detailedStory && (
+                        <div className="bg-gray-50 rounded-xl p-6">
+                          <h4 className="font-bold text-gray-900 mb-3">Récit détaillé</h4>
+                          <p className="text-gray-700 leading-relaxed">
+                            {period.detailedStory}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Contexte historique */}
+                      {period.context && (
+                        <div className="bg-yellow-50 rounded-xl p-6 border-l-4 border-yellow-400">
+                          <h4 className="font-bold text-gray-900 mb-3">Contexte et signification</h4>
+                          <p className="text-gray-700 leading-relaxed">
+                            {period.context}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Citation historique */}
+                      <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                        <Quote size={24} className="text-blue-600 mb-3" />
+                        <blockquote className="text-lg italic text-gray-800 mb-4 leading-relaxed">
+                          "{period.quote}"
+                        </blockquote>
+                        <cite className="text-sm font-semibold text-blue-600">
+                          — {period.author}
+                        </cite>
+                      </div>
+
+                      {/* Événements clés */}
+                      {period.keyEvents && (
+                        <div className="space-y-3">
+                          <h4 className="font-bold text-gray-900">Événements marquants de cette période</h4>
+                          <div className="grid grid-cols-1 gap-3">
+                            {period.keyEvents.map((event, eventIndex) => (
+                              <div key={eventIndex} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <span className="text-gray-700 text-sm">{event}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
-                <div className="text-2xl font-bold text-blue-600">{item.stats}</div>
+              ))}
+            </div>
+          </div>
+
+          {/* Synthèse chronologique */}
+          <div className="mt-16 bg-gradient-to-r from-slate-100 to-blue-100 rounded-2xl p-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+              Synthèse de l'Épopée Gbekoun
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-blue-600">47</div>
+                <div className="font-semibold text-gray-800">Années d'épopée</div>
+                <div className="text-sm text-gray-600">1976 - présent</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-green-600">3</div>
+                <div className="font-semibold text-gray-800">Générations</div>
+                <div className="text-sm text-gray-600">Gardiens successifs</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-yellow-600">33</div>
+                <div className="font-semibold text-gray-800">Lettres</div>
+                <div className="text-sm text-gray-600">Système complet</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-purple-600">1</div>
+                <div className="font-semibold text-gray-800">Mission</div>
+                <div className="text-sm text-gray-600">Autonomie africaine</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section Figures Complètes */}
+        <section id="figures" className="py-20">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Les Figures Emblématiques : Trois Générations
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Découvrez en détail les parcours extraordinaires des gardiens successifs 
+              du Script Gbekoun, de la révélation mystique à la préservation contemporaine.
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {keyFigures.map((figure, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                
+                {/* Header avec photo et infos de base */}
+                <div className="bg-gradient-to-r from-blue-50 to-gray-50 p-6 border-b border-gray-200">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                    
+                    {/* Photo de profil */}
+                    <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                      <img 
+                        src={figure.image} 
+                        alt={figure.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    {/* Informations de base */}
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {figure.name}
+                      </h3>
+                      <p className="text-lg text-blue-600 font-semibold mb-3">
+                        {figure.role}
+                      </p>
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                        <span className="flex items-center gap-1">
+                          <Clock size={16} />
+                          {figure.period}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <MapPin size={16} />
+                          {figure.birthPlace}
+                        </span>
+                      </div>
+                      <p className="text-gray-700 leading-relaxed">
+                        {figure.summary}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contenu détaillé */}
+                <div className="p-6 space-y-6">
+                  
+                  {/* Biographie détaillée */}
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">Parcours biographique</h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      {figure.detailedBio}
+                    </p>
+                  </div>
+
+                  {/* Méthode de recherche */}
+                  <div className="bg-yellow-50 rounded-xl p-6">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">Méthode et approche</h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      {figure.researchMethod}
+                    </p>
+                  </div>
+
+                  {/* Philosophie */}
+                  <div className="bg-blue-50 rounded-xl p-6">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3">Vision philosophique</h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      {figure.philosophy}
+                    </p>
+                  </div>
+
+                  {/* Citation célèbre */}
+                  <div className="bg-white border border-blue-200 rounded-xl p-6">
+                    <Quote size={24} className="text-blue-600 mb-3" />
+                    <blockquote className="text-base italic text-gray-800 mb-3 leading-relaxed">
+                      {figure.famousQuote}
+                    </blockquote>
+                  </div>
+
+                  {/* Réalisations et héritage */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h5 className="font-bold text-gray-900 mb-2">Réalisation majeure</h5>
+                      <p className="text-sm text-gray-700">{figure.achievement}</p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-4">
+                      <h5 className="font-bold text-gray-900 mb-2">Héritage</h5>
+                      <p className="text-sm text-gray-700">{figure.legacy}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Caractéristiques techniques */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            {t ? t("history.technical.title") : "Caractéristiques du Système Gbekoun"}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {t ? t("history.technical.structure.title") : "Structure de l'alphabet"}
-              </h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                  <span className="font-semibold text-gray-700">
-                    {t ? t("history.technical.structure.consonants") : "Consonnes"}
-                  </span>
-                  <span className="text-blue-600 font-bold">24 {t ? t("history.technical.structure.letters") : "lettres"}</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                  <span className="font-semibold text-gray-700">
-                    {t ? t("history.technical.structure.vowels") : "Voyelles"}
-                  </span>
-                  <span className="text-yellow-600 font-bold">9 {t ? t("history.technical.structure.letters") : "lettres"}</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                  <span className="font-semibold text-gray-700">
-                    {t ? t("history.technical.structure.total") : "Total"}
-                  </span>
-                  <span className="text-green-600 font-bold">33 {t ? t("history.technical.structure.letters") : "lettres"}</span>
-                </div>
+          {/* Synthèse des générations */}
+          <div className="mt-16 bg-gradient-to-r from-slate-100 to-blue-100 rounded-2xl p-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+              Trois Générations, Une Mission Continue
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto flex items-center justify-center text-white font-bold text-xl">1</div>
+                <h4 className="font-bold text-gray-800">Révélation (1976-2007)</h4>
+                <p className="text-sm text-gray-600">Conception mystique du script par ADIGBE Togbédji après 19 années de quête spirituelle</p>
+              </div>
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-yellow-600 rounded-full mx-auto flex items-center justify-center text-white font-bold text-xl">2</div>
+                <h4 className="font-bold text-gray-800">Développement (2013-2019)</h4>
+                <p className="text-sm text-gray-600">Institutionnalisation académique par HOUESSE AYIGBEDEKIN Vidéhouénou</p>
+              </div>
+              <div className="space-y-3">
+                <div className="w-16 h-16 bg-green-600 rounded-full mx-auto flex items-center justify-center text-white font-bold text-xl">3</div>
+                <h4 className="font-bold text-gray-800">Préservation (2019-Présent)</h4>
+                <p className="text-sm text-gray-600">Documentation et promotion par COOVI Azotêgnon et les témoins</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section Technique Complète */}
+    <section id="technical" className="py-20">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Le Système Gbekoun : Spécifications Complètes
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Plus qu'un simple alphabet, le Gbekoun est un système révolutionnaire 
+          conçu pour l'autonomie éducative et civilisationnelle de l'Afrique.
+        </p>
+      </div>
+
+      {/* Spécifications techniques détaillées */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        
+        {/* Structure du système */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Structure Technique</h3>
+          <div className="space-y-6">
+            
+            {/* Composition détaillée */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-blue-50 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">24</div>
+                <div className="text-sm font-semibold text-gray-700">Consonnes</div>
+                <div className="text-xs text-gray-500 mt-1">Adaptées aux phonèmes africains</div>
+              </div>
+              <div className="bg-yellow-50 rounded-xl p-4 text-center">
+                <div className="text-3xl font-bold text-yellow-600 mb-2">9</div>
+                <div className="text-sm font-semibold text-gray-700">Voyelles</div>
+                <div className="text-xs text-gray-500 mt-1">Couvrant les tons africains</div>
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {t ? t("history.technical.languages.title") : "Langues d'application"}
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {['Fon', 'Adja', 'Yoruba', 'Dendi', 'Boo', 'Yom', 'Ayizo'].map((lang, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-3 text-center">
-                    <span className="font-semibold text-gray-700">{lang}</span>
+            <div className="bg-green-50 rounded-xl p-6 text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">33</div>
+              <div className="text-lg font-semibold text-gray-700">Lettres au total</div>
+              <div className="text-sm text-gray-600 mt-2">Système à la fois syllabique et phonétique</div>
+            </div>
+
+            {/* Caractéristiques avancées */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-gray-900">Caractéristiques avancées</h4>
+              <div className="grid grid-cols-1 gap-3">
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div>
+                    <span className="font-semibold text-gray-800">Chiffres décimaux intégrés</span>
+                    <div className="text-xs text-gray-600">Système numérique complet</div>
                   </div>
-                ))}
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div>
+                    <span className="font-semibold text-gray-800">Ponctuation complète</span>
+                    <div className="text-xs text-gray-600">Signes de ponctuation adaptés</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div>
+                    <span className="font-semibold text-gray-800">Diacritiques tonales</span>
+                    <div className="text-xs text-gray-600">Précision phonétique maximale</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div>
+                    <span className="font-semibold text-gray-800">Universalité africaine</span>
+                    <div className="text-xs text-gray-600">Adaptable à toutes les langues du continent</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Galerie des Figures Emblématiques */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            {t ? t("history.figures.title") : "Figures Emblématiques"}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                name: 'Togbédji Adigbé',
-                role: t ? t("history.figures.adigbe.role") : 'Créateur de l\'alphabet Gbekoun (1994)',
-                image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-                contribution: t ? t("history.figures.adigbe.contribution") : 'Linguiste visionnaire de Dangbo qui a créé en 1994 les 33 lettres du système Gbekoun (24 consonnes, 9 voyelles) pour transcrire fidèlement toutes les langues du Bénin.',
-                quote: t ? t("history.figures.adigbe.quote") : '"Mon objectif était de développer un alphabet qui respecte la phonétique naturelle des langues béninoises."'
-              },
-              {
-                name: 'Houesse Ayigbedekin Vidéhouénou',
-                role: t ? t("history.figures.videhouenou.role") : 'Successeur et développeur (Abomey)',
-                image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg',
-                contribution: t ? t("history.figures.videhouenou.contribution") : 'Originaire d\'Abomey, il a repris l\'œuvre après le décès de Togbédji Adigbé et a utilisé le Gbekoun pour corriger les théories occidentales dans l\'enseignement, l\'adaptant mieux aux réalités africaines.',
-                quote: t ? t("history.figures.videhouenou.quote") : '"Il fallait préserver cette innovation et l\'utiliser pour corriger les enseignements non adaptés à nos réalités."'
-              }
-            ].map((person, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="h-64 bg-gradient-to-br from-blue-500 to-yellow-400 relative">
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-bold">{person.name}</h3>
-                    <p className="text-sm opacity-90">{person.role}</p>
-                  </div>
+        {/* Capacités et applications */}
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 p-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Capacités et Applications</h3>
+          <div className="space-y-6">
+            
+            {/* Applications linguistiques */}
+            <div>
+              <h4 className="font-bold text-gray-900 mb-3">Applications linguistiques</h4>
+              <div className="space-y-2">
+                <div className="bg-white rounded-lg p-3">
+                  <span className="font-semibold text-gray-800 text-sm">Transcription phonétique fidèle</span>
+                  <p className="text-xs text-gray-600 mt-1">Respect de la richesse sonore des langues africaines</p>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4 leading-relaxed">{person.contribution}</p>
-                  <blockquote className="text-blue-600 italic font-medium">
-                    {person.quote}
-                  </blockquote>
+                <div className="bg-white rounded-lg p-3">
+                  <span className="font-semibold text-gray-800 text-sm">Enseignement pluridisciplinaire</span>
+                  <p className="text-xs text-gray-600 mt-1">Support pour tous les domaines académiques</p>
+                </div>
+                <div className="bg-white rounded-lg p-3">
+                  <span className="font-semibold text-gray-800 text-sm">Recherches approfondies</span>
+                  <p className="text-xs text-gray-600 mt-1">Outil pour l'innovation et la découverte</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Appel à l'action */}
-        <div className="text-center bg-white rounded-2xl p-8 md:p-12 shadow-lg">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Préserver et Promouvoir le Gbekoun
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Le Gbekoun représente un exemple remarquable d'innovation linguistique africaine. 
-            Contribuez à sa documentation, son apprentissage et sa préservation pour les générations futures.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
-              En Savoir Plus
-            </button>
-            <button className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors duration-200">
-              Soutenir la Recherche
-            </button>
+            {/* Mission fondamentale */}
+            <div className="bg-white rounded-lg p-4 border-l-4 border-blue-600">
+              <h4 className="font-bold text-gray-900 mb-2">Mission fondamentale</h4>
+              <blockquote className="text-sm text-gray-700 italic">
+                "Script pour l'autonomie de chaque nation du monde sans le moindre appui"
+              </blockquote>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
 
+      {/* Comparaison avec l'état actuel */}
+      <div className="mb-16">
+        <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+          Diagnostic : Questions Cruciales pour les Nations Africaines
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          {/* Questions pour le Bénin */}
+          <div className="bg-red-50 rounded-2xl border border-red-200 p-8">
+            <h4 className="text-xl font-bold text-gray-900 mb-6">Questions pour le Bénin</h4>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg p-4">
+                <p className="text-sm text-gray-700 font-medium mb-2">Constitution et langue officielle</p>
+                <p className="text-xs text-gray-600">"Sommes-nous certains d'être un jour en voie de développement, lorsqu'on constitutionnalise une langue étrangère comme langue officielle de travail ?"</p>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <p className="text-sm text-gray-700 font-medium mb-2">Nom de la nation</p>
+                <p className="text-xs text-gray-600">"Sommes-nous certains d'être un jour en voie de développement, lorsque le nom de la nation est sous le joug d'une langue qui n'est issue d'aucune de nos langues maternelles ?"</p>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <p className="text-sm text-gray-700 font-medium mb-2">Hymne national</p>
+                <p className="text-xs text-gray-600">"Comment pourrions-nous nous vanter d'une voie de développement lorsque l'hymne nationale est chantée dans une langue étrangère ?"</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Questions continentales */}
+          <div className="bg-orange-50 rounded-2xl border border-orange-200 p-8">
+            <h4 className="text-xl font-bold text-gray-900 mb-6">Questions Continentales</h4>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg p-4">
+                <p className="text-sm text-gray-700 font-medium mb-2">Dénominations continentales</p>
+                <p className="text-xs text-gray-600">"Comment comprendre que tout un continent accepte de porter le nom d'une seule nation : 'Afrique francophone' ou 'Afrique anglophone' ?"</p>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <p className="text-sm text-gray-700 font-medium mb-2">Dépendance linguistique</p>
+                <p className="text-xs text-gray-600">"Un continent incapable de se faire entendre à travers ses propres langues et qui pour pouvoir se faire connaître, a dû emprunter des langues étrangères."</p>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <p className="text-sm text-gray-700 font-medium mb-2">Impact psychologique</p>
+                <p className="text-xs text-gray-600">"Nous ne pouvons pas savoir combien ces surnoms obscurcissent l'évolution de la conscience et la réduisent à la servitude !"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Vérité fondamentale */}
+      <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          Vérité Fondamentale sur les Langues
+        </h3>
+        <div className="text-center space-y-4">
+          <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto">
+            <Quote size={32} className="text-green-600 mb-4" />
+            <blockquote className="text-lg font-semibold text-gray-800 mb-4">
+              "Retenons, qu'il n'y a, et qu'il n'y aura jamais de langues prédominantes. 
+              Toutes les langues maternelles africaines, sont capables de véhiculer le savoir, 
+              même celles des communautés africaines les plus ignorées au même titre que celles des pays dits développés."
+            </blockquote>
+            <cite className="text-green-600 font-semibold">
+              — Principe fondamental du mouvement Gbekoun
+            </cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Section Mission Complète */}
+    <section id="mission" className="py-20">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Mission et Révolution Éducative
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          La vision complète du mouvement Gbekoun pour transformer l'éducation africaine 
+          et reconquérir l'autonomie civilisationnelle du continent.
+        </p>
+      </div>
+
+      {/* Échec des indépendances */}
+      <div className="mb-16">
+        <h3 className="text-2xl font-bold text-gray-900 mb-8">L'Échec des Indépendances : Analyse Historique</h3>
+        
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-8 mb-8">
+          <h4 className="text-xl font-bold text-gray-900 mb-4">Le Piège du Vide Linguistique</h4>
+          <blockquote className="text-gray-700 leading-relaxed mb-4">
+            "Au lendemain des indépendances, les peuples indépendants, tels des esclaves affranchis, se sont rendu compte, 
+            qu'ils n'avaient ni, un système d'éducation propre, ni une langue de travail peaufinée pour éduquer. 
+            Face au constat de ce vide linguistique, ils n'avaient d'autres choix que de confier encore 
+            l'éducation de leurs enfants au Maître affranchisseur."
+          </blockquote>
+          <p className="text-sm text-gray-600 italic">
+            Conséquence : "Le Maître change de stratégie et devient alors à tous les niveaux le représentant permanent 
+            des esclaves affranchis qui n'ont pas pu s'assumer."
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <h5 className="font-bold text-gray-900 mb-3">Années 1960</h5>
+            <p className="text-sm text-gray-600">Indépendances politiques sans indépendance éducative</p>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <h5 className="font-bold text-gray-900 mb-3">Constat</h5>
+            <p className="text-sm text-gray-600">Absence de systèmes éducatifs nationaux authentiques</p>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <h5 className="font-bold text-gray-900 mb-3">Résultat</h5>
+            <p className="text-sm text-gray-600">Reconduction forcée de la dépendance éducative</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Vision prophétique */}
+      <div className="mb-16">
+        <h3 className="text-2xl font-bold text-gray-900 mb-8">Vision Prophétique : Préparer l'Avenir</h3>
+        <div className="bg-gradient-to-r from-blue-600 to-slate-700 rounded-2xl p-8 md:p-12 text-white">
+          <Quote size={48} className="mx-auto mb-6 opacity-80" />
+          <blockquote className="text-xl font-bold mb-6 leading-relaxed text-center">
+            "Qu'on le veuille ou non, l'Occident finira par se départir un jour de l'Afrique et la laisser à son sort. 
+            Alors pour ne plus tomber dans un vide linguistique comme le cas, au lendemain des indépendances où s'étant retrouvés sans langue de travail, 
+            les esclaves affranchis que sont les Etats africains nouvellement indépendants, n'avaient autre choix que celui de s'accrocher encore à la langue de leur maître, 
+            qui était pourtant décrié par le passé."
+          </blockquote>
+          <cite className="text-lg opacity-90 block text-center">
+            — Avertissement prophétique du mouvement Gbekoun
+          </cite>
+        </div>
+      </div>
+
+      {/* Instructions aux dirigeants */}
+      <div className="mb-16">
+        <h3 className="text-2xl font-bold text-gray-900 mb-8">Instructions Révolutionnaires aux Dirigeants Africains</h3>
+        
+        <div className="space-y-8">
+          
+          {/* Questions directes */}
+          <div className="bg-yellow-50 rounded-2xl p-8 border border-yellow-200">
+            <h4 className="text-xl font-bold text-gray-900 mb-6">Questions Directes aux Autorités</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4">
+                  <p className="font-semibold text-gray-800 mb-2">Feindre de travailler ?</p>
+                  <p className="text-sm text-gray-600">"Devons-nous toujours continuer de feindre de travailler quand on sait désormais comment ce travail doit se faire ?"</p>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <p className="font-semibold text-gray-800 mb-2">Simulacre et hypocrisie ?</p>
+                  <p className="text-sm text-gray-600">"Devons-nous toujours continuer de jouer au simulacre et à l'hypocrisie avec nos langues nationales en les utilisant comme des langues d'alphabétisation ?"</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4">
+                  <p className="font-semibold text-gray-800 mb-2">Importer des systèmes ?</p>
+                  <p className="text-sm text-gray-600">"Devons-nous toujours, chercher à importer des systèmes d'éducation ?"</p>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <p className="font-semibold text-gray-800 mb-2">Culture étrangère ?</p>
+                  <p className="text-sm text-gray-600">"Devons-nous toujours, cantonner l'éducation de nos nations à une culture étrangère ?"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Solution révolutionnaire */}
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+            <h4 className="text-xl font-bold text-gray-900 mb-6">La Solution Révolutionnaire</h4>
+            <div className="bg-white rounded-xl p-6 mb-6">
+              <Quote size={24} className="text-green-600 mb-3" />
+              <blockquote className="text-lg text-gray-800 leading-relaxed mb-4">
+                "Il ne s'agira de faire de vos langues une matière aux côtés des disciplines étrangères, 
+                il s'agit plutôt, de créer une école d'enseignement propre à votre langue maternelle officielle, 
+                et faire de la langue étrangère une matière aux côtés de vos disciplines académiques en cas de besoin, 
+                car, les propriétaires que sont nos langues maternelles, ne doivent, pas demander asile 
+                à leurs locataires que sont les langues importées."
+              </blockquote>
+              <cite className="text-green-600 font-semibold">
+                — Instruction fondamentale du mouvement Gbekoun
+              </cite>
+            </div>
+
+            {/* Schéma de l'inversion */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              
+              {/* Système actuel (à rejeter) */}
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                <h5 className="font-bold text-red-800 mb-4 text-center">❌ SYSTÈME ACTUEL (À REJETER)</h5>
+                <div className="space-y-3">
+                  <div className="bg-red-600 text-white p-3 rounded text-center font-semibold">
+                    LANGUES EUROPÉENNES
+                  </div>
+                  <div className="text-center text-sm text-red-700">↑ Dominantes</div>
+                  <div className="border-t-2 border-red-300 my-2"></div>
+                  <div className="text-center text-sm text-red-700">↓ Subalternes</div>
+                  <div className="bg-red-200 text-red-800 p-3 rounded text-center">
+                    Langues maternelles
+                  </div>
+                </div>
+                <p className="text-xs text-red-600 text-center mt-3 italic">
+                  "Les propriétaires demandent asile aux locataires"
+                </p>
+              </div>
+
+              {/* Système révolutionnaire (à adopter) */}
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                <h5 className="font-bold text-green-800 mb-4 text-center">✅ SYSTÈME RÉVOLUTIONNAIRE</h5>
+                <div className="space-y-3">
+                  <div className="bg-green-600 text-white p-3 rounded text-center font-semibold">
+                    LANGUES MATERNELLES
+                  </div>
+                  <div className="text-center text-sm text-green-700">↑ Propriétaires</div>
+                  <div className="border-t-2 border-green-300 my-2"></div>
+                  <div className="text-center text-sm text-green-700">↓ Locataires</div>
+                  <div className="bg-green-200 text-green-800 p-3 rounded text-center">
+                    Langues européennes
+                  </div>
+                </div>
+                <p className="text-xs text-green-600 text-center mt-3 italic">
+                  "Chaque chose à sa juste place"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Témoignage final */}
+      <div className="bg-gradient-to-r from-slate-100 to-blue-100 rounded-2xl p-8 md:p-12">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          Témoignage Final : "Nous Devons en Être Fiers"
+        </h3>
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <blockquote className="text-lg text-gray-700 leading-relaxed italic">
+            "Ce qu'il nous faut retenir, est que, le monde a changé d'ombre ; et le monde nouveau en cours, 
+            celui de développement et de l'éveil du Continent Noir a établi son soleil levant au Bénin pour s'étendre 
+            sur le reste du continent et sur le monde entier. Nous devons en être fiers."
+          </blockquote>
+          <div className="bg-white rounded-xl p-6">
+            <p className="text-gray-700 mb-4">
+              "C'est pour avoir compris le sens d'une telle fierté que le groupe de promotion du Script Gbekoun 
+              composé de témoins oculaires des événements liés audit Script, s'y accroche malgré la tergiversation 
+              de nos gouvernants qui s'abstiennent toujours d'accompagner l'œuvre avec une volonté politique."
+            </p>
+            <cite className="text-blue-600 font-semibold">
+              — COOVI Azotêgnon, Premier Président du Conseil Académique et Pédagogique
+            </cite>
+          </div>
+        </div>
+      </div>
+
+      {/* Appel final */}
+      <div className="mt-16 text-center">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          L'Urgence d'Agir
+        </h3>
+        <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200 mb-8">
+          <Quote size={32} className="text-orange-600 mb-4" />
+          <blockquote className="text-lg font-medium text-gray-800 mb-4">
+            "Ne nous y trompons pas ; aussi longtemps qu'un peuple n'aura pas découvert le Script d'incarnation de ses langues identitaires, 
+            un développement civilisationnel rationnel, tangible et évolutif lui sera difficile."
+          </blockquote>
+          <cite className="text-orange-600 font-semibold">
+            — Avertissement du mouvement Gbekoun
+          </cite>
+        </div>
+        
+        <div className="space-y-4">
+          <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors mx-2">
+            Soutenir la Mission Gbekoun
+          </button>
+          <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition-colors mx-2">
+            Documentation Complète
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  {/* Footer enrichi */}
+<footer className="bg-gradient-to-br from-sky-300 via-blue-500 to-sky-200 text-gray-900 py-16">
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h4 className="font-bold mb-4">L'Épopée Gbekoun</h4>
+          <p className="text-sm text-blue-200">
+            47 années d'histoire authentique pour l'autonomie éducative de l'Afrique
+          </p>
+        </div>
+        <div>
+          <h4 className="font-bold mb-4">Périodes Clés</h4>
+          <ul className="text-sm text-blue-200 space-y-1">
+            <li>1976-1995 : Révélation mystique</li>
+            <li>1995-2007 : Achèvement du script</li>
+            <li>2007-2019 : Développement académique</li>
+            <li>2019-Présent : Héritage et mission</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold mb-4">Mission</h4>
+          <p className="text-sm text-blue-200">
+            "Script pour l'autonomie de chaque nation du monde sans le moindre appui"
+          </p>
+        </div>
+      </div>
+      <div className="text-center border-t border-blue-800 pt-8">
+        <p className="text-blue-200">
+          Histoire authentique du Script Gbekoun basée sur les témoignages originaux des gardiens successifs
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>
+);
+};
 export default History;

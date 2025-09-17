@@ -54,41 +54,42 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-sky-50">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="mb-8">
-            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-6">
-              ✨ Système d'écriture innovant pour l'Afrique
-            </div>
-          </div>
-          
-          <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            <span className="text-blue-600">{t('welcome')}</span>
-            <br />
-            <span className="text-blue-600">
-              {t('gbekoun')}
-            </span>
-          </h1>
-          
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            {t('subtitle')}
-          </p>
+      <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-sky-300 via-blue-500 to-sky-200 text-gray-900">
+  <div className="max-w-7xl mx-auto text-center">
+    <div className="mb-8">
+      <div className="inline-block px-4 py-2 bg-sky-300 text-blue-700 rounded-full text-sm font-semibold mb-6">
+        ✨ Système d'écriture innovant pour l'Afrique
+      </div>
+    </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Link
-              to="/alphabet"
-              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              {t('explore')}
-              <ArrowRight size={20} className="ml-2" />
-            </Link>
-            <Link
-              to="/history"
-              className="inline-flex items-center px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
-            >
-              {t('learnMore')}
-            </Link>
-          </div>
+    <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
+  <span className="text-white">{t('welcome')}</span>
+  <br />
+  <span className="text-yellow-400">{t('gbekoun')}</span>
+</h1>
+
+
+    <p className="text-xl text-blue-800 mb-8 max-w-3xl mx-auto leading-relaxed">
+  {t('subtitle')}
+</p>
+
+<div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+  <Link
+    to="/alphabet"
+    className="inline-flex items-center px-8 py-4 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+  >
+    {t('explore')}
+    <ArrowRight size={20} className="ml-2" />
+  </Link>
+  <Link
+    to="/history"
+    className="inline-flex items-center px-8 py-4 border-2 border-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-200"
+  >
+    {t('learnMore')}
+  </Link>
+</div>
+
+
 
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">

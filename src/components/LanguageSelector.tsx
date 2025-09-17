@@ -14,14 +14,6 @@ const LanguageSelector: React.FC = () => {
   // Configuration des langues avec traductions
   const languages = [
     { 
-      code: 'fr', 
-      nameKey: 'languages.french',
-      countryKey: 'countries.france',
-      flag: flagFR,
-      fallbackName: 'Français',
-      fallbackCountry: 'France'
-    },
-    { 
       code: 'en', 
       nameKey: 'languages.english',
       countryKey: 'countries.usa',
@@ -29,6 +21,15 @@ const LanguageSelector: React.FC = () => {
       fallbackName: 'English',
       fallbackCountry: 'United States'
     },
+    { 
+      code: 'fr', 
+      nameKey: 'languages.french',
+      countryKey: 'countries.france',
+      flag: flagFR,
+      fallbackName: 'Français',
+      fallbackCountry: 'France'
+    },
+    
     { 
       code: 'tog', 
       nameKey: 'languages.togbe',

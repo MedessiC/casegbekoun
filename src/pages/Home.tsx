@@ -69,7 +69,7 @@ const Home: React.FC = () => {
 </h1>
 
 
-    <p className="text-xl text-blue-800 mb-8 max-w-3xl mx-auto leading-relaxed">
+    <p className="text-xl text-white mb-6 max-w-3xl mx-auto leading-relaxed">
   {t('subtitle')}
 </p>
 

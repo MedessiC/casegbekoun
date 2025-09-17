@@ -52,9 +52,10 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-sky-50">
+   <div className="min-h-screen bg-sky-50">
   {/* Hero Section */}
-  <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+  <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    
     {/* Background Image */}
     <div
       className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -65,22 +66,27 @@ const Home: React.FC = () => {
     <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
 
     {/* Content */}
-    <div className="relative z-20 max-w-7xl mx-auto text-center text-white">
+    <div className="relative z-20 max-w-7xl mx-auto text-center text-white py-20">
+      
+      {/* Badge */}
       <div className="inline-block px-4 py-2 bg-sky-300 text-blue-700 rounded-full text-sm font-semibold mb-6">
         ✨ Système d'écriture innovant pour l'Afrique
       </div>
 
+      {/* Title */}
       <h1 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
         <span>{t('welcome')}</span>
         <br />
         <span className="text-yellow-400">{t('gbekoun')}</span>
       </h1>
 
-      <p className="text-xl mb-6 max-w-3xl mx-auto leading-relaxed">
+      {/* Subtitle */}
+      <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
         {t('subtitle')}
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
         <Link
           to="/alphabet"
           className="inline-flex items-center px-8 py-4 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-500 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
@@ -95,27 +101,24 @@ const Home: React.FC = () => {
           {t('learnMore')}
         </Link>
       </div>
-      
-  
 
-
-
-
-          {/* Stats Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4">
-                  <stat.icon size={24} className="text-blue-600" />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-lg font-semibold text-gray-800 mb-1">{stat.label}</div>
-                <div className="text-sm text-gray-600">{stat.description}</div>
-              </div>
-            ))}
+      {/* Stats Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {stats.map((stat, index) => (
+          <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+            <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4">
+              <stat.icon size={24} className="text-blue-600" />
+            </div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+            <div className="text-lg font-semibold text-gray-800 mb-1">{stat.label}</div>
+            <div className="text-sm text-gray-600">{stat.description}</div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
 
       {/* Features Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">

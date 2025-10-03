@@ -31,23 +31,88 @@ const resources = {
       evolutionText: 'Développé progressivement, l\'alphabet s\'est enrichi pour répondre aux besoins linguistiques.',
       impact: 'Impact culturel',
       impactText: 'Le Gbekoun a révolutionné l\'écriture et la préservation des langues africaines.',
-      id: "revelation",
-      period: "1976-1995",
-      title: "Révélation et Mission Transcendante",
-      shortTitle: "Les origines mystiques",
-      description: "ADIGBE Togbédji, originaire du petit village de Mondotokpa à Dangbo, reçoit une mission transcendante pour créer le script d'incarnation des langues africaines. En 1976, il adresse un message prophétique aux gouvernants sur la sécheresse financière qui guetterait le pays. Cette prophétie lui vaut une incarcération de 7 années sans procès ni jugement. Paradoxalement, la crise annoncée frappe effectivement le Bénin en 1983.",
-      detailedStory: "Au cours de sa 7ème année d'emprisonnement, il réitère le même message aux mêmes gouvernants qui, cette fois, décident de l'amnistier et de le libérer. Après sa libération en 1983, ADIGBE Togbédji entreprend une quête spirituelle et scientifique extraordinaire. Pour découvrir la 'maquette de développement' qu'est le script d'incarnation, l'homme s'impose des conditions de vie extrêmes : il reste sans manger ni boire pendant plusieurs semaines. Quand il s'alimente, c'est comme les hommes de l'époque primitive : une boule d'akassa accompagnée d'huile rouge sans sel ni piment. Il parcourt toutes ses distances à pied, quelles qu'elles soient.",
-      context: "Cette période s'inscrit dans la théorie développée selon laquelle l'Afrique a perdu sa souveraineté en adoptant des langues étrangères. Le 'couple originel ancestral' (Terre + Langues maternelles) s'est refermé comme une tortue face au danger, bloquant l'accès aux ressources. ADIGBE Togbédji est choisi par le 'consortium des langues en voie de disparition' pour briser cette malédiction.",
-      keyPoint: "19 années de recherche dans des conditions mystiques",
-      quote: "Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra.",
-      author: "ADIGBE Togbédji (1989)",
-      keyEvents: [
-        "1976 : Prophétie sur la crise financière - Incarcération de 7 ans sans procès",
-        "1983 : Confirmation de la prophétie - Libération",
-        "1983-1995 : 12 années de recherche ascétique et mystique",
-        "Conditions de vie primitives volontaires (jeûnes prolongés, alimentation primitive)",
-        "Quête du 'Script pour l'autonomie des nations'"
-      ],
+      
+      // Histoire complète - Nouvelles clés
+      authenticHistoryTitle: 'Histoire Authentique du Gbekoun',
+      epicSubtitle: 'L\'épopée mystique du script révolutionnaire pour l\'autonomie éducative de l\'Afrique',
+      years: 'années',
+      present: 'Présent',
+      generations: 'générations',
+      letters: 'lettres',
+      officialDefinition: 'Définition officielle du Gbekoun',
+      scriptDefinition: 'Le Script des peuples pour l\'autonomie de chaque nation du monde sans le moindre appui',
+      discoverEpic: 'Découvrir l\'épopée complète',
+      
+      // Contexte
+      contextTitle: 'Contexte : La Théorie du "Couple Originel"',
+      contextSubtitle: 'Pour comprendre la mission du Gbekoun, il faut saisir la théorie révolutionnaire qui sous-tend cette épopée : l\'alliance sacrée entre la Terre et ses Langues maternelles.',
+      africaDiagnosis: 'Le Diagnostic : L\'Afrique "Complètement Nue"',
+      seeCompleteDiagnosis: 'Voir le diagnostic complet : L\'Afrique \'Complètement Nue\'',
+      originalCoupleTheory: 'La Théorie du "Couple Originel Ancestral"',
+      seeCompleteTheory: 'Voir l\'explication complète de la théorie',
+      sacredAlliance: 'Alliance Sacrée',
+      regressionFactors: 'Les 6 Facteurs de Régression Africaine',
+      seeDetailedFactors: 'Voir les 6 facteurs détaillés',
+      
+      // Chronologie
+      chronologyTitle: 'Chronologie Complète de l\'Épopée',
+      chronologySubtitle: '47 années d\'histoire extraordinaire, de la révélation mystique de 1976 à la mission contemporaine des témoins gardiens.',
+      epicSynthesis: 'Synthèse de l\'Épopée Gbekoun',
+      yearsOfEpic: 'Années d\'épopée',
+      successiveGuardians: 'Gardiens successifs',
+      completeSystem: 'Système complet',
+      africanAutonomy: 'Autonomie africaine',
+      seeCompleteDetails: 'Voir les détails complets de cette période',
+      
+      // Figures
+      figuresTitle: 'Les Figures Emblématiques : Trois Générations',
+      figuresSubtitle: 'Découvrez en détail les parcours extraordinaires des gardiens successifs du Script Gbekoun, de la révélation mystique à la préservation contemporaine.',
+      threeGenerations: 'Trois Générations, Une Mission Continue',
+      revelation: 'Révélation',
+      development: 'Développement',
+      preservation: 'Préservation',
+      seeCompleteJourney: 'Voir le parcours complet de cette figure',
+      
+      // Technique
+      technicalTitle: 'Le Système Gbekoun : Spécifications Complètes',
+      technicalSubtitle: 'Plus qu\'un simple alphabet, le Gbekoun est un système révolutionnaire conçu pour l\'autonomie éducative et civilisationnelle de l\'Afrique.',
+      technicalStructure: 'Structure Technique',
+      consonants: 'Consonnes',
+      vowels: 'Voyelles',
+      totalLetters: 'Lettres au total',
+      systemType: 'Système à la fois syllabique et phonétique',
+      seeAdvancedFeatures: 'Voir toutes les caractéristiques avancées',
+      fundamentalTruth: 'Vérité Fondamentale sur les Langues',
+      
+      // Mission
+      missionTitle: 'Mission et Révolution Éducative',
+      missionSubtitle: 'La vision complète du mouvement Gbekoun pour transformer l\'éducation africaine et reconquérir l\'autonomie civilisationnelle du continent.',
+      independenceFailure: 'L\'Échec des Indépendances : Analyse Historique',
+      seeCompleteAnalysis: 'Voir l\'analyse complète : L\'Échec des Indépendances',
+      propheticVision: 'Vision Prophétique : Préparer l\'Avenir',
+      revolutionaryInstructions: 'Instructions Révolutionnaires aux Dirigeants Africains',
+      seeCompleteInstructions: 'Voir les instructions révolutionnaires complètes aux dirigeants africains',
+      finalTestimony: 'Témoignage Final : "Nous Devons en Être Fiers"',
+      urgencyToAct: 'L\'Urgence d\'Agir',
+      supportMission: 'Soutenir la Mission Gbekoun',
+      completeDocumentation: 'Documentation Complète',
+      
+      // Buttons et actions
+      seeMore: 'Voir plus',
+      seeLess: 'Voir moins',
+      backToTop: 'Retour en haut',
+      
+      // Footer
+      authenticEpic: 'L\'Épopée Gbekoun',
+      epicDescription: '47 années d\'histoire authentique pour l\'autonomie éducative de l\'Afrique',
+      keyPeriods: 'Périodes Clés',
+      mysticRevelation: 'Révélation mystique',
+      scriptCompletion: 'Achèvement du script',
+      academicDevelopment: 'Développement académique',
+      heritageAndMission: 'Héritage et mission',
+      mission: 'Mission',
+      footerDescription: 'Histoire authentique du Script Gbekoun basée sur les témoignages originaux des gardiens successifs',
+      
       // Alphabet page
       alphabetTitle: 'L\'Alphabet Gbekoun',
       alphabetDescription: 'Découvrez chaque lettre avec sa prononciation et des exemples d\'usage',
@@ -67,7 +132,6 @@ const resources = {
       categories: 'Catégories',
       readMore: 'Lire la suite',
       comments: 'commentaires',
-      
       
       // About page
       aboutTitle: 'À propos du projet',
@@ -92,7 +156,8 @@ const resources = {
       blog: 'Blog',
       about: 'About',
       contact: 'Contact',
-      pays:'English',
+      pays: 'English',
+      
       // Home page
       welcome: 'Welcome to the world of',
       gbekoun: 'Academic Center for Endogenous Knowledge Gbekoun',
@@ -100,33 +165,95 @@ const resources = {
       explore: 'Explore the alphabet',
       learnMore: 'Learn more',
       
-      // History page
+      // History page - Basic
       historyTitle: 'History of Gbekoun',
       origin: 'Origins',
-      originText: 'Gbekoun was born from the necessity to create a writing system adapted to African languages.',
+      originText: 'Gbekoun was born from the need to create a writing system adapted to African languages.',
       evolution: 'Evolution',
       evolutionText: 'Developed progressively, the alphabet was enriched to meet linguistic needs.',
       impact: 'Cultural impact',
-      impactText: 'Gbekoun revolutionized writing and preservation of African languages.',
+      impactText: 'Gbekoun revolutionized the writing and preservation of African languages.',
       
-  id: "revelation",
-  period: "1976–1995",
-  title: "Revelation and Transcendent Mission",
-  shortTitle: "Mystical Origins",
-  description: "ADIGBE Togbédji, a native of the small village of Mondotokpa in Dangbo, receives a transcendent mission to create the incarnation script for African languages. In 1976, he delivers a prophetic message to the nation's leaders about an impending financial drought. This prophecy leads to his imprisonment for 7 years without trial or judgment. Paradoxically, the predicted crisis strikes Benin in 1983.",
-  detailedStory: "During his seventh year of imprisonment, he repeats the same message to the same leaders, who this time decide to grant him amnesty and release him. After his liberation in 1983, ADIGBE Togbédji embarks on an extraordinary spiritual and scientific quest. To uncover the 'development blueprint' that is the incarnation script, he imposes extreme living conditions on himself: going without food or water for several weeks. When he does eat, it is like the men of the primitive era — a ball of akassa with red oil, without salt or pepper. He travels all distances on foot, regardless of length.",
-  context: "This period aligns with the theory that Africa lost its sovereignty by adopting foreign languages. The 'ancestral original couple' (Earth + Mother Tongues) closed itself off like a turtle facing danger, blocking access to resources. ADIGBE Togbédji is chosen by the 'consortium of endangered languages' to break this curse.",
-  keyPoint: "19 years of research under mystical conditions",
-  quote: "My brothers, our era is historically unparalleled... When nature speaks from this small country, the whole world will hear.",
-  author: "ADIGBE Togbédji (1989)",
-  keyEvents: [
-    "1976: Prophecy of financial crisis – 7-year imprisonment without trial",
-    "1983: Prophecy confirmed – Release",
-    "1983–1995: 12 years of ascetic and mystical research",
-    "Voluntary primitive living conditions (prolonged fasting, primitive diet)",
-    "Quest for the 'Script for the autonomy of nations'"
-  ],
-
+      // Histoire complète - English translations
+      authenticHistoryTitle: 'Authentic History of Gbekoun',
+      epicSubtitle: 'The mystical epic of the revolutionary script for African educational autonomy',
+      years: 'years',
+      present: 'Present',
+      generations: 'generations',
+      letters: 'letters',
+      officialDefinition: 'Official definition of Gbekoun',
+      scriptDefinition: 'The Script of peoples for the autonomy of each nation in the world without the slightest support',
+      discoverEpic: 'Discover the complete epic',
+      
+      // Context
+      contextTitle: 'Context: The "Original Couple" Theory',
+      contextSubtitle: 'To understand the Gbekoun mission, one must grasp the revolutionary theory underlying this epic: the sacred alliance between the Earth and its Mother Tongues.',
+      africaDiagnosis: 'The Diagnosis: Africa "Completely Naked"',
+      seeCompleteDiagnosis: 'See the complete diagnosis: Africa \'Completely Naked\'',
+      originalCoupleTheory: 'The "Ancestral Original Couple" Theory',
+      seeCompleteTheory: 'See the complete explanation of the theory',
+      sacredAlliance: 'Sacred Alliance',
+      regressionFactors: 'The 6 African Regression Factors',
+      seeDetailedFactors: 'See the 6 detailed factors',
+      
+      // Chronology
+      chronologyTitle: 'Complete Chronology of the Epic',
+      chronologySubtitle: '47 years of extraordinary history, from the 1976 mystical revelation to the contemporary mission of witness guardians.',
+      epicSynthesis: 'Synthesis of the Gbekoun Epic',
+      yearsOfEpic: 'Years of epic',
+      successiveGuardians: 'Successive guardians',
+      completeSystem: 'Complete system',
+      africanAutonomy: 'African autonomy',
+      seeCompleteDetails: 'See the complete details of this period',
+      
+      // Figures
+      figuresTitle: 'The Emblematic Figures: Three Generations',
+      figuresSubtitle: 'Discover in detail the extraordinary journeys of the successive guardians of the Gbekoun Script, from mystical revelation to contemporary preservation.',
+      threeGenerations: 'Three Generations, One Continuing Mission',
+      revelation: 'Revelation',
+      development: 'Development',
+      preservation: 'Preservation',
+      seeCompleteJourney: 'See the complete journey of this figure',
+      
+      // Technical
+      technicalTitle: 'The Gbekoun System: Complete Specifications',
+      technicalSubtitle: 'More than a simple alphabet, Gbekoun is a revolutionary system designed for African educational and civilizational autonomy.',
+      technicalStructure: 'Technical Structure',
+      consonants: 'Consonants',
+      vowels: 'Vowels',
+      totalLetters: 'Letters in total',
+      systemType: 'Both syllabic and phonetic system',
+      seeAdvancedFeatures: 'See all advanced features',
+      fundamentalTruth: 'Fundamental Truth about Languages',
+      
+      // Mission
+      missionTitle: 'Mission and Educational Revolution',
+      missionSubtitle: 'The complete vision of the Gbekoun movement to transform African education and reconquer the continent\'s civilizational autonomy.',
+      independenceFailure: 'The Failure of Independence: Historical Analysis',
+      seeCompleteAnalysis: 'See the complete analysis: The Failure of Independence',
+      propheticVision: 'Prophetic Vision: Preparing the Future',
+      revolutionaryInstructions: 'Revolutionary Instructions to African Leaders',
+      seeCompleteInstructions: 'See the complete revolutionary instructions to African leaders',
+      finalTestimony: 'Final Testimony: "We Must Be Proud of It"',
+      urgencyToAct: 'The Urgency to Act',
+      supportMission: 'Support the Gbekoun Mission',
+      completeDocumentation: 'Complete Documentation',
+      
+      // Buttons and actions
+      seeMore: 'See more',
+      seeLess: 'See less',
+      backToTop: 'Back to top',
+      
+      // Footer
+      authenticEpic: 'The Gbekoun Epic',
+      epicDescription: '47 years of authentic history for African educational autonomy',
+      keyPeriods: 'Key Periods',
+      mysticRevelation: 'Mystical revelation',
+      scriptCompletion: 'Script completion',
+      academicDevelopment: 'Academic development',
+      heritageAndMission: 'Heritage and mission',
+      mission: 'Mission',
+      footerDescription: 'Authentic history of the Gbekoun Script based on original testimonies of successive guardians',
 
       // Alphabet page
       alphabetTitle: 'The Gbekoun Alphabet',

@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Calendar, Users, BookOpen, Globe, Award, ChevronDown, ChevronUp, Clock, MapPin, Quote, User, Scroll, ArrowUp, Menu, X } from 'lucide-react';
@@ -10,6 +8,58 @@ const History: React.FC = () => {
   const [activeTab, setActiveTab] = useState('introduction');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
+
+  // Fonction pour gérer l'expansion des sections
+  const toggleSection = (sectionKey: string) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionKey]: !prev[sectionKey]
+    }));
+  };
+
+  // Composant pour les sections pliables
+  const CollapsibleSection = ({ 
+    sectionKey, 
+    title, 
+    children, 
+    defaultExpanded = false,
+    briefContent = null 
+  }: {
+    sectionKey: string;
+    title: string;
+    children: React.ReactNode;
+    defaultExpanded?: boolean;
+    briefContent?: React.ReactNode;
+  }) => {
+    const isExpanded = expandedSections[sectionKey] ?? defaultExpanded;
+    
+    return (
+      <div className="space-y-4">
+        {briefContent && (
+          <div>{briefContent}</div>
+        )}
+        
+        <button
+          onClick={() => toggleSection(sectionKey)}
+          className="flex items-center justify-between w-full text-left p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors border border-gray-200"
+        >
+          <span className="font-semibold text-gray-900">{title}</span>
+          {isExpanded ? (
+            <ChevronUp size={20} className="text-gray-600" />
+          ) : (
+            <ChevronDown size={20} className="text-gray-600" />
+          )}
+        </button>
+        
+        {isExpanded && (
+          <div className="space-y-6 pl-4 border-l-2 border-gray-200">
+            {children}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   // Gestion du scroll pour le bouton "retour en haut"
   useEffect(() => {
@@ -195,17 +245,17 @@ const History: React.FC = () => {
         <div className="relative max-w-4xl mx-auto px-6 py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Histoire Authentique du <span className="text-yellow-400">Gbekoun</span>
+              {t('authenticHistoryTitle')} <span className="text-yellow-400">Gbekoun</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              L'épopée mystique du script révolutionnaire pour l'autonomie éducative de l'Afrique
+              {t('epicSubtitle')}
             </p>
             
             {/* Infos rapides */}
             <div className="inline-flex flex-wrap gap-6 bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-4 mb-12">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar size={18} className="text-yellow-400" />
-                <span>1976 - Présent</span>
+                <span>1976 - {t('present')}</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <MapPin size={18} className="text-yellow-400" />
@@ -213,11 +263,11 @@ const History: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Scroll size={18} className="text-yellow-400" />
-                <span>33 lettres</span>
+                <span>33 {t('letters')}</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Users size={18} className="text-yellow-400" />
-                <span>3 générations</span>
+                <span>3 {t('generations')}</span>
               </div>
             </div>
 
@@ -225,9 +275,9 @@ const History: React.FC = () => {
             <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 mb-8">
               <Quote size={32} className="text-yellow-400 mx-auto mb-4" />
               <blockquote className="text-lg italic mb-3">
-                "Le Script des peuples pour l'autonomie de chaque nation du monde sans le moindre appui"
+                "{t('scriptDefinition')}"
               </blockquote>
-              <cite className="text-sm text-blue-200">— Définition officielle du Gbekoun</cite>
+              <cite className="text-sm text-blue-200">— {t('officialDefinition')}</cite>
             </div>
 
             {/* Bouton d'action */}
@@ -235,7 +285,7 @@ const History: React.FC = () => {
               onClick={() => scrollToSection('context')}
               className="bg-yellow-400 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-yellow-300 transition-colors"
             >
-              Découvrir l'épopée complète
+              {t('discoverEpic')}
             </button>
           </div>
         </div>
@@ -247,80 +297,106 @@ const History: React.FC = () => {
         <section id="context" className="py-20">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Contexte : La Théorie du "Couple Originel"
+              {t('contextTitle')}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Pour comprendre la mission du Gbekoun, il faut saisir la théorie révolutionnaire 
-              qui sous-tend cette épopée : l'alliance sacrée entre la Terre et ses Langues maternelles.
+              {t('contextSubtitle')}
             </p>
           </div>
 
-          {/* Diagnostic de l'Afrique */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Le Diagnostic : L'Afrique "Complètement Nue"</h3>
-            
-            <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8 mb-8">
-              <Quote size={32} className="text-red-600 mb-4" />
-              <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
-                "Dépourvue de toutes capacités inventives et productrices, l'Afrique aujourd'hui ne peut même pas authentiquement vêtir son peuple ; et ce peuple est complètement nu. Mirez-vous de la tête aux pieds, vous vous rendrez compte qu'en réalité, rien de tout ce que nous portons ne provient authentiquement d'un pays africain, encore moins de la République du Bénin."
-              </blockquote>
-            </div>
+          {/* Diagnostic de l'Afrique - Version pliable */}
+          <CollapsibleSection
+            sectionKey="diagnostic"
+            title={t('seeCompleteDiagnosis')}
+            briefContent={
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8">
+                <Quote size={32} className="text-red-600 mb-4" />
+                <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
+                  "Dépourvue de toutes capacités inventives et productrices, l'Afrique aujourd'hui ne peut même pas authentiquement vêtir son peuple ; et ce peuple est complètement nu..."
+                </blockquote>
+                <p className="text-sm text-gray-600">{t('africaDiagnosis')}</p>
+              </div>
+            }
+          >
+            <div className="space-y-8">
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8">
+                <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
+                  "Dépourvue de toutes capacités inventives et productrices, l'Afrique aujourd'hui ne peut même pas authentiquement vêtir son peuple ; et ce peuple est complètement nu. Mirez-vous de la tête aux pieds, vous vous rendrez compte qu'en réalité, rien de tout ce que nous portons ne provient authentiquement d'un pays africain, encore moins de la République du Bénin."
+                </blockquote>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-white rounded-xl border border-gray-200 p-6">
-                <h4 className="font-bold text-gray-900 mb-3">Perte des Découvertes Ancestrales</h4>
-                <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Où est passé le "feu" découvert par nos ancêtres ?</li>
-                  <li>• Où est passé le "fer" découvert par nos ancêtres ?</li>
-                  <li>• Où sont les "machines artisanales ancestrales" ?</li>
-                </ul>
-              </div>
-              <div className="bg-white rounded-xl border border-gray-200 p-6">
-                <h4 className="font-bold text-gray-900 mb-3">Rupture du Lien Sacré</h4>
-                <p className="text-sm text-gray-600">L'adoption des langues étrangères a brisé l'alliance entre la Terre et ses langues maternelles, provoquant la fermeture de l'accès aux ressources.</p>
-              </div>
-              <div className="bg-white rounded-xl border border-gray-200 p-6">
-                <h4 className="font-bold text-gray-900 mb-3">Conséquence Actuelle</h4>
-                <p className="text-sm text-gray-600">"L'Afrique, sous le joug des langues étrangères, a eu son destin primitif à capacité inventive rayé et devra tout reprendre à zéro."</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">Perte des Découvertes Ancestrales</h4>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    <li>• Où est passé le "feu" découvert par nos ancêtres ?</li>
+                    <li>• Où est passé le "fer" découvert par nos ancêtres ?</li>
+                    <li>• Où sont les "machines artisanales ancestrales" ?</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">Rupture du Lien Sacré</h4>
+                  <p className="text-sm text-gray-600">L'adoption des langues étrangères a brisé l'alliance entre la Terre et ses langues maternelles, provoquant la fermeture de l'accès aux ressources.</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h4 className="font-bold text-gray-900 mb-3">Conséquence Actuelle</h4>
+                  <p className="text-sm text-gray-600">"L'Afrique, sous le joug des langues étrangères, a eu son destin primitif à capacité inventive rayé et devra tout reprendre à zéro."</p>
+                </div>
               </div>
             </div>
-          </div>
+          </CollapsibleSection>
 
           {/* Théorie du couple originel */}
-          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border border-yellow-200 p-8">
+          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border border-yellow-200 p-8 mt-16">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">La Théorie du "Couple Originel Ancestral"</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6">
-                  <h4 className="font-bold text-gray-900 mb-3">🌍 Terre + 🗣️ Langues Maternelles</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    "Le couple originel ancestral (Terre, Langues maternelles) ; un noyau dur et seul géniteur de la capacité inventive de son peuple et donc alors constructeur de son développement, est un noyau sacré."
-                  </p>
+            <CollapsibleSection
+              sectionKey="couple-originel"
+              title="Voir l'explication complète de la théorie"
+              briefContent={
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center gap-4 bg-white rounded-xl p-4">
+                    <span className="text-2xl">🌍</span>
+                    <span className="text-xl font-bold">+</span>
+                    <span className="text-2xl">🗣️</span>
+                    <span className="text-xl font-bold">=</span>
+                    <span className="text-sm font-semibold text-gray-700">Alliance Sacrée</span>
+                  </div>
                 </div>
-                <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-                  <h4 className="font-bold text-gray-900 mb-3">Mécanisme de Fonctionnement</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    "Pour bénéficier des ressources de sa terre identitaire : partant de l'extraction à la transformation et à la mise en usage, il faut lui faire entendre le langage de son premier et vrai partenaire authentique."
-                  </p>
+              }
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="bg-white rounded-xl p-6">
+                    <h4 className="font-bold text-gray-900 mb-3">🌍 Terre + 🗣️ Langues Maternelles</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      "Le couple originel ancestral (Terre, Langues maternelles) ; un noyau dur et seul géniteur de la capacité inventive de son peuple et donc alors constructeur de son développement, est un noyau sacré."
+                    </p>
+                  </div>
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                    <h4 className="font-bold text-gray-900 mb-3">Mécanisme de Fonctionnement</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      "Pour bénéficier des ressources de sa terre identitaire : partant de l'extraction à la transformation et à la mise en usage, il faut lui faire entendre le langage de son premier et vrai partenaire authentique."
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                    <h4 className="font-bold text-gray-900 mb-3">Mécanisme de "Profanation"</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      "En cas d'adoption d'une langue étrangère par le peuple, le couple originel se sent profané et tout comme le comportement de la tortue face au danger ; se referme dans sa carapace et bloque toutes les voies d'accès à ses ressources."
+                    </p>
+                  </div>
+                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                    <h4 className="font-bold text-gray-900 mb-3">La Solution Gbekoun</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      "Les langues maternelles parlées au sein d'un peuple sont les seuls porte-paroles de ce peuple auprès de sa terre identitaire."
+                    </p>
+                  </div>
                 </div>
               </div>
-              
-              <div className="space-y-6">
-                <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-                  <h4 className="font-bold text-gray-900 mb-3">Mécanisme de "Profanation"</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    "En cas d'adoption d'une langue étrangère par le peuple, le couple originel se sent profané et tout comme le comportement de la tortue face au danger ; se referme dans sa carapace et bloque toutes les voies d'accès à ses ressources."
-                  </p>
-                </div>
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                  <h4 className="font-bold text-gray-900 mb-3">La Solution Gbekoun</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    "Les langues maternelles parlées au sein d'un peuple sont les seuls porte-paroles de ce peuple auprès de sa terre identitaire."
-                  </p>
-                </div>
-              </div>
-            </div>
+            </CollapsibleSection>
           </div>
 
           {/* Les 6 facteurs de régression */}
@@ -328,52 +404,70 @@ const History: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
               Les 6 Facteurs de Régression Africaine
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  title: "Divinisation du naturel",
-                  description: "Facteur d'ombrage et d'obstruction à la conscience d'éveil de l'homme et à son génie de recherches approfondies et d'invention",
-                  icon: "1"
-                },
-                {
-                  title: "Régimes de royauté",
-                  description: "Système totalitaire sanglant qui aura coûté la vie à des génies africains, capables de théories éducationnelles",
-                  icon: "2"
-                },
-                {
-                  title: "Esclavage et traite négrière",
-                  description: "Facteur qui a décimé de grandes valeurs africaines et formé le commerce triangulaire",
-                  icon: "3"
-                },
-                {
-                  title: "Impérialisme et colonisation",
-                  description: "Outil qui a permis au colonisateur de se sentir seul Maître de la terre et de parler au nom des pays les moins avancés",
-                  icon: "4"
-                },
-                {
-                  title: "Adoption de langues étrangères",
-                  description: "Facteur principal : langues européennes imposées comme seules langues officielles de travail",
-                  icon: "5"
-                },
-                {
-                  title: "Trahison des dirigeants",
-                  description: "Sacrifice de la souveraineté et des intérêts nationaux au profit de l'occident pour préserver leurs biens illicites",
-                  icon: "6"
-                }
-              ].map((factor, index) => (
-                <div key={index} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
-                      {factor.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-2">{factor.title}</h4>
-                      <p className="text-sm text-gray-600 leading-relaxed">{factor.description}</p>
-                    </div>
+            
+            <CollapsibleSection
+              sectionKey="facteurs-regression"
+              title="Voir les 6 facteurs détaillés"
+              briefContent={
+                <div className="text-center">
+                  <p className="text-gray-600 mb-4">Les facteurs historiques qui ont conduit à la perte de l'autonomie africaine</p>
+                  <div className="flex justify-center flex-wrap gap-2">
+                    {["Divinisation", "Royautés", "Esclavage", "Colonisation", "Langues étrangères", "Trahison"].map((factor, index) => (
+                      <span key={index} className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">
+                        {index + 1}. {factor}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              }
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: "Divinisation du naturel",
+                    description: "Facteur d'ombrage et d'obstruction à la conscience d'éveil de l'homme et à son génie de recherches approfondies et d'invention",
+                    icon: "1"
+                  },
+                  {
+                    title: "Régimes de royauté",
+                    description: "Système totalitaire sanglant qui aura coûté la vie à des génies africains, capables de théories éducationnelles",
+                    icon: "2"
+                  },
+                  {
+                    title: "Esclavage et traite négrière",
+                    description: "Facteur qui a décimé de grandes valeurs africaines et formé le commerce triangulaire",
+                    icon: "3"
+                  },
+                  {
+                    title: "Impérialisme et colonisation",
+                    description: "Outil qui a permis au colonisateur de se sentir seul Maître de la terre et de parler au nom des pays les moins avancés",
+                    icon: "4"
+                  },
+                  {
+                    title: "Adoption de langues étrangères",
+                    description: "Facteur principal : langues européennes imposées comme seules langues officielles de travail",
+                    icon: "5"
+                  },
+                  {
+                    title: "Trahison des dirigeants",
+                    description: "Sacrifice de la souveraineté et des intérêts nationaux au profit de l'occident pour préserver leurs biens illicites",
+                    icon: "6"
+                  }
+                ].map((factor, index) => (
+                  <div key={index} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                        {factor.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-2">{factor.title}</h4>
+                        <p className="text-sm text-gray-600 leading-relaxed">{factor.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CollapsibleSection>
           </div>
         </section>
 
@@ -428,35 +522,13 @@ const History: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Contenu détaillé */}
+                    {/* Contenu de base toujours visible */}
                     <div className="p-6 space-y-6">
-                      
-                      {/* Description principale */}
                       <div>
                         <p className="text-gray-700 leading-relaxed">
                           {period.description}
                         </p>
                       </div>
-
-                      {/* Histoire détaillée */}
-                      {period.detailedStory && (
-                        <div className="bg-gray-50 rounded-xl p-6">
-                          <h4 className="font-bold text-gray-900 mb-3">Récit détaillé</h4>
-                          <p className="text-gray-700 leading-relaxed">
-                            {period.detailedStory}
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Contexte historique */}
-                      {period.context && (
-                        <div className="bg-yellow-50 rounded-xl p-6 border-l-4 border-yellow-400">
-                          <h4 className="font-bold text-gray-900 mb-3">Contexte et signification</h4>
-                          <p className="text-gray-700 leading-relaxed">
-                            {period.context}
-                          </p>
-                        </div>
-                      )}
 
                       {/* Citation historique */}
                       <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
@@ -469,20 +541,46 @@ const History: React.FC = () => {
                         </cite>
                       </div>
 
-                      {/* Événements clés */}
-                      {period.keyEvents && (
-                        <div className="space-y-3">
-                          <h4 className="font-bold text-gray-900">Événements marquants de cette période</h4>
-                          <div className="grid grid-cols-1 gap-3">
-                            {period.keyEvents.map((event, eventIndex) => (
-                              <div key={eventIndex} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <span className="text-gray-700 text-sm">{event}</span>
-                              </div>
-                            ))}
+                      {/* Section pliable pour les détails */}
+                      <CollapsibleSection
+                        sectionKey={`period-${period.id}`}
+                        title="Voir les détails complets de cette période"
+                      >
+                        {/* Histoire détaillée */}
+                        {period.detailedStory && (
+                          <div className="bg-gray-50 rounded-xl p-6 mb-6">
+                            <h4 className="font-bold text-gray-900 mb-3">Récit détaillé</h4>
+                            <p className="text-gray-700 leading-relaxed">
+                              {period.detailedStory}
+                            </p>
                           </div>
-                        </div>
-                      )}
+                        )}
+
+                        {/* Contexte historique */}
+                        {period.context && (
+                          <div className="bg-yellow-50 rounded-xl p-6 border-l-4 border-yellow-400 mb-6">
+                            <h4 className="font-bold text-gray-900 mb-3">Contexte et signification</h4>
+                            <p className="text-gray-700 leading-relaxed">
+                              {period.context}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Événements clés */}
+                        {period.keyEvents && (
+                          <div className="space-y-3">
+                            <h4 className="font-bold text-gray-900">Événements marquants de cette période</h4>
+                            <div className="grid grid-cols-1 gap-3">
+                              {period.keyEvents.map((event, eventIndex) => (
+                                <div key={eventIndex} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                                  <span className="text-gray-700 text-sm">{event}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </CollapsibleSection>
                     </div>
                   </div>
                 </div>
@@ -574,52 +672,58 @@ const History: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Contenu détaillé */}
-                <div className="p-6 space-y-6">
-                  
-                  {/* Biographie détaillée */}
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-3">Parcours biographique</h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {figure.detailedBio}
-                    </p>
-                  </div>
-
-                  {/* Méthode de recherche */}
-                  <div className="bg-yellow-50 rounded-xl p-6">
-                    <h4 className="text-lg font-bold text-gray-900 mb-3">Méthode et approche</h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {figure.researchMethod}
-                    </p>
-                  </div>
-
-                  {/* Philosophie */}
-                  <div className="bg-blue-50 rounded-xl p-6">
-                    <h4 className="text-lg font-bold text-gray-900 mb-3">Vision philosophique</h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {figure.philosophy}
-                    </p>
-                  </div>
-
-                  {/* Citation célèbre */}
-                  <div className="bg-white border border-blue-200 rounded-xl p-6">
+                {/* Citation célèbre toujours visible */}
+                <div className="p-6">
+                  <div className="bg-white border border-blue-200 rounded-xl p-6 mb-6">
                     <Quote size={24} className="text-blue-600 mb-3" />
                     <blockquote className="text-base italic text-gray-800 mb-3 leading-relaxed">
                       {figure.famousQuote}
                     </blockquote>
                   </div>
 
-                  {/* Réalisations et héritage */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-green-50 rounded-lg p-4">
-                      <h5 className="font-bold text-gray-900 mb-2">Réalisation majeure</h5>
-                      <p className="text-sm text-gray-700">{figure.achievement}</p>
+                  {/* Détails pliables */}
+                  <CollapsibleSection
+                    sectionKey={`figure-${index}`}
+                    title="Voir le parcours complet de cette figure"
+                  >
+                    <div className="space-y-6">
+                      {/* Biographie détaillée */}
+                      <div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-3">Parcours biographique</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          {figure.detailedBio}
+                        </p>
+                      </div>
+
+                      {/* Méthode de recherche */}
+                      <div className="bg-yellow-50 rounded-xl p-6">
+                        <h4 className="text-lg font-bold text-gray-900 mb-3">Méthode et approche</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          {figure.researchMethod}
+                        </p>
+                      </div>
+
+                      {/* Philosophie */}
+                      <div className="bg-blue-50 rounded-xl p-6">
+                        <h4 className="text-lg font-bold text-gray-900 mb-3">Vision philosophique</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          {figure.philosophy}
+                        </p>
+                      </div>
+
+                      {/* Réalisations et héritage */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="bg-green-50 rounded-lg p-4">
+                          <h5 className="font-bold text-gray-900 mb-2">Réalisation majeure</h5>
+                          <p className="text-sm text-gray-700">{figure.achievement}</p>
+                        </div>
+                        <div className="bg-purple-50 rounded-lg p-4">
+                          <h5 className="font-bold text-gray-900 mb-2">Héritage</h5>
+                          <p className="text-sm text-gray-700">{figure.legacy}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="bg-purple-50 rounded-lg p-4">
-                      <h5 className="font-bold text-gray-900 mb-2">Héritage</h5>
-                      <p className="text-sm text-gray-700">{figure.legacy}</p>
-                    </div>
-                  </div>
+                  </CollapsibleSection>
                 </div>
               </div>
             ))}
@@ -662,35 +766,38 @@ const History: React.FC = () => {
         </p>
       </div>
 
-      {/* Spécifications techniques détaillées */}
+      {/* Spécifications techniques de base */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
         
         {/* Structure du système */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Structure Technique</h3>
-          <div className="space-y-6">
-            
-            {/* Composition détaillée */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-blue-50 rounded-xl p-4 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">24</div>
-                <div className="text-sm font-semibold text-gray-700">Consonnes</div>
-                <div className="text-xs text-gray-500 mt-1">Adaptées aux phonèmes africains</div>
-              </div>
-              <div className="bg-yellow-50 rounded-xl p-4 text-center">
-                <div className="text-3xl font-bold text-yellow-600 mb-2">9</div>
-                <div className="text-sm font-semibold text-gray-700">Voyelles</div>
-                <div className="text-xs text-gray-500 mt-1">Couvrant les tons africains</div>
-              </div>
+          
+          {/* Composition de base toujours visible */}
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="bg-blue-50 rounded-xl p-4 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">24</div>
+              <div className="text-sm font-semibold text-gray-700">Consonnes</div>
+              <div className="text-xs text-gray-500 mt-1">Adaptées aux phonèmes africains</div>
             </div>
-            
-            <div className="bg-green-50 rounded-xl p-6 text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">33</div>
-              <div className="text-lg font-semibold text-gray-700">Lettres au total</div>
-              <div className="text-sm text-gray-600 mt-2">Système à la fois syllabique et phonétique</div>
+            <div className="bg-yellow-50 rounded-xl p-4 text-center">
+              <div className="text-3xl font-bold text-yellow-600 mb-2">9</div>
+              <div className="text-sm font-semibold text-gray-700">Voyelles</div>
+              <div className="text-xs text-gray-500 mt-1">Couvrant les tons africains</div>
             </div>
+          </div>
+          
+          <div className="bg-green-50 rounded-xl p-6 text-center mb-6">
+            <div className="text-4xl font-bold text-green-600 mb-2">33</div>
+            <div className="text-lg font-semibold text-gray-700">Lettres au total</div>
+            <div className="text-sm text-gray-600 mt-2">Système à la fois syllabique et phonétique</div>
+          </div>
 
-            {/* Caractéristiques avancées */}
+          {/* Caractéristiques détaillées pliables */}
+          <CollapsibleSection
+            sectionKey="caracteristiques-techniques"
+            title="Voir toutes les caractéristiques avancées"
+          >
             <div className="space-y-3">
               <h4 className="font-bold text-gray-900">Caractéristiques avancées</h4>
               <div className="grid grid-cols-1 gap-3">
@@ -724,15 +831,26 @@ const History: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </CollapsibleSection>
         </div>
 
         {/* Capacités et applications */}
         <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Capacités et Applications</h3>
-          <div className="space-y-6">
-            
-            {/* Applications linguistiques */}
+          
+          {/* Mission fondamentale toujours visible */}
+          <div className="bg-white rounded-lg p-4 border-l-4 border-blue-600 mb-6">
+            <h4 className="font-bold text-gray-900 mb-2">Mission fondamentale</h4>
+            <blockquote className="text-sm text-gray-700 italic">
+              "Script pour l'autonomie de chaque nation du monde sans le moindre appui"
+            </blockquote>
+          </div>
+
+          {/* Applications détaillées pliables */}
+          <CollapsibleSection
+            sectionKey="applications-linguistiques"
+            title="Voir toutes les applications linguistiques"
+          >
             <div>
               <h4 className="font-bold text-gray-900 mb-3">Applications linguistiques</h4>
               <div className="space-y-2">
@@ -750,64 +868,72 @@ const History: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Mission fondamentale */}
-            <div className="bg-white rounded-lg p-4 border-l-4 border-blue-600">
-              <h4 className="font-bold text-gray-900 mb-2">Mission fondamentale</h4>
-              <blockquote className="text-sm text-gray-700 italic">
-                "Script pour l'autonomie de chaque nation du monde sans le moindre appui"
-              </blockquote>
-            </div>
-          </div>
+          </CollapsibleSection>
         </div>
       </div>
 
-      {/* Comparaison avec l'état actuel */}
-      <div className="mb-16">
-        <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-          Diagnostic : Questions Cruciales pour les Nations Africaines
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Questions pour le Bénin */}
-          <div className="bg-red-50 rounded-2xl border border-red-200 p-8">
-            <h4 className="text-xl font-bold text-gray-900 mb-6">Questions pour le Bénin</h4>
-            <div className="space-y-4">
-              <div className="bg-white rounded-lg p-4">
-                <p className="text-sm text-gray-700 font-medium mb-2">Constitution et langue officielle</p>
-                <p className="text-xs text-gray-600">"Sommes-nous certains d'être un jour en voie de développement, lorsqu'on constitutionnalise une langue étrangère comme langue officielle de travail ?"</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="text-sm text-gray-700 font-medium mb-2">Nom de la nation</p>
-                <p className="text-xs text-gray-600">"Sommes-nous certains d'être un jour en voie de développement, lorsque le nom de la nation est sous le joug d'une langue qui n'est issue d'aucune de nos langues maternelles ?"</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="text-sm text-gray-700 font-medium mb-2">Hymne national</p>
-                <p className="text-xs text-gray-600">"Comment pourrions-nous nous vanter d'une voie de développement lorsque l'hymne nationale est chantée dans une langue étrangère ?"</p>
-              </div>
+      {/* Diagnostic comparatif */}
+      <CollapsibleSection
+        sectionKey="diagnostic-comparatif"
+        title="Voir le diagnostic complet : Questions cruciales pour les nations africaines"
+        briefContent={
+          <div className="text-center mb-8">
+            <p className="text-lg text-gray-700 mb-4">
+              Questions fondamentales sur l'état actuel des nations africaines face à leur autonomie linguistique
+            </p>
+            <div className="inline-flex items-center gap-4 bg-red-50 rounded-xl p-4 border border-red-200">
+              <span className="text-red-600 font-semibold">Analyse critique :</span>
+              <span className="text-gray-700">Constitution, langue officielle, hymne national...</span>
             </div>
           </div>
+        }
+      >
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Diagnostic : Questions Cruciales pour les Nations Africaines
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* Questions pour le Bénin */}
+            <div className="bg-red-50 rounded-2xl border border-red-200 p-8">
+              <h4 className="text-xl font-bold text-gray-900 mb-6">Questions pour le Bénin</h4>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4">
+                  <p className="text-sm text-gray-700 font-medium mb-2">Constitution et langue officielle</p>
+                  <p className="text-xs text-gray-600">"Sommes-nous certains d'être un jour en voie de développement, lorsqu'on constitutionnalise une langue étrangère comme langue officielle de travail ?"</p>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <p className="text-sm text-gray-700 font-medium mb-2">Nom de la nation</p>
+                  <p className="text-xs text-gray-600">"Sommes-nous certains d'être un jour en voie de développement, lorsque le nom de la nation est sous le joug d'une langue qui n'est issue d'aucune de nos langues maternelles ?"</p>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <p className="text-sm text-gray-700 font-medium mb-2">Hymne national</p>
+                  <p className="text-xs text-gray-600">"Comment pourrions-nous nous vanter d'une voie de développement lorsque l'hymne nationale est chantée dans une langue étrangère ?"</p>
+                </div>
+              </div>
+            </div>
 
-          {/* Questions continentales */}
-          <div className="bg-orange-50 rounded-2xl border border-orange-200 p-8">
-            <h4 className="text-xl font-bold text-gray-900 mb-6">Questions Continentales</h4>
-            <div className="space-y-4">
-              <div className="bg-white rounded-lg p-4">
-                <p className="text-sm text-gray-700 font-medium mb-2">Dénominations continentales</p>
-                <p className="text-xs text-gray-600">"Comment comprendre que tout un continent accepte de porter le nom d'une seule nation : 'Afrique francophone' ou 'Afrique anglophone' ?"</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="text-sm text-gray-700 font-medium mb-2">Dépendance linguistique</p>
-                <p className="text-xs text-gray-600">"Un continent incapable de se faire entendre à travers ses propres langues et qui pour pouvoir se faire connaître, a dû emprunter des langues étrangères."</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="text-sm text-gray-700 font-medium mb-2">Impact psychologique</p>
-                <p className="text-xs text-gray-600">"Nous ne pouvons pas savoir combien ces surnoms obscurcissent l'évolution de la conscience et la réduisent à la servitude !"</p>
+            {/* Questions continentales */}
+            <div className="bg-orange-50 rounded-2xl border border-orange-200 p-8">
+              <h4 className="text-xl font-bold text-gray-900 mb-6">Questions Continentales</h4>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4">
+                  <p className="text-sm text-gray-700 font-medium mb-2">Dénominations continentales</p>
+                  <p className="text-xs text-gray-600">"Comment comprendre que tout un continent accepte de porter le nom d'une seule nation : 'Afrique francophone' ou 'Afrique anglophone' ?"</p>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <p className="text-sm text-gray-700 font-medium mb-2">Dépendance linguistique</p>
+                  <p className="text-xs text-gray-600">"Un continent incapable de se faire entendre à travers ses propres langues et qui pour pouvoir se faire connaître, a dû emprunter des langues étrangères."</p>
+                </div>
+                <div className="bg-white rounded-lg p-4">
+                  <p className="text-sm text-gray-700 font-medium mb-2">Impact psychologique</p>
+                  <p className="text-xs text-gray-600">"Nous ne pouvons pas savoir combien ces surnoms obscurcissent l'évolution de la conscience et la réduisent à la servitude !"</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </CollapsibleSection>
 
       {/* Vérité fondamentale */}
       <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
@@ -842,39 +968,54 @@ const History: React.FC = () => {
         </p>
       </div>
 
-      {/* Échec des indépendances */}
-      <div className="mb-16">
-        <h3 className="text-2xl font-bold text-gray-900 mb-8">L'Échec des Indépendances : Analyse Historique</h3>
-        
-        <div className="bg-red-50 border border-red-200 rounded-2xl p-8 mb-8">
-          <h4 className="text-xl font-bold text-gray-900 mb-4">Le Piège du Vide Linguistique</h4>
-          <blockquote className="text-gray-700 leading-relaxed mb-4">
-            "Au lendemain des indépendances, les peuples indépendants, tels des esclaves affranchis, se sont rendu compte, 
-            qu'ils n'avaient ni, un système d'éducation propre, ni une langue de travail peaufinée pour éduquer. 
-            Face au constat de ce vide linguistique, ils n'avaient d'autres choix que de confier encore 
-            l'éducation de leurs enfants au Maître affranchisseur."
-          </blockquote>
-          <p className="text-sm text-gray-600 italic">
-            Conséquence : "Le Maître change de stratégie et devient alors à tous les niveaux le représentant permanent 
-            des esclaves affranchis qui n'ont pas pu s'assumer."
-          </p>
-        </div>
+      {/* Échec des indépendances - version pliable */}
+      <CollapsibleSection
+        sectionKey="echec-independances"
+        title="Voir l'analyse complète : L'Échec des Indépendances"
+        briefContent={
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mb-8">
+            <h4 className="text-xl font-bold text-gray-900 mb-4">Le Piège du Vide Linguistique</h4>
+            <p className="text-gray-700 leading-relaxed">
+              "Au lendemain des indépendances, les peuples indépendants, tels des esclaves affranchis, 
+              se sont rendu compte qu'ils n'avaient ni un système d'éducation propre, 
+              ni une langue de travail peaufinée pour éduquer..."
+            </p>
+          </div>
+        }
+      >
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">L'Échec des Indépendances : Analyse Historique</h3>
+          
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-8 mb-8">
+            <h4 className="text-xl font-bold text-gray-900 mb-4">Le Piège du Vide Linguistique</h4>
+            <blockquote className="text-gray-700 leading-relaxed mb-4">
+              "Au lendemain des indépendances, les peuples indépendants, tels des esclaves affranchis, se sont rendu compte, 
+              qu'ils n'avaient ni, un système d'éducation propre, ni une langue de travail peaufinée pour éduquer. 
+              Face au constat de ce vide linguistique, ils n'avaient d'autres choix que de confier encore 
+              l'éducation de leurs enfants au Maître affranchisseur."
+            </blockquote>
+            <p className="text-sm text-gray-600 italic">
+              Conséquence : "Le Maître change de stratégie et devient alors à tous les niveaux le représentant permanent 
+              des esclaves affranchis qui n'ont pas pu s'assumer."
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h5 className="font-bold text-gray-900 mb-3">Années 1960</h5>
-            <p className="text-sm text-gray-600">Indépendances politiques sans indépendance éducative</p>
-          </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h5 className="font-bold text-gray-900 mb-3">Constat</h5>
-            <p className="text-sm text-gray-600">Absence de systèmes éducatifs nationaux authentiques</p>
-          </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h5 className="font-bold text-gray-900 mb-3">Résultat</h5>
-            <p className="text-sm text-gray-600">Reconduction forcée de la dépendance éducative</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h5 className="font-bold text-gray-900 mb-3">Années 1960</h5>
+              <p className="text-sm text-gray-600">Indépendances politiques sans indépendance éducative</p>
+            </div>
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h5 className="font-bold text-gray-900 mb-3">Constat</h5>
+              <p className="text-sm text-gray-600">Absence de systèmes éducatifs nationaux authentiques</p>
+            </div>
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h5 className="font-bold text-gray-900 mb-3">Résultat</h5>
+              <p className="text-sm text-gray-600">Reconduction forcée de la dépendance éducative</p>
+            </div>
           </div>
         </div>
-      </div>
+      </CollapsibleSection>
 
       {/* Vision prophétique */}
       <div className="mb-16">
@@ -893,100 +1034,117 @@ const History: React.FC = () => {
         </div>
       </div>
 
-      {/* Instructions aux dirigeants */}
-      <div className="mb-16">
-        <h3 className="text-2xl font-bold text-gray-900 mb-8">Instructions Révolutionnaires aux Dirigeants Africains</h3>
-        
-        <div className="space-y-8">
-          
-          {/* Questions directes */}
-          <div className="bg-yellow-50 rounded-2xl p-8 border border-yellow-200">
-            <h4 className="text-xl font-bold text-gray-900 mb-6">Questions Directes aux Autorités</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4">
-                  <p className="font-semibold text-gray-800 mb-2">Feindre de travailler ?</p>
-                  <p className="text-sm text-gray-600">"Devons-nous toujours continuer de feindre de travailler quand on sait désormais comment ce travail doit se faire ?"</p>
-                </div>
-                <div className="bg-white rounded-lg p-4">
-                  <p className="font-semibold text-gray-800 mb-2">Simulacre et hypocrisie ?</p>
-                  <p className="text-sm text-gray-600">"Devons-nous toujours continuer de jouer au simulacre et à l'hypocrisie avec nos langues nationales en les utilisant comme des langues d'alphabétisation ?"</p>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4">
-                  <p className="font-semibold text-gray-800 mb-2">Importer des systèmes ?</p>
-                  <p className="text-sm text-gray-600">"Devons-nous toujours, chercher à importer des systèmes d'éducation ?"</p>
-                </div>
-                <div className="bg-white rounded-lg p-4">
-                  <p className="font-semibold text-gray-800 mb-2">Culture étrangère ?</p>
-                  <p className="text-sm text-gray-600">"Devons-nous toujours, cantonner l'éducation de nos nations à une culture étrangère ?"</p>
-                </div>
-              </div>
+      {/* Instructions aux dirigeants - version pliable */}
+      <CollapsibleSection
+        sectionKey="instructions-dirigeants"
+        title="Voir les instructions révolutionnaires complètes aux dirigeants africains"
+        briefContent={
+          <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200 text-center">
+            <h4 className="text-xl font-bold text-gray-900 mb-4">Questions Directes aux Autorités</h4>
+            <p className="text-gray-700 mb-4">
+              Questions cruciales posées aux dirigeants africains sur leurs choix linguistiques et éducatifs
+            </p>
+            <div className="inline-flex items-center gap-2 bg-white rounded-lg px-4 py-2">
+              <span className="text-yellow-600 font-semibold">Solution :</span>
+              <span className="text-gray-700">Inversion du système éducatif</span>
             </div>
           </div>
-
-          {/* Solution révolutionnaire */}
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
-            <h4 className="text-xl font-bold text-gray-900 mb-6">La Solution Révolutionnaire</h4>
-            <div className="bg-white rounded-xl p-6 mb-6">
-              <Quote size={24} className="text-green-600 mb-3" />
-              <blockquote className="text-lg text-gray-800 leading-relaxed mb-4">
-                "Il ne s'agira de faire de vos langues une matière aux côtés des disciplines étrangères, 
-                il s'agit plutôt, de créer une école d'enseignement propre à votre langue maternelle officielle, 
-                et faire de la langue étrangère une matière aux côtés de vos disciplines académiques en cas de besoin, 
-                car, les propriétaires que sont nos langues maternelles, ne doivent, pas demander asile 
-                à leurs locataires que sont les langues importées."
-              </blockquote>
-              <cite className="text-green-600 font-semibold">
-                — Instruction fondamentale du mouvement Gbekoun
-              </cite>
+        }
+      >
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">Instructions Révolutionnaires aux Dirigeants Africains</h3>
+          
+          <div className="space-y-8">
+            
+            {/* Questions directes */}
+            <div className="bg-yellow-50 rounded-2xl p-8 border border-yellow-200">
+              <h4 className="text-xl font-bold text-gray-900 mb-6">Questions Directes aux Autorités</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-4">
+                    <p className="font-semibold text-gray-800 mb-2">Feindre de travailler ?</p>
+                    <p className="text-sm text-gray-600">"Devons-nous toujours continuer de feindre de travailler quand on sait désormais comment ce travail doit se faire ?"</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4">
+                    <p className="font-semibold text-gray-800 mb-2">Simulacre et hypocrisie ?</p>
+                    <p className="text-sm text-gray-600">"Devons-nous toujours continuer de jouer au simulacre et à l'hypocrisie avec nos langues nationales en les utilisant comme des langues d'alphabétisation ?"</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-4">
+                    <p className="font-semibold text-gray-800 mb-2">Importer des systèmes ?</p>
+                    <p className="text-sm text-gray-600">"Devons-nous toujours, chercher à importer des systèmes d'éducation ?"</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4">
+                    <p className="font-semibold text-gray-800 mb-2">Culture étrangère ?</p>
+                    <p className="text-sm text-gray-600">"Devons-nous toujours, cantonner l'éducation de nos nations à une culture étrangère ?"</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Schéma de l'inversion */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              
-              {/* Système actuel (à rejeter) */}
-              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-                <h5 className="font-bold text-red-800 mb-4 text-center">❌ SYSTÈME ACTUEL (À REJETER)</h5>
-                <div className="space-y-3">
-                  <div className="bg-red-600 text-white p-3 rounded text-center font-semibold">
-                    LANGUES EUROPÉENNES
-                  </div>
-                  <div className="text-center text-sm text-red-700">↑ Dominantes</div>
-                  <div className="border-t-2 border-red-300 my-2"></div>
-                  <div className="text-center text-sm text-red-700">↓ Subalternes</div>
-                  <div className="bg-red-200 text-red-800 p-3 rounded text-center">
-                    Langues maternelles
-                  </div>
-                </div>
-                <p className="text-xs text-red-600 text-center mt-3 italic">
-                  "Les propriétaires demandent asile aux locataires"
-                </p>
+            {/* Solution révolutionnaire */}
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
+              <h4 className="text-xl font-bold text-gray-900 mb-6">La Solution Révolutionnaire</h4>
+              <div className="bg-white rounded-xl p-6 mb-6">
+                <Quote size={24} className="text-green-600 mb-3" />
+                <blockquote className="text-lg text-gray-800 leading-relaxed mb-4">
+                  "Il ne s'agira de faire de vos langues une matière aux côtés des disciplines étrangères, 
+                  il s'agit plutôt, de créer une école d'enseignement propre à votre langue maternelle officielle, 
+                  et faire de la langue étrangère une matière aux côtés de vos disciplines académiques en cas de besoin, 
+                  car, les propriétaires que sont nos langues maternelles, ne doivent, pas demander asile 
+                  à leurs locataires que sont les langues importées."
+                </blockquote>
+                <cite className="text-green-600 font-semibold">
+                  — Instruction fondamentale du mouvement Gbekoun
+                </cite>
               </div>
 
-              {/* Système révolutionnaire (à adopter) */}
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-                <h5 className="font-bold text-green-800 mb-4 text-center">✅ SYSTÈME RÉVOLUTIONNAIRE</h5>
-                <div className="space-y-3">
-                  <div className="bg-green-600 text-white p-3 rounded text-center font-semibold">
-                    LANGUES MATERNELLES
+              {/* Schéma de l'inversion */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                {/* Système actuel (à rejeter) */}
+                <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                  <h5 className="font-bold text-red-800 mb-4 text-center">❌ SYSTÈME ACTUEL (À REJETER)</h5>
+                  <div className="space-y-3">
+                    <div className="bg-red-600 text-white p-3 rounded text-center font-semibold">
+                      LANGUES EUROPÉENNES
+                    </div>
+                    <div className="text-center text-sm text-red-700">↑ Dominantes</div>
+                    <div className="border-t-2 border-red-300 my-2"></div>
+                    <div className="text-center text-sm text-red-700">↓ Subalternes</div>
+                    <div className="bg-red-200 text-red-800 p-3 rounded text-center">
+                      Langues maternelles
+                    </div>
                   </div>
-                  <div className="text-center text-sm text-green-700">↑ Propriétaires</div>
-                  <div className="border-t-2 border-green-300 my-2"></div>
-                  <div className="text-center text-sm text-green-700">↓ Locataires</div>
-                  <div className="bg-green-200 text-green-800 p-3 rounded text-center">
-                    Langues européennes
-                  </div>
+                  <p className="text-xs text-red-600 text-center mt-3 italic">
+                    "Les propriétaires demandent asile aux locataires"
+                  </p>
                 </div>
-                <p className="text-xs text-green-600 text-center mt-3 italic">
-                  "Chaque chose à sa juste place"
-                </p>
+
+                {/* Système révolutionnaire (à adopter) */}
+                <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                  <h5 className="font-bold text-green-800 mb-4 text-center">✅ SYSTÈME RÉVOLUTIONNAIRE</h5>
+                  <div className="space-y-3">
+                    <div className="bg-green-600 text-white p-3 rounded text-center font-semibold">
+                      LANGUES MATERNELLES
+                    </div>
+                    <div className="text-center text-sm text-green-700">↑ Propriétaires</div>
+                    <div className="border-t-2 border-green-300 my-2"></div>
+                    <div className="text-center text-sm text-green-700">↓ Locataires</div>
+                    <div className="bg-green-200 text-green-800 p-3 rounded text-center">
+                      Langues européennes
+                    </div>
+                  </div>
+                  <p className="text-xs text-green-600 text-center mt-3 italic">
+                    "Chaque chose à sa juste place"
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </CollapsibleSection>
 
       {/* Témoignage final */}
       <div className="bg-gradient-to-r from-slate-100 to-blue-100 rounded-2xl p-8 md:p-12">
@@ -999,16 +1157,22 @@ const History: React.FC = () => {
             celui de développement et de l'éveil du Continent Noir a établi son soleil levant au Bénin pour s'étendre 
             sur le reste du continent et sur le monde entier. Nous devons en être fiers."
           </blockquote>
-          <div className="bg-white rounded-xl p-6">
-            <p className="text-gray-700 mb-4">
-              "C'est pour avoir compris le sens d'une telle fierté que le groupe de promotion du Script Gbekoun 
-              composé de témoins oculaires des événements liés audit Script, s'y accroche malgré la tergiversation 
-              de nos gouvernants qui s'abstiennent toujours d'accompagner l'œuvre avec une volonté politique."
-            </p>
-            <cite className="text-blue-600 font-semibold">
-              — COOVI Azotêgnon, Premier Président du Conseil Académique et Pédagogique
-            </cite>
-          </div>
+          
+          <CollapsibleSection
+            sectionKey="temoignage-final-details"
+            title="Voir le témoignage complet des gardiens contemporains"
+          >
+            <div className="bg-white rounded-xl p-6">
+              <p className="text-gray-700 mb-4">
+                "C'est pour avoir compris le sens d'une telle fierté que le groupe de promotion du Script Gbekoun 
+                composé de témoins oculaires des événements liés audit Script, s'y accroche malgré la tergiversation 
+                de nos gouvernants qui s'abstiennent toujours d'accompagner l'œuvre avec une volonté politique."
+              </p>
+              <cite className="text-blue-600 font-semibold">
+                — COOVI Azotêgnon, Premier Président du Conseil Académique et Pédagogique
+              </cite>
+            </div>
+          </CollapsibleSection>
         </div>
       </div>
 

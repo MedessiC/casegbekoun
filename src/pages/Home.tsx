@@ -7,20 +7,8 @@ const Home: React.FC = () => {
   const { t } = useTranslation();
 
   const features = [
-    {
-      icon: BookOpen,
-      title: t('alphabet'),
-      description: 'Découvrez chaque lettre avec des exemples pratiques et des exercices interactifs',
-      link: '/alphabet',
-      color: 'from-blue-500 to-blue-600'
-    },
-    {
-      icon: Keyboard,
-      title: t('keyboard'),
-      description: 'Tapez directement en Gbekoun avec notre clavier virtuel intuitif',
-      link: '/keyboard',
-      color: 'from-yellow-400 to-yellow-500'
-    },
+  
+   
     {
       icon: History,
       title: t('history'),

@@ -187,7 +187,7 @@ const History: React.FC = () => {
       achievement: 'Système de 33 lettres (24 consonnes, 9 voyelles) syllabique et phonétique',
       legacy: 'Fondation théorique et mystique de l\'autonomie linguistique africaine',
       famousQuote: '"Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra." (1989)',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
+      image: ''
     },
     {
       name: 'HOUESSE AYIGBEDEKIN Vidéhouénou',
@@ -201,7 +201,7 @@ const History: React.FC = () => {
       achievement: 'Fondation du "Premier Centre d\'Éveil du Continent Noir" et formation de formateurs',
       legacy: 'Infrastructure académique et institutionnalisation de l\'enseignement en Gbekoun',
       famousQuote: 'Les témoins déclarent : "De façon spectaculaire, le successeur de Togbédji venait de naître."',
-      image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg'
+      image: ''
     },
     {
       name: 'COOVI Azotêgnon',
@@ -215,7 +215,7 @@ const History: React.FC = () => {
       achievement: 'Organisation du Conseil Académique et documentation de l\'histoire complète',
       legacy: 'Préservation documentaire et continuité de la mission d\'éveil continental',
       famousQuote: '"Le monde a changé d\'ombre ; et le monde nouveau en cours, celui de développement et de l\'éveil du Continent Noir a établi son soleil levant au Bénin pour s\'étendre sur le reste du continent et sur le monde entier."',
-      image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg'
+      image: ''
     }
   ];
 
@@ -245,7 +245,7 @@ const History: React.FC = () => {
         <div className="relative max-w-4xl mx-auto px-6 py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              {t('authenticHistoryTitle')} <span className="text-yellow-400">Gbekoun</span>
+              {t('authenticHistoryTitle')} <span className="text-yellow-400"></span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
               {t('epicSubtitle')}
@@ -305,10 +305,7 @@ const History: React.FC = () => {
           </div>
 
           {/* Diagnostic de l'Afrique - Version pliable */}
-          <CollapsibleSection
-            sectionKey="diagnostic"
-            title={t('seeCompleteDiagnosis')}
-            briefContent={
+        
               <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8">
                 <Quote size={32} className="text-red-600 mb-4" />
                 <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
@@ -316,8 +313,8 @@ const History: React.FC = () => {
                 </blockquote>
                 <p className="text-sm text-gray-600">{t('africaDiagnosis')}</p>
               </div>
-            }
-          >
+            
+          
             <div className="space-y-8">
               <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8">
                 <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
@@ -344,16 +341,13 @@ const History: React.FC = () => {
                 </div>
               </div>
             </div>
-          </CollapsibleSection>
+  
 
           {/* Théorie du couple originel */}
           <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border border-yellow-200 p-8 mt-16">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">La Théorie du "Couple Originel Ancestral"</h3>
             
-            <CollapsibleSection
-              sectionKey="couple-originel"
-              title="Voir l'explication complète de la théorie"
-              briefContent={
+            
                 <div className="text-center mb-6">
                   <div className="inline-flex items-center gap-4 bg-white rounded-xl p-4">
                     <span className="text-2xl">🌍</span>
@@ -363,8 +357,7 @@ const History: React.FC = () => {
                     <span className="text-sm font-semibold text-gray-700">Alliance Sacrée</span>
                   </div>
                 </div>
-              }
-            >
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-6">
                   <div className="bg-white rounded-xl p-6">
@@ -396,7 +389,7 @@ const History: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </CollapsibleSection>
+        
           </div>
 
           {/* Les 6 facteurs de régression */}
@@ -405,10 +398,7 @@ const History: React.FC = () => {
               Les 6 Facteurs de Régression Africaine
             </h3>
             
-            <CollapsibleSection
-              sectionKey="facteurs-regression"
-              title="Voir les 6 facteurs détaillés"
-              briefContent={
+            
                 <div className="text-center">
                   <p className="text-gray-600 mb-4">Les facteurs historiques qui ont conduit à la perte de l'autonomie africaine</p>
                   <div className="flex justify-center flex-wrap gap-2">
@@ -419,8 +409,8 @@ const History: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              }
-            >
+            
+         
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   {
@@ -467,7 +457,7 @@ const History: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </CollapsibleSection>
+           
           </div>
         </section>
 
@@ -682,10 +672,7 @@ const History: React.FC = () => {
                   </div>
 
                   {/* Détails pliables */}
-                  <CollapsibleSection
-                    sectionKey={`figure-${index}`}
-                    title="Voir le parcours complet de cette figure"
-                  >
+                 
                     <div className="space-y-6">
                       {/* Biographie détaillée */}
                       <div>
@@ -723,7 +710,7 @@ const History: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  </CollapsibleSection>
+              
                 </div>
               </div>
             ))}
@@ -794,10 +781,8 @@ const History: React.FC = () => {
           </div>
 
           {/* Caractéristiques détaillées pliables */}
-          <CollapsibleSection
-            sectionKey="caracteristiques-techniques"
-            title="Voir toutes les caractéristiques avancées"
-          >
+  
+
             <div className="space-y-3">
               <h4 className="font-bold text-gray-900">Caractéristiques avancées</h4>
               <div className="grid grid-cols-1 gap-3">
@@ -831,7 +816,7 @@ const History: React.FC = () => {
                 </div>
               </div>
             </div>
-          </CollapsibleSection>
+         
         </div>
 
         {/* Capacités et applications */}
@@ -847,10 +832,7 @@ const History: React.FC = () => {
           </div>
 
           {/* Applications détaillées pliables */}
-          <CollapsibleSection
-            sectionKey="applications-linguistiques"
-            title="Voir toutes les applications linguistiques"
-          >
+         
             <div>
               <h4 className="font-bold text-gray-900 mb-3">Applications linguistiques</h4>
               <div className="space-y-2">
@@ -868,15 +850,12 @@ const History: React.FC = () => {
                 </div>
               </div>
             </div>
-          </CollapsibleSection>
+ 
         </div>
       </div>
 
       {/* Diagnostic comparatif */}
-      <CollapsibleSection
-        sectionKey="diagnostic-comparatif"
-        title="Voir le diagnostic complet : Questions cruciales pour les nations africaines"
-        briefContent={
+     
           <div className="text-center mb-8">
             <p className="text-lg text-gray-700 mb-4">
               Questions fondamentales sur l'état actuel des nations africaines face à leur autonomie linguistique
@@ -886,8 +865,7 @@ const History: React.FC = () => {
               <span className="text-gray-700">Constitution, langue officielle, hymne national...</span>
             </div>
           </div>
-        }
-      >
+     
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             Diagnostic : Questions Cruciales pour les Nations Africaines
@@ -933,7 +911,7 @@ const History: React.FC = () => {
             </div>
           </div>
         </div>
-      </CollapsibleSection>
+     
 
       {/* Vérité fondamentale */}
       <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
@@ -969,10 +947,7 @@ const History: React.FC = () => {
       </div>
 
       {/* Échec des indépendances - version pliable */}
-      <CollapsibleSection
-        sectionKey="echec-independances"
-        title="Voir l'analyse complète : L'Échec des Indépendances"
-        briefContent={
+     
           <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mb-8">
             <h4 className="text-xl font-bold text-gray-900 mb-4">Le Piège du Vide Linguistique</h4>
             <p className="text-gray-700 leading-relaxed">
@@ -981,8 +956,7 @@ const History: React.FC = () => {
               ni une langue de travail peaufinée pour éduquer..."
             </p>
           </div>
-        }
-      >
+       
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">L'Échec des Indépendances : Analyse Historique</h3>
           
@@ -1015,7 +989,7 @@ const History: React.FC = () => {
             </div>
           </div>
         </div>
-      </CollapsibleSection>
+     
 
       {/* Vision prophétique */}
       <div className="mb-16">
@@ -1035,10 +1009,7 @@ const History: React.FC = () => {
       </div>
 
       {/* Instructions aux dirigeants - version pliable */}
-      <CollapsibleSection
-        sectionKey="instructions-dirigeants"
-        title="Voir les instructions révolutionnaires complètes aux dirigeants africains"
-        briefContent={
+     
           <div className="bg-yellow-50 rounded-2xl p-6 border border-yellow-200 text-center">
             <h4 className="text-xl font-bold text-gray-900 mb-4">Questions Directes aux Autorités</h4>
             <p className="text-gray-700 mb-4">
@@ -1049,8 +1020,7 @@ const History: React.FC = () => {
               <span className="text-gray-700">Inversion du système éducatif</span>
             </div>
           </div>
-        }
-      >
+    
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">Instructions Révolutionnaires aux Dirigeants Africains</h3>
           
@@ -1144,7 +1114,7 @@ const History: React.FC = () => {
             </div>
           </div>
         </div>
-      </CollapsibleSection>
+      
 
       {/* Témoignage final */}
       <div className="bg-gradient-to-r from-slate-100 to-blue-100 rounded-2xl p-8 md:p-12">
@@ -1158,10 +1128,7 @@ const History: React.FC = () => {
             sur le reste du continent et sur le monde entier. Nous devons en être fiers."
           </blockquote>
           
-          <CollapsibleSection
-            sectionKey="temoignage-final-details"
-            title="Voir le témoignage complet des gardiens contemporains"
-          >
+         
             <div className="bg-white rounded-xl p-6">
               <p className="text-gray-700 mb-4">
                 "C'est pour avoir compris le sens d'une telle fierté que le groupe de promotion du Script Gbekoun 
@@ -1172,7 +1139,7 @@ const History: React.FC = () => {
                 — COOVI Azotêgnon, Premier Président du Conseil Académique et Pédagogique
               </cite>
             </div>
-          </CollapsibleSection>
+       
         </div>
       </div>
 

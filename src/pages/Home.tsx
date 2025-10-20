@@ -67,7 +67,7 @@ const Home: React.FC = () => {
               href="#alphabet"
               className="inline-flex items-center px-10 py-5 bg-yellow-400 text-gray-900 rounded-full font-bold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-200 shadow-2xl"
             >
-              Explorer l'alphabet
+              Explorer l'écriture
               <ArrowRight size={24} className="ml-3" />
             </a>
             <a
@@ -430,7 +430,7 @@ const Home: React.FC = () => {
               href="#alphabet"
               className="inline-flex items-center px-10 py-5 bg-yellow-400 text-gray-900 rounded-full font-bold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-200 shadow-2xl"
             >
-              Explorer l'alphabet
+              Explorer le Script
               <ArrowRight size={24} className="ml-3" />
             </a>
             <a

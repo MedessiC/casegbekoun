@@ -9,7 +9,7 @@ const resources = {
       nom: 'CASE-Gbekoun',
       home: 'Accueil',
       history: 'Histoire',
-      alphabet: 'Alphabet',
+      alphabet: 'Script',
       keyboard: 'Clavier',
       blog: 'Blog',
       about: 'À propos',
@@ -19,8 +19,8 @@ const resources = {
       // Home page
       welcome: 'Bienvenue dans l\'univers du',
       gbekoun: 'Centre Académique des Savoirs Endogène-Gbekoun',
-      subtitle: 'Découvrez l\'alphabet révolutionnaire qui transforme l\'écriture des langues africaines',
-      explore: 'Explorer l\'alphabet',
+      subtitle: 'Découvrez l\'écriture révolutionnaire qui transforme l\'écriture des langues africaines',
+      explore: 'Explorer l\'écriture',
       learnMore: 'En savoir plus',
       
       // History page
@@ -28,7 +28,7 @@ const resources = {
       origin: 'Origines',
       originText: 'Le Gbekoun est né de la nécessité de créer un système d\'écriture adapté aux langues africaines.',
       evolution: 'Évolution',
-      evolutionText: 'Développé progressivement, l\'alphabet s\'est enrichi pour répondre aux besoins linguistiques.',
+      evolutionText: 'Développé progressivement, l`\'écriture s\'est enrichi pour répondre aux besoins linguistiques.',
       impact: 'Impact culturel',
       impactText: 'Le Gbekoun a révolutionné l\'écriture et la préservation des langues africaines.',
       
@@ -75,7 +75,7 @@ const resources = {
       
       // Technique
       technicalTitle: 'Le Système Gbekoun : Spécifications Complètes',
-      technicalSubtitle: 'Plus qu\'un simple alphabet, le Gbekoun est un système révolutionnaire conçu pour l\'autonomie éducative et civilisationnelle de l\'Afrique.',
+      technicalSubtitle: 'Plus qu\'une simple écriture, le Gbekoun est un système révolutionnaire conçu pour l\'autonomie éducative et civilisationnelle de l\'Afrique.',
       technicalStructure: 'Structure Technique',
       consonants: 'Consonnes',
       vowels: 'Voyelles',
@@ -114,7 +114,7 @@ const resources = {
       footerDescription: 'Histoire authentique du Script Gbekoun basée sur les témoignages originaux des gardiens successifs',
       
       // Alphabet page
-      alphabetTitle: 'L\'Alphabet Gbekoun',
+      alphabetTitle: 'L\'Ecriture Gbekoun',
       alphabetDescription: 'Découvrez chaque lettre avec sa prononciation et des exemples d\'usage',
       pronunciation: 'Prononciation',
       examples: 'Exemples',
@@ -152,7 +152,7 @@ const resources = {
       home: 'Home',
       history: 'History',
       alphabet: 'Alphabet',
-      keyboard: 'Keyboard',
+      Ong: 'ONG',
       blog: 'Blog',
       about: 'About',
       contact: 'Contact',
@@ -287,68 +287,7 @@ const resources = {
       send: 'Send'
     }
   },
-  tog: {
-    translation: {
-      // Navigation (Togbé/Fon)
-      nom: 'fsfs;lütÂf',
-      home: 'jËrOsOif ',
-      history: 'sÂfhÉf',
-      alphabet: 'tÂfkÔÖ',
-      keyboard: 'sisÉhOif',
-      blog: 'xEdIósE',
-      about: 'hOìfhif;Ïf',
-      contact: 'hÖwkomÄfsÁf',
-      
-      // Home page
-      welcome: 'hOvIocóf (E',
-      gbekoun: 'fÁfpkEf sif fÁfwAOIf sËsÊf lütÂf rI',
-      subtitle: 'tÂf sÉ )ÉpE )ÉpE mÕtÔkÔÕ sôf rO mI)udI hèf)ûrì (E fÁf)u pupu mÂ',
-      explore: 'tÂfkÔÖ',
-      learnMore: 'sÂfhÉf',
-      
-      // History page
-      historyTitle: 'Gbekoun ƒe Ɖoɖowu',
-      origin: 'Gɔmedzedze',
-      originText: 'Gbekoun dzi tso nuŋɔŋlɔ si sɔ kple Afrikagbewo wɔwɔ hiahiã me.',
-      evolution: 'Trɔtrɔ',
-      evolutionText: 'Wowɔe vivivo, eye nuŋɔŋlɔ la dzi ɖe edzi be wòasɔ kple gbe ƒe hiahiãwo.',
-      impact: 'Nutome ƒe kpɔkpɔ',
-      impactText: 'Gbekoun trɔ Afrikagbewo ƒe nuŋɔŋlɔ kple wo dzadzraɖo.',
-      
-      // Alphabet page
-      alphabetTitle: 'Gbekoun Nuŋɔŋlɔ',
-      alphabetDescription: 'Kpɔ ŋɔŋlɔdzesi ɖesiaɖe kple eƒe gbeɖiɖi kple kpɔɖeŋu',
-      pronunciation: 'Gbeɖiɖi',
-      examples: 'Kpɔɖeŋuwo',
-      downloadFont: 'Xɔ nuŋɔŋlɔdzesi',
-      
-      // Keyboard page
-      keyboardTitle: 'Gbekoun Kpinplɔ Ɖigital',
-      keyboardDescription: 'Ŋlɔ Gbekoun tẽe kple míaƒe kpinplɔ ɖigital',
-      textArea: 'Ŋlɔ wò nuŋɔŋlɔ le afii...',
-      copyText: 'Kɔpi nuŋɔŋlɔ',
-      clearText: 'Tutu',
-      
-      // Blog page
-      resourceCentertitle: 'Blog kple Nyadzɔdzɔwo',
-      categories: 'Hamewo',
-      readMore: 'Xlẽ wu',
-      comments: 'nyaɖeɖewo',
-      
-      // About page
-      aboutTitle: 'Ɖe dɔwɔwɔ ŋu',
-      aboutDescription: 'Gbekoun dɔwɔwɔ ƒe taɖodzinue nye Afrikagbewo dzadzraɖo kple wo dodoɖa ɖe ŋgɔ to nuŋɔŋlɔ yeye me.',
-      
-      // Contact page
-      contactTitle: 'Ka míaƒe ɖe',
-      name: 'Ŋkɔ',
-      email: 'Email',
-      message: 'Gbeɖiɖi',
-      send: 'Ɖo ɖa'
-    }
-  }
 };
-
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)

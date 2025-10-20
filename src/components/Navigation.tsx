@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
@@ -20,8 +20,8 @@ const Navigation: React.FC = () => {
   const navItems = [
     { key: 'home', path: '/' },
     { key: 'history', path: '/history' },
-    { key: 'alphabet', path: '/alphabet' },
-    { key: 'keyboard', path: '/keyboard' },
+    { key: 'Script', path: '/alphabet' },
+    { key: 'Ong', path: '/ong' },
     { key: 'blog', path: '/blog' },
     { key: 'about', path: '/about' },
     { key: 'contact', path: '/contact' },
@@ -54,7 +54,7 @@ const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <a href="/" className="flex items-center space-x-2">
             <img
               src={logoImage}
               alt="Logo CASE-Gbekoun"
@@ -63,15 +63,15 @@ const Navigation: React.FC = () => {
             <span className="text-xl font-bold text-gray-800">
               {t('nom')}
             </span>
-          </Link>
+          </a>
 
           {/* Navigation Desktop - cachée si Togbé */}
           {!isTogbeLanguage && (
             <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.key}
-                  to={item.path}
+                  href={item.path}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isActive(item.path)
                       ? 'bg-blue-600 text-white'
@@ -79,7 +79,7 @@ const Navigation: React.FC = () => {
                   }`}
                 >
                   {t(item.key)}
-                </Link>
+                </a>
               ))}
               <LanguageSelector />
             </div>
@@ -137,9 +137,9 @@ const Navigation: React.FC = () => {
               }`}
             >
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.key}
-                  to={item.path}
+                  href={item.path}
                   className={`truncate block px-4 py-3 rounded-md font-medium transition-colors duration-200 ${
                     isActive(item.path)
                       ? 'bg-blue-600 text-white'
@@ -148,7 +148,7 @@ const Navigation: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t(item.key)}
-                </Link>
+                </a>
               ))}
 
               {/* Sélecteur de langue dans menu (non-Togbé) */}

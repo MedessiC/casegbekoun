@@ -119,7 +119,7 @@ const History: React.FC = () => {
       shortTitle: 'La révélation finale',
       description: 'En 1995, après 19 années de recherche, ADIGBE Togbédji fait une annonce historique : "ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles." Le système Gbekoun est né, conçu comme un script à la fois syllabique et phonétique, doté de chiffres décimaux, de ponctuation et de diacritiques.',
       detailedStory: 'Pendant 13 années consécutives, ADIGBE Togbédji enseigne le script Gbekoun et utilise ce système pour écrire de nombreux livres aux titres variés. Il établit deux groupes d\'instruction : l\'un à Dangbo dans son village natal de Mondoto, l\'autre à Cotonou. Le système est présenté comme capable de transcrire fidèlement toutes les langues nationales du Bénin et, par extension, toutes les langues maternelles africaines. L\'objectif déclaré est de permettre l\'éducation en langues maternelles pour reconquérir la souveraineté des nations africaines.',
-      context: 'Cette période marque la matérialisation concrète de la vision. Le Gbekoun est présenté non pas comme un simple alphabet, mais comme un "Script pour l\'autonomie de chaque nation du monde sans le moindre appui". Il s\'inscrit dans une philosophie révolutionnaire qui inverse la hiérarchie linguistique : les langues maternelles deviennent les "propriétaires" et les langues européennes les simples "locataires".',
+      context: 'Cette période marque la matérialisation concrète de la vision. Le Gbekoun est présenté non pas comme un simple écriture , mais comme un "Script pour l\'autonomie de chaque nation du monde sans le moindre appui". Il s\'inscrit dans une philosophie révolutionnaire qui inverse la hiérarchie linguistique : les langues maternelles deviennent les "propriétaires" et les langues européennes les simples "locataires".',
       keyPoint: '13 années d\'enseignement et formation de disciples',
       quote: 'ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles.',
       author: 'ADIGBE Togbédji (1995)',
@@ -761,7 +761,7 @@ const History: React.FC = () => {
           Le Système Gbekoun : Spécifications Complètes
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Plus qu'un simple alphabet, le Gbekoun est un système révolutionnaire 
+          Plus qu'un simple , le Gbekoun est un système révolutionnaire 
           conçu pour l'autonomie éducative et civilisationnelle de l'Afrique.
         </p>
       </div>

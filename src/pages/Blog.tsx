@@ -299,7 +299,7 @@ const BlogLibrary: React.FC = () => {
             Centre de Ressources Gbekoun
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Découvrez notre collection d'articles, guides et ressources pour apprendre et maîtriser l'alphabet Gbekoun
+            Découvrez notre collection d'articles, guides et ressources pour apprendre et maîtriser l'écriture Gbekoun
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-yellow-500 mx-auto rounded-full"></div>
         </div>
@@ -603,7 +603,7 @@ const BlogLibrary: React.FC = () => {
             Restez informé
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Abonnez-vous à notre newsletter pour recevoir les derniers articles et ressources sur l'alphabet Gbekoun
+            Abonnez-vous à notre newsletter pour recevoir les derniers articles et ressources sur l'écriture Gbekoun
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
             <input

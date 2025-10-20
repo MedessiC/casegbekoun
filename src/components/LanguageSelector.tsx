@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Globe, ChevronDown } from 'lucide-react';
 
 // Import des images de drapeaux
-import flagFR from '../assets/img/flags/fr.png';
-import flagEN from '../assets/img/flags/us.png';
-import flagTOG from '../assets/img/flags/gtm.png';
+
 
 const LanguageSelector: React.FC = () => {
   const { i18n, t } = useTranslation();
@@ -17,7 +15,7 @@ const LanguageSelector: React.FC = () => {
       code: 'en', 
       nameKey: 'languages.english',
       countryKey: 'countries.usa',
-      flag: flagEN,
+
       fallbackName: 'English',
       fallbackCountry: 'United States'
     },
@@ -25,19 +23,12 @@ const LanguageSelector: React.FC = () => {
       code: 'fr', 
       nameKey: 'languages.french',
       countryKey: 'countries.france',
-      flag: flagFR,
+
       fallbackName: 'Français',
       fallbackCountry: 'France'
     },
     
-    { 
-      code: 'tog', 
-      nameKey: 'languages.togbe',
-      countryKey: 'countries.guatemala',
-      flag: flagTOG,
-      fallbackName: 'sÉlú',
-      fallbackCountry: 'wefsÉhOif'
-    },
+  
   ];
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
@@ -122,11 +113,7 @@ const LanguageSelector: React.FC = () => {
         data-lang={i18n.language}
       >
         <Globe size={16} />
-        <img 
-          src={currentLanguage.flag} 
-          alt={`${currentLangDisplay.countryName} flag`}
-          className="w-5 h-4 object-cover rounded-sm hidden sm:block"
-        />
+        
         {/* Affichage compact pour le bouton */}
         <span className={`hidden md:inline text-sm ${currentLangDisplay.cssClass}`}>
           {currentLangDisplay.languageName}
@@ -158,11 +145,7 @@ const LanguageSelector: React.FC = () => {
                 role="menuitem"
                 data-lang={language.code}
               >
-                <img 
-                  src={language.flag} 
-                  alt={`${langDisplay.countryName} flag`}
-                  className="w-6 h-4 object-cover rounded-sm flex-shrink-0"
-                />
+                
                 <div className="flex-1 min-w-0">
                   {/* Nom de la langue */}
                   <div className={`font-medium ${langDisplay.cssClass}`}>

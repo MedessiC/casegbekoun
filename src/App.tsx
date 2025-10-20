@@ -5,7 +5,7 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import History from './pages/History';
 import Alphabet from './pages/Alphabet';
-import VirtualKeyboard from './pages/VirtualKeyboard';
+import ONGPartners from './pages/ONG';
 import Blog from './pages/Blog';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -27,7 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/history" element={<History />} />
             <Route path="/alphabet" element={<Alphabet />} />
-            <Route path="/keyboard" element={<VirtualKeyboard />} />
+            <Route path="/ong" element={<ONGPartners />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

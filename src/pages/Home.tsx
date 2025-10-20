@@ -426,13 +426,7 @@ const Home: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a
-              href="#alphabet"
-              className="inline-flex items-center px-10 py-5 bg-yellow-400 text-gray-900 rounded-full font-bold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-200 shadow-2xl"
-            >
-              Explorer le Script
-              <ArrowRight size={24} className="ml-3" />
-            </a>
+           
             <a
               href="#mission"
               className="inline-flex items-center px-10 py-5 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-xl"

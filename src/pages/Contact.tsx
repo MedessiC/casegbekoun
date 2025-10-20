@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
 
-const Contact: React.FC = () => {
-  const { t } = useTranslation();
+const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,37 +14,35 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'contact@gbekoun.org',
+      value: 'case.gbekoun@gmail.com',
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: Phone,
       title: 'Téléphone',
-      value: '+228 XX XX XX XX',
+      value: '+229 01 55 40 45 45\n+229 01 90 44 44 17',
       color: 'from-green-500 to-green-600'
     },
     {
       icon: MapPin,
       title: 'Adresse',
-      value: 'Université de Lomé\nTogo, Afrique de l\'Ouest',
+      value: 'Immeuble VLAVO\nVillage Tandahota\nArrondissement Azohouè-Aliho\nCommune Tori-Bossito\nAtlantique, Bénin',
       color: 'from-yellow-500 to-orange-500'
     }
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulation d'envoi du formulaire
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
     
-    // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -80,11 +76,10 @@ const Contact: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            {t('contactTitle')}
+            Contactez-nous
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Nous serions ravis d'entendre parler de vous. Contactez-nous pour toute question 
-            ou collaboration concernant le projet Gbekoun.
+            Centre Académique des Savoirs Endogènes - Gbekoun
           </p>
         </div>
 
@@ -101,17 +96,33 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">{info.title}</h3>
-                      <p className="text-gray-600 whitespace-pre-line">{info.value}</p>
+                      <p className="text-gray-600 whitespace-pre-line text-sm">{info.value}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Organization Info */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">À propos</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                L'ONG CASE-GBEKOUN (Centre Académique des Savoirs Endogènes - Gbekoun) est une organisation 
+                dédiée à la préservation et à la promotion des savoirs endogènes et des langues maternelles 
+                en Afrique, particulièrement au Bénin.
+              </p>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-500">
+                  Statut : Organisation Non Gouvernementale<br/>
+                  Fondée : 30 Juin 2025
+                </p>
+              </div>
+            </div>
+
             {/* Office Hours */}
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Horaires d'ouverture</h3>
-              <div className="space-y-2 text-gray-600">
+              <div className="space-y-2 text-gray-600 text-sm">
                 <div className="flex justify-between">
                   <span>Lundi - Vendredi</span>
                   <span>8h00 - 17h00</span>
@@ -126,54 +137,35 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Social Media */}
-            <div className="bg-gradient-to-r from-blue-600 to-yellow-500 rounded-2xl p-6 text-white">
-              <h3 className="text-xl font-bold mb-4">Suivez-nous</h3>
-              <p className="mb-4">Restez connecté avec les dernières actualités du projet Gbekoun</p>
-              <div className="flex space-x-4">
-                <button className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-200">
-                  <span className="text-lg">📘</span>
-                </button>
-                <button className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-200">
-                  <span className="text-lg">🐦</span>
-                </button>
-                <button className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-200">
-                  <span className="text-lg">📺</span>
-                </button>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Envoyez-nous un message</h2>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('name')} *
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Nom complet *
                   </label>
                   <input
                     type="text"
-                    id="name"
                     name="name"
                     required
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    placeholder="Votre nom complet"
+                    placeholder="Votre nom"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('email')} *
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email *
                   </label>
                   <input
                     type="email"
-                    id="email"
                     name="email"
                     required
                     value={formData.email}
@@ -185,11 +177,10 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Sujet *
                 </label>
                 <select
-                  id="subject"
                   name="subject"
                   required
                   value={formData.subject}
@@ -200,18 +191,17 @@ const Contact: React.FC = () => {
                   <option value="general">Question générale</option>
                   <option value="collaboration">Proposition de collaboration</option>
                   <option value="education">Formation et éducation</option>
-                  <option value="technology">Support technique</option>
+                  <option value="savoirs">Savoirs endogènes</option>
                   <option value="research">Recherche académique</option>
                   <option value="media">Demande média</option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('message')} *
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Message *
                 </label>
                 <textarea
-                  id="message"
                   name="message"
                   required
                   rows={6}
@@ -223,23 +213,23 @@ const Contact: React.FC = () => {
               </div>
 
               <button
-                type="submit"
+                onClick={handleSubmit}
                 className="w-full flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 <Send size={20} className="mr-2" />
-                {t('send')}
+                Envoyer
               </button>
-            </form>
+            </div>
           </div>
         </div>
 
-        {/* Map Section (Placeholder) */}
+        {/* Location Section */}
         <div className="mt-20 bg-white rounded-2xl shadow-lg overflow-hidden">
           <div className="h-64 bg-gradient-to-r from-blue-100 to-yellow-100 flex items-center justify-center">
             <div className="text-center text-gray-600">
               <MapPin size={48} className="mx-auto mb-4 text-gray-400" />
-              <p className="text-lg">Carte interactive disponible bientôt</p>
-              <p className="text-sm">Université de Lomé, Togo</p>
+              <p className="text-lg font-semibold">Tori-Bossito, Atlantique</p>
+              <p className="text-sm">Bénin, Afrique de l'Ouest</p>
             </div>
           </div>
         </div>
@@ -248,4 +238,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default ContactPage;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ExternalLink, Globe, Users, Heart, ArrowLeft, Target, Award, Calendar, MapPin, Mail, Phone, BookOpen } from 'lucide-react';
+import logoAIG from '../assets/img/logoAIG.jpg';
 
 const ONGPartners = () => {
   const [selectedONG, setSelectedONG] = useState(null);
@@ -9,7 +10,7 @@ const ONGPartners = () => {
       id: 1,
       name: "Association Internationale Gbeku",
       acronym: "A.I.G.",
-      logo: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg",
+      logo: "",
       country: "Togo",
       founded: "2023",
       website: "#",

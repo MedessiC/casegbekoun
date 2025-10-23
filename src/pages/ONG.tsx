@@ -10,7 +10,7 @@ const ONGPartners = () => {
       id: 1,
       name: "Association Internationale Gbeku",
       acronym: "A.I.G.",
-      logo: "https://i.imgur.com/x2utyWl.jpeg",
+      logo: "https://i.imgur.com/t7PtaFU.jpeg",
       country: "Togo",
       founded: "2023",
       website: "#",

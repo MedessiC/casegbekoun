@@ -116,16 +116,18 @@ const ONGPartners = () => {
             </button>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-              {/* Logo */}
-              <div className="relative group flex-shrink-0">
-                <div className="w-40 h-40 sm:w-48 sm:h-48 bg-white rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/50 group-hover:ring-yellow-400 transition-all duration-300">
-                  <img 
-                    src={ong.logo} 
-                    alt={ong.name} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-              </div>
+  {/* Logo */}
+  <div className="relative group flex-shrink-0">
+    <div className="w-40 h-40 sm:w-48 sm:h-48 bg-white rounded-full overflow-hidden shadow-2xl ring-4 ring-white/50 group-hover:ring-yellow-400 transition-all duration-300">
+      <img
+        src="https://i.imgur.com/NWD9Gaz.jpeg" // Remplace par ton vrai lien Imgur
+        alt={ong.name}
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+      />
+    </div>
+  </div>
+
+
               
               <div className="flex-1 text-center lg:text-left">
                 <div className="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold mb-4 shadow-lg">

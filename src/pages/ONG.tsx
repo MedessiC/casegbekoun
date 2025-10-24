@@ -1,16 +1,18 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink, Globe, Users, Heart, ArrowLeft, Target, Award, Calendar, MapPin, Mail, Phone, BookOpen, ChevronRight, Sparkles } from 'lucide-react';
 
 const ONGPartners = () => {
-  const [selectedONG, setSelectedONG] = useState(null);
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedONGId, setSelectedONGId] = useState(null);
 
   const ongPartners = [
     {
       id: 1,
+      slug: "aig-togo",
       name: "Association Internationale Gbeku",
       acronym: "A.I.G.",
       logo: "https://i.imgur.com/yo1pI0q.jpeg",
+      detailLogo: "https://i.imgur.com/NWD9Gaz.jpeg",
       country: "Togo",
       founded: "2023",
       website: "#",
@@ -63,6 +65,35 @@ const ONGPartners = () => {
     }
   ];
 
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash.startsWith('ong-')) {
+      const slug = hash.replace('ong-', '');
+      const ong = ongPartners.find(o => o.slug === slug);
+      if (ong) {
+        setCurrentPage('detail');
+        setSelectedONGId(ong.id);
+      }
+    } else {
+      setCurrentPage('home');
+      setSelectedONGId(null);
+    }
+  }, []);
+
+  const navigateToONG = (ong) => {
+    window.location.hash = `ong-${ong.slug}`;
+    setCurrentPage('detail');
+    setSelectedONGId(ong.id);
+    window.scrollTo(0, 0);
+  };
+
+  const navigateToHome = () => {
+    window.location.hash = '';
+    setCurrentPage('home');
+    setSelectedONGId(null);
+    window.scrollTo(0, 0);
+  };
+
   const getColorClasses = (color) => {
     const colors = {
       blue: { 
@@ -93,22 +124,22 @@ const ONGPartners = () => {
     return colors[color] || colors.blue;
   };
 
-  if (selectedONG !== null) {
-    const ong = ongPartners.find(o => o.id === selectedONG);
+  if (currentPage === 'detail' && selectedONGId) {
+    const ong = ongPartners.find(o => o.id === selectedONGId);
     if (!ong) return null;
     
     const colorClasses = getColorClasses(ong.color);
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50">
-        {/* Hero Section - Style Gbekoun */}
+        {/* Hero Section */}
         <section className="relative min-h-[60vh] flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 z-0" />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20 z-10" />
 
           <div className="relative z-20 max-w-7xl mx-auto text-white py-12">
             <button
-              onClick={() => setSelectedONG(null)}
+              onClick={navigateToHome}
               className="inline-flex items-center gap-2 mb-8 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full transition-all duration-200 border border-white/20 backdrop-blur-sm"
             >
               <ArrowLeft size={20} />
@@ -116,18 +147,15 @@ const ONGPartners = () => {
             </button>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-  {/* Logo */}
-  <div className="relative group flex-shrink-0">
-    <div className="w-40 h-40 sm:w-48 sm:h-48 bg-white rounded-full overflow-hidden shadow-2xl ring-4 ring-white/50 group-hover:ring-yellow-400 transition-all duration-300">
-      <img
-        src="https://i.imgur.com/NWD9Gaz.jpeg" // Remplace par ton vrai lien Imgur
-        alt={ong.name}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-      />
-    </div>
-  </div>
-
-
+              <div className="relative group flex-shrink-0">
+                <div className="w-40 h-40 sm:w-48 sm:h-48 bg-white rounded-full overflow-hidden shadow-2xl ring-4 ring-white/50 group-hover:ring-yellow-400 transition-all duration-300">
+                  <img
+                    src={ong.detailLogo}
+                    alt={ong.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
               
               <div className="flex-1 text-center lg:text-left">
                 <div className="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold mb-4 shadow-lg">
@@ -347,7 +375,7 @@ const ONGPartners = () => {
   // Page principale
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50">
-      {/* Hero Section - Style Gbekoun */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20 z-10" />
@@ -364,10 +392,8 @@ const ONGPartners = () => {
             <span className="text-yellow-400">ONG</span>
           </h1>
 
-          <p className="text-2xl sm:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Découvrez les organisations qui collaborent avec nous pour promouvoir
-            <br />
-            <span className="text-yellow-300">l'autonomie éducative et linguistique de l'Afrique</span>
+          <p className="text-xl sm:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed font-light opacity-95">
+            Découvrez les organisations qui collaborent avec nous pour promouvoir l'autonomie éducative et linguistique de l'Afrique
           </p>
 
           <div className="flex flex-wrap justify-center gap-6">
@@ -390,19 +416,21 @@ const ONGPartners = () => {
       {/* Introduction */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-white rounded-3xl p-10 sm:p-12 shadow-xl mb-16 border border-gray-200">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
             Un Réseau de Partenaires Engagés
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed mb-4 max-w-4xl mx-auto text-center">
-            Le projet Gbekoun s'appuie sur un réseau croissant d'organisations partenaires 
-            partageant la même vision d'une Afrique éducativement autonome et fière de 
-            ses langues maternelles.
-          </p>
-          <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto text-center">
-            Ces partenariats stratégiques permettent de multiplier notre impact sur le terrain, 
-            de mutualiser nos ressources et d'atteindre plus efficacement nos objectifs communs 
-            pour la promotion des langues et cultures africaines.
-          </p>
+          <div className="max-w-4xl mx-auto space-y-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Le projet Gbekoun s'appuie sur un réseau croissant d'organisations partenaires 
+              partageant la même vision d'une Afrique éducativement autonome et fière de 
+              ses langues maternelles.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Ces partenariats stratégiques permettent de multiplier notre impact sur le terrain, 
+              de mutualiser nos ressources et d'atteindre plus efficacement nos objectifs communs 
+              pour la promotion des langues et cultures africaines.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -427,11 +455,11 @@ const ONGPartners = () => {
                     {ong.acronym}
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 leading-tight">
                     {ong.name}
                   </h3>
                   
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-600 text-sm mb-5 line-clamp-3 leading-relaxed">
                     {ong.shortDescription}
                   </p>
 
@@ -447,7 +475,7 @@ const ONGPartners = () => {
                   </div>
 
                   <button
-                    onClick={() => setSelectedONG(ong.id)}
+                    onClick={() => navigateToONG(ong)}
                     className={`w-full ${colorClasses.accent} text-white py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2`}
                   >
                     <span>En savoir plus</span>
@@ -459,73 +487,73 @@ const ONGPartners = () => {
           })}
         </div>
 
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-200 p-8 mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+        <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-3xl border border-gray-200 p-10 sm:p-12 mb-16 shadow-lg">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
             Domaines de Collaboration
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-4">
-                <BookOpen size={24} className="text-white" />
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+                <BookOpen size={26} className="text-white" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Formation et Éducation</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">Formation et Éducation</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Développement de programmes de formation et création 
                 de matériel pédagogique en langues africaines.
               </p>
             </div>
 
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
-                <Globe size={24} className="text-white" />
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center mb-4">
+                <Globe size={26} className="text-white" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Promotion Culturelle</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">Promotion Culturelle</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Valorisation des cultures locales, organisation d'événements 
                 et préservation du patrimoine culturel africain.
               </p>
             </div>
 
-            <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
-              <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mb-4">
-                <Users size={24} className="text-white" />
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+                <Users size={26} className="text-white" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Sensibilisation</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">Sensibilisation</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Campagnes de sensibilisation auprès des communautés 
                 et promotion du civisme et de la cohésion sociale.
               </p>
             </div>
 
-            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-              <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mb-4">
-                <Target size={24} className="text-white" />
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-yellow-600 rounded-xl flex items-center justify-center mb-4">
+                <Target size={26} className="text-white" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Lutte contre l'Analphabétisme</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">Lutte contre l'Analphabétisme</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Création de centres d'alphabétisation et soutien 
                 aux personnes démunies et déscolarisées.
               </p>
             </div>
 
-            <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
-                <Award size={24} className="text-white" />
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center mb-4">
+                <Award size={26} className="text-white" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Innovation et Recherche</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">Innovation et Recherche</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Promotion des sciences et savoirs locaux, organisation 
                 de salons d'exposition sur les innovations locales.
               </p>
             </div>
 
-            <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-6">
-              <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center mb-4">
-                <Heart size={24} className="text-white" />
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                <Heart size={26} className="text-white" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Médias et Communication</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="font-bold text-gray-900 mb-3 text-lg">Médias et Communication</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Animation d'émissions radiophoniques et télévisées 
                 pour promouvoir les langues et cultures africaines.
               </p>
@@ -533,36 +561,36 @@ const ONGPartners = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-12">
+        <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-3xl p-10 sm:p-12 shadow-xl">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
               Devenez Partenaire du Projet Gbekoun
             </h2>
-            <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+            <p className="text-lg text-blue-50 mb-10 leading-relaxed">
               Votre organisation partage notre vision d'une Afrique éducativement autonome ? 
               Rejoignez notre réseau de partenaires engagés et participez à cette révolution 
               linguistique et éducative.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-3xl mb-2">🤝</div>
-                <div className="font-bold mb-2">Collaboration</div>
-                <p className="text-sm text-blue-100">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="text-4xl mb-3">🤝</div>
+                <div className="font-bold mb-2 text-lg">Collaboration</div>
+                <p className="text-sm text-blue-50 leading-relaxed">
                   Travaillez avec nous sur des projets concrets
                 </p>
               </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-3xl mb-2">📚</div>
-                <div className="font-bold mb-2">Ressources</div>
-                <p className="text-sm text-blue-100">
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="text-4xl mb-3">📚</div>
+                <div className="font-bold mb-2 text-lg">Ressources</div>
+                <p className="text-sm text-blue-50 leading-relaxed">
                   Accédez à nos outils et formations
                 </p>
               </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-3xl mb-2">🌍</div>
-                <div className="font-bold mb-2">Réseau</div>
-                <p className="text-sm text-blue-100">
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <div className="text-4xl mb-3">🌍</div>
+                <div className="font-bold mb-2 text-lg">Réseau</div>
+                <p className="text-sm text-blue-50 leading-relaxed">
                   Connectez-vous à notre réseau continental
                 </p>
               </div>
@@ -586,8 +614,9 @@ const ONGPartners = () => {
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
-}
+};
+
 export default ONGPartners;

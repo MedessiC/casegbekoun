@@ -148,7 +148,7 @@ const resources = {
   en: {
     translation: {
       // Navigation
-      nom: 'ACEK-Gbekoun',
+      nom: 'CASE-Gbekoun',
       home: 'Home',
       history: 'History',
       alphabet: 'Alphabet',

@@ -119,7 +119,7 @@ const History: React.FC = () => {
       shortTitle: 'La révélation finale',
       description: 'En 1995, après 19 années de recherche, ADIGBE Togbédji fait une annonce historique : "ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles." Le système Gbekoun est né, conçu comme un script à la fois syllabique et phonétique, doté de chiffres décimaux, de ponctuation et de diacritiques.',
       detailedStory: 'Pendant 13 années consécutives, ADIGBE Togbédji enseigne le script Gbekoun et utilise ce système pour écrire de nombreux livres aux titres variés. Il établit deux groupes d\'instruction : l\'un à Dangbo dans son village natal de Mondoto, l\'autre à Cotonou. Le système est présenté comme capable de transcrire fidèlement toutes les langues nationales du Bénin et, par extension, toutes les langues maternelles africaines. L\'objectif déclaré est de permettre l\'éducation en langues maternelles pour reconquérir la souveraineté des nations africaines.',
-      context: 'Cette période marque la matérialisation concrète de la vision. Le Gbekoun est présenté non pas comme un simple écriture , mais comme un "Script pour l\'autonomie de chaque nation du monde sans le moindre appui". Il s\'inscrit dans une philosophie révolutionnaire qui inverse la hiérarchie linguistique : les langues maternelles deviennent les "propriétaires" et les langues européennes les simples "locataires".',
+      context: 'Cette période marque la matérialisation concrète de la vision. Le Gbekoun est présenté non pas comme un simple écriture , mais comme un "Script pour l\'autonomie de chaque nation du monde sans le moindre appui". Il s\'inscrit dans une philosophie authentique qui inverse la hiérarchie linguistique : les langues maternelles deviennent les "propriétaires" et les langues européennes les simples "locataires".',
       keyPoint: '13 années d\'enseignement et formation de disciples',
       quote: 'ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles.',
       author: 'ADIGBE Togbédji (1995)',
@@ -183,7 +183,7 @@ const History: React.FC = () => {
       summary: 'Visionnaire choisi par le "consortium des langues africaines" pour créer le script d\'incarnation des langues maternelles.',
       detailedBio: 'Originaire du petit village de Mondotokpa à Dangbo, ADIGBE Togbédji devient une figure prophétique de l\'histoire du Bénin. En 1976, il adresse un message d\'avertissement aux gouvernants sur une crise financière imminente, prophétie qui lui vaut 7 années d\'incarcération sans procès. La crise annoncée frappe effectivement le pays en 1983. Libéré la même année, il consacre 12 années à une quête spirituelle et scientifique exceptionnelle.',
       researchMethod: 'Pour découvrir le script d\'incarnation, il s\'impose des conditions de vie extrêmes : jeûnes prolongés de plusieurs semaines, alimentation primitive (boule d\'akassa et huile rouge sans assaisonnement), déplacements exclusivement à pied. Ces pratiques ascétiques visent à atteindre un état de conscience transcendante nécessaire à sa mission.',
-      philosophy: 'Sa vision révolutionnaire repose sur la théorie du "couple originel ancestral" : Terre + Langues maternelles. Selon lui, l\'adoption de langues étrangères a rompu cette alliance sacrée, privant l\'Afrique de l\'accès à ses ressources. Le Gbekoun doit restaurer cette connexion mystique.',
+      philosophy: 'Sa vision authentique repose sur la théorie du "couple originel ancestral" : Terre + Langues maternelles. Selon lui, l\'adoption de langues étrangères a rompu cette alliance sacrée, privant l\'Afrique de l\'accès à ses ressources. Le Gbekoun doit restaurer cette connexion mystique.',
       achievement: 'Système de 33 lettres (24 consonnes, 9 voyelles) syllabique et phonétique',
       legacy: 'Fondation théorique et mystique de l\'autonomie linguistique africaine',
       famousQuote: '"Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra." (1989)',
@@ -398,17 +398,6 @@ const History: React.FC = () => {
               Les 6 Facteurs de Régression Africaine
             </h3>
             
-            
-                <div className="text-center">
-                  <p className="text-gray-600 mb-4">Les facteurs historiques qui ont conduit à la perte de l'autonomie africaine</p>
-                  <div className="flex justify-center flex-wrap gap-2">
-                    {["Divinisation", "Royautés", "Esclavage", "Colonisation", "Langues étrangères", "Trahison"].map((factor, index) => (
-                      <span key={index} className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">
-                        {index + 1}. {factor}
-                      </span>
-                    ))}
-                  </div>
-                </div>
             
          
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -748,7 +737,7 @@ const History: React.FC = () => {
           Le Système Gbekoun : Spécifications Complètes
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Plus qu'un simple script , le Gbekoun est un système révolutionnaire 
+          Plus qu'un simple script , le Gbekoun est un système authentique 
           conçu pour l'autonomie éducative et civilisationnelle de l'Afrique.
         </p>
       </div>
@@ -1053,9 +1042,9 @@ const History: React.FC = () => {
               </div>
             </div>
 
-            {/* Solution révolutionnaire */}
+            {/* Solution authentique */}
             <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
-              <h4 className="text-xl font-bold text-gray-900 mb-6">La Solution Révolutionnaire</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-6">La Solution authentique</h4>
               <div className="bg-white rounded-xl p-6 mb-6">
                 <Quote size={24} className="text-green-600 mb-3" />
                 <blockquote className="text-lg text-gray-800 leading-relaxed mb-4">
@@ -1092,7 +1081,7 @@ const History: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Système révolutionnaire (à adopter) */}
+                {/* Système authentique (à adopter) */}
                 <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                   <h5 className="font-bold text-green-800 mb-4 text-center">✅ SYSTÈME AUTHENTIQUE</h5>
                   <div className="space-y-3">

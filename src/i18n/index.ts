@@ -19,7 +19,7 @@ const resources = {
       // Home page
       welcome: 'Bienvenue dans l\'univers du',
       gbekoun: 'Centre Académique des Savoirs Endogène-Gbekoun',
-      subtitle: 'Découvrez l\'écriture révolutionnaire qui transforme l\'écriture des langues africaines',
+      subtitle: 'Découvrez l\'écriture authentique qui transforme l\'écriture des langues africaines',
       explore: 'Explorer l\'écriture',
       learnMore: 'En savoir plus',
       
@@ -34,7 +34,7 @@ const resources = {
       
       // Histoire complète - Nouvelles clés
       authenticHistoryTitle: 'Histoire Authentique du Gbekoun',
-      epicSubtitle: 'L\'épopée mystique du script révolutionnaire pour l\'autonomie éducative de l\'Afrique',
+      epicSubtitle: 'L\'épopée mystique du script authentique pour l\'autonomie éducative de l\'Afrique',
       years: 'années',
       present: 'Présent',
       generations: 'générations',
@@ -45,7 +45,7 @@ const resources = {
       
       // Contexte
       contextTitle: 'Contexte : La Théorie du "Couple Originel"',
-      contextSubtitle: 'Pour comprendre la mission du Gbekoun, il faut saisir la théorie révolutionnaire qui sous-tend cette épopée : l\'alliance sacrée entre la Terre et ses Langues maternelles.',
+      contextSubtitle: 'Pour comprendre la mission du Gbekoun, il faut saisir la théorie authentique qui sous-tend cette épopée : l\'alliance sacrée entre la Terre et ses Langues maternelles.',
       africaDiagnosis: 'Le Diagnostic : L\'Afrique "Complètement Nue"',
       seeCompleteDiagnosis: 'Voir le diagnostic complet : L\'Afrique \'Complètement Nue\'',
       originalCoupleTheory: 'La Théorie du "Couple Originel Ancestral"',
@@ -75,7 +75,7 @@ const resources = {
       
       // Technique
       technicalTitle: 'Le Système Gbekoun : Spécifications Complètes',
-      technicalSubtitle: 'Plus qu\'une simple écriture, le Gbekoun est un système révolutionnaire conçu pour l\'autonomie éducative et civilisationnelle de l\'Afrique.',
+      technicalSubtitle: 'Plus qu\'une simple écriture, le Gbekoun est un système authentique conçu pour l\'autonomie éducative et civilisationnelle de l\'Afrique.',
       technicalStructure: 'Structure Technique',
       consonants: 'Consonnes',
       vowels: 'Voyelles',
@@ -91,7 +91,7 @@ const resources = {
       seeCompleteAnalysis: 'Voir l\'analyse complète : L\'Échec des Indépendances',
       propheticVision: 'Vision Prophétique : Préparer l\'Avenir',
       revolutionaryInstructions: 'Conseils aux Dirigeants Africains',
-      seeCompleteInstructions: 'Voir les instructions révolutionnaires complètes aux dirigeants africains',
+      seeCompleteInstructions: 'Voir les instructions authentiques complètes aux dirigeants africains',
       finalTestimony: 'Témoignage Final : "Nous Devons en Être Fiers"',
       urgencyToAct: 'L\'Urgence d\'Agir',
       supportMission: 'Soutenir la Mission Gbekoun',

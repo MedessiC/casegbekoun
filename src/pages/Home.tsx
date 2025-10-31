@@ -149,34 +149,38 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+{/* Section Partenaire ONG - Optimisée */}
+<section id="ong-partner" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50">
+  <div className="max-w-7xl mx-auto">
+    {/* En-tête */}
+    <div className="text-center mb-16">
+      <div className="inline-flex items-center gap-2 px-6 py-3 bg-purple-100 text-purple-700 rounded-full text-sm font-bold mb-6">
+        <Heart size={18} />
+        Partenaire Officiel
+      </div>
+      <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        Notre Partenaire ONG
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Ensemble pour promouvoir l'autonomie éducative et linguistique de l'Afrique
+      </p>
+    </div>
+    </div>
 
-      {/* Section Partenaire ONG - NOUVEAU */}
-      <section id="ong-partner" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-purple-100 text-purple-700 rounded-full text-sm font-bold mb-6">
-              <Heart size={18} />
-              Partenaire Officiel
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Notre Partenaire ONG
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Ensemble pour promouvoir l'autonomie éducative et linguistique de l'Afrique
-            </p>
-          </div>
-
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-    {/* Image section */}
-    <div className="relative h-80 lg:h-auto overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
-      <img 
-        src={ongPartner.logo}
-        alt={ongPartner.name}
-        className="max-w-full max-h-full object-contain"
-      />
-      <div className="absolute top-6 left-6">
-        <div className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+    {/* Carte partenaire */}
+   <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200 max-w-4xl mx-auto">
+  {/* Section visuelle en haut */}
+  <div className="relative p-8 sm:p-12 flex flex-col items-center justify-center bg-white">
+    <div className="w-full max-w-lg mx-auto space-y-6">
+      <div className="bg-white rounded-2xl shadow-xl p-8 flex items-center justify-center border border-gray-100">
+        <img 
+          src={ongPartner.logo}
+          alt={ongPartner.name}
+          className="h-40 w-full object-contain"
+        />
+      </div>
+      <div className="text-center">
+        <div className="bg-blue-600 text-white px-6 py-3 rounded-full text-base font-bold shadow-lg inline-block">
           {ongPartner.acronym}
         </div>
       </div>
@@ -184,74 +188,78 @@ const Home: React.FC = () => {
 
 
 
+      {/* Section contenu en bas */}
+      <div className="p-8 sm:p-12">
+        <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight text-center">
+          {ongPartner.name}
+        </h3>
 
-              {/* Contenu */}
-              <div className="p-8 sm:p-12 flex flex-col justify-center">
-                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                  {ongPartner.name}
-                </h3>
-                
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  {ongPartner.shortDescription}
-                </p>
+        <p className="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-2xl mx-auto">
+          {ongPartner.shortDescription}
+        </p>
 
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
-                    <div className="flex items-center gap-2 text-blue-600 mb-2">
-                      <Globe size={20} />
-                      <span className="font-semibold text-sm">Pays</span>
-                    </div>
-                    <div className="text-gray-900 font-bold text-lg">{ongPartner.country}</div>
-                  </div>
-                  <div className="bg-purple-50 rounded-xl p-4 border border-purple-100">
-                    <div className="flex items-center gap-2 text-purple-600 mb-2">
-                      <Calendar size={20} />
-                      <span className="font-semibold text-sm">Fondée</span>
-                    </div>
-                    <div className="text-gray-900 font-bold text-lg">{ongPartner.founded}</div>
-                  </div>
-                </div>
-
-                <div className="space-y-3 mb-8">
-                  <a 
-                    href={`mailto:${ongPartner.email}`}
-                    className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
-                  >
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                      <Mail size={20} className="text-blue-600 group-hover:text-white" />
-                    </div>
-                    <span className="font-medium">{ongPartner.email}</span>
-                  </a>
-                  <a 
-                    href={`tel:${ongPartner.phone}`}
-                    className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
-                  >
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                      <Phone size={20} className="text-blue-600 group-hover:text-white" />
-                    </div>
-                    <span className="font-medium">{ongPartner.phone}</span>
-                  </a>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="/ong"
-                    className="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-                  >
-                    <span>En savoir plus</span>
-                    <ExternalLink size={20} />
-                  </a>
-                  <a
-                    href={`mailto:${ongPartner.email}`}
-                    className="flex-1 inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200"
-                  >
-                    <span>Contacter</span>
-                    <Mail size={20} />
-                  </a>
-                </div>
-              </div>
+        {/* Infos clés */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 max-w-xl mx-auto">
+          <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+            <div className="flex items-center gap-2 text-blue-600 mb-2">
+              <Globe size={20} />
+              <span className="font-semibold text-sm">Pays</span>
             </div>
+            <div className="text-gray-900 font-bold text-lg">{ongPartner.country}</div>
           </div>
+          <div className="bg-purple-50 rounded-xl p-4 border border-purple-100">
+            <div className="flex items-center gap-2 text-purple-600 mb-2">
+              <Calendar size={20} />
+              <span className="font-semibold text-sm">Fondée</span>
+            </div>
+            <div className="text-gray-900 font-bold text-lg">{ongPartner.founded}</div>
+          </div>
+        </div>
+
+        {/* Contacts */}
+        <div className="space-y-4 mb-8 max-w-xl mx-auto">
+          <a 
+            href={`mailto:${ongPartner.email}`}
+            className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
+          >
+            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+              <Mail size={20} className="text-blue-600 group-hover:text-white" />
+            </div>
+            <span className="font-medium break-all">{ongPartner.email}</span>
+          </a>
+          <a 
+            href={`tel:${ongPartner.phone}`}
+            className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
+          >
+            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+              <Phone size={20} className="text-blue-600 group-hover:text-white" />
+            </div>
+            <span className="font-medium">{ongPartner.phone}</span>
+          </a>
+        </div>
+
+        {/* Boutons d'action */}
+        <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+          <a
+            href="/ong"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-bold text-base sm:text-lg transition-all duration-200 shadow-md hover:shadow-lg"
+          >
+            <span>En savoir plus</span>
+            <ExternalLink size={20} />
+          </a>
+          <a
+            href={`mailto:${ongPartner.email}`}
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-xl font-bold text-base sm:text-lg transition-all duration-200"
+          >
+            <span>Contacter</span>
+            <Mail size={20} />
+          </a>
+        </div>
+      </div>
+    </div>
+ 
+
+
 
           {/* Domaines de collaboration */}
           <div className="mt-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl p-10 sm:p-12 text-white shadow-2xl">
@@ -283,169 +291,124 @@ const Home: React.FC = () => {
       </section>
 
       {/* Qu'est-ce que le Gbekoun */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Qu'est-ce que le Gbekoun ?
-            </h2>
+     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="max-w-7xl mx-auto">
+        {/* En-tête avec image */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
+            Qu'est-ce que le Gbekoun ?
+          </h2>
+          <div className="flex justify-center">
             <img
               src="/gbk.jpg"
               alt="Illustration du Gbekoun"
-              className="mx-auto w-full max-w-md h-auto rounded-2xl shadow-lg object-cover"
+              className="w-full max-w-md h-64 rounded-2xl shadow-2xl object-cover"
             />
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-blue-600 mb-4">Définition</h3>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  <strong>Gbekoun</strong> en langues <em>Goun</em>, <em>Fon</em>, <em>Ayïzo</em> est le jumelage de deux mots, à savoir <strong>"graphique de langage ou son"</strong> et veut dire signe ou symbole de son de toute nature, de voix, de langue.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  En général c'est une lettre ou un ensemble de lettres, des signes et symboles scientifiques divers composant un ensemble des consonnes, des voyelles et des signes de commodités qui sert à écrire.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-green-600 mb-4">Essence Fédératrice</h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  D'essence fédératrice de langues, il sert à <strong>transcrire exactement tout phonème de toute nature et de toute langue</strong> et se lit textuellement dans les expressions écrites dans ces langues mêmes par celles et ceux qui ne parlent pas les langues en question mais qui savent écrire et lire avec le système d'écriture Gbekoun.
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 shadow-lg text-white">
-                <h3 className="text-2xl font-bold mb-6">Caractéristiques Techniques</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-gray-900 font-bold text-sm">✓</span>
-                    </div>
-                    <span className="text-lg">Composé de <strong>33 lettres</strong> : 24 consonnes et 9 voyelles</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-gray-900 font-bold text-sm">✓</span>
-                    </div>
-                    <span className="text-lg">Système <strong>unicaméral</strong>, monocaméral ou à case unique</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-gray-900 font-bold text-sm">✓</span>
-                    </div>
-                    <span className="text-lg">Une seule graphie pour chacun de ses caractères</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-gray-900 font-bold text-sm">✓</span>
-                    </div>
-                    <span className="text-lg">Ni lettre minuscule ni lettre majuscule</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-gray-900 font-bold text-sm">✓</span>
-                    </div>
-                    <span className="text-lg">Inclut numération et signes de commodités</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-purple-600 mb-4">Comparaison</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  <strong>Systèmes unicaméraux</strong> (comme Gbekoun) : persan, kannara, tamoul, arabe, hébreu, géorgien et coréen
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  <strong>Systèmes bicaméraux</strong> (deux casses par lettre) : latin, grec, cyrillique et arménien
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg border-2 border-green-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <Globe size={32} className="text-green-600" />
-                  <h3 className="text-2xl font-bold text-green-700">Particularité Unique</h3>
-                </div>
-                <p className="text-lg text-gray-800 font-semibold leading-relaxed">
-                  Toute personne l'ayant appris peut s'en servir pour lire et/ou écrire aisément dans n'importe quelle langue sans forcément la parler.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl p-8 shadow-lg text-gray-900">
-                <div className="flex items-center gap-3 mb-4">
-                  <Award size={32} />
-                  <h3 className="text-2xl font-bold">Point Important</h3>
-                </div>
-                <p className="text-lg font-semibold leading-relaxed">
-                  Gbekoun n'est donc pas une langue. Mais la dénomination d'une écriture qui permet d'écrire en toute langue.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
 
-      {/* L'importance de Gbekoun */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              L'importance de Gbekoun pour le Bénin, l'Afrique et le Monde
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-blue-600 mb-6">L'écriture : Fondement des Civilisations</h3>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p className="text-lg">
-                  L'une des plus grandes inventions de l'humanité, <strong>l'écriture</strong>, quoiqu'en soit sa nature, sa forme et le type, permet de :
-                </p>
-                <ul className="space-y-3 ml-4">
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
-                    <span>Conserver la mémoire (des savoirs)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
-                    <span>Transmettre des mémoires</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
-                    <span>Structurer les civilisations</span>
-                  </li>
-                </ul>
-                <p className="text-lg font-semibold text-blue-700 mt-6">
-                  L'écriture est bien plus qu'un simple outil ; elle est le socle sur lequel repose la mémoire de l'humanité.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 shadow-lg border border-blue-200">
-              <h3 className="text-2xl font-bold text-indigo-600 mb-6">Un Pouvoir Transcendant</h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Chaque écriture répond à un besoin spécifique et est façonnée par la culture et l'environnement de ceux qui l'ont inventée.
-              </p>
-              <div className="bg-white rounded-xl p-6 mb-4">
-                <p className="text-lg text-gray-800 leading-relaxed italic">
-                  "L'écriture n'est pas une invention technique comme une autre. Par elle les hommes détiennent un pouvoir nouveau, celui de <strong className="text-indigo-600">transcender l'espace et le temps</strong>, celui de voir la parole."
-                </p>
-              </div>
+        {/* Première rangée : Définition + Essence Fédératrice */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Définition */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+            <h3 className="text-2xl font-bold text-blue-600 mb-6">Définition</h3>
+            <div className="space-y-4">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Ils peuvent désormais <strong>écrire leur propre histoire</strong>. C'est pourquoi elle apparaît souvent de manière métaphysique et racontée au travers des récits mythiques comme chargée d'une énergie spirituelle.
+                <strong>Gbekoun</strong> en langues <em>Goun</em>, <em>Fon</em>, <em>Ayïzo</em> est le jumelage de deux mots, à savoir <strong>"graphique de langage ou son"</strong> et veut dire signe ou symbole de son de toute nature, de voix, de langue.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                En général c'est une lettre ou un ensemble de lettres, des signes et symboles scientifiques divers composant un ensemble des consonnes, des voyelles et des signes de commodités qui sert à écrire.
               </p>
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-3xl p-10 shadow-2xl text-gray-900">
-            <h3 className="text-3xl font-bold mb-6 text-center">Contexte Historique</h3>
-            <p className="text-lg leading-relaxed text-center max-w-4xl mx-auto">
-              L'histoire rapporte que le début de l'écriture est lié à la naissance d'un pouvoir fort et centralisé : développement des échanges liés à la naissance des villes et de l'État en Mésopotamie, formation d'une nation autour d'un souverain en Égypte, contexte religieux en Chine, besoin d'un calendrier d'État en Mésoamérique.
+          {/* Essence Fédératrice */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+            <h3 className="text-2xl font-bold text-green-600 mb-6">Essence Fédératrice</h3>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              D'essence fédératrice de langues, il sert à <strong>transcrire exactement tout phonème de toute nature et de toute langue</strong> et se lit textuellement dans les expressions écrites dans ces langues mêmes par celles et ceux qui ne parlent pas les langues en question mais qui savent écrire et lire avec le système d'écriture Gbekoun.
             </p>
           </div>
         </div>
+
+        {/* Deuxième rangée : Caractéristiques Techniques + Comparaison */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Caractéristiques Techniques */}
+          <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 shadow-lg text-white">
+            <h3 className="text-2xl font-bold mb-6">Caractéristiques Techniques</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-gray-900 font-bold text-sm">✓</span>
+                </div>
+                <span className="text-lg leading-relaxed">Composé de <strong>33 lettres</strong> : 24 consonnes et 9 voyelles</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-gray-900 font-bold text-sm">✓</span>
+                </div>
+                <span className="text-lg leading-relaxed">Système <strong>unicaméral</strong>, monocaméral ou à case unique</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-gray-900 font-bold text-sm">✓</span>
+                </div>
+                <span className="text-lg leading-relaxed">Une seule graphie pour chacun de ses caractères</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-gray-900 font-bold text-sm">✓</span>
+                </div>
+                <span className="text-lg leading-relaxed">Ni lettre minuscule ni lettre majuscule</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-gray-900 font-bold text-sm">✓</span>
+                </div>
+                <span className="text-lg leading-relaxed">Inclut numération et signes de commodités</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Comparaison */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+            <h3 className="text-2xl font-bold text-purple-600 mb-6">Comparaison</h3>
+            <div className="space-y-4">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <strong className="text-purple-600">Systèmes unicaméraux</strong> (comme Gbekoun) : persan, kannara, tamoul, arabe, hébreu, géorgien et coréen
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <strong className="text-purple-600">Systèmes bicaméraux</strong> (deux casses par lettre) : latin, grec, cyrillique et arménien
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Troisième rangée : Particularité Unique + Point Important */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Particularité Unique */}
+          <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg border-2 border-green-300">
+            <div className="flex items-center gap-3 mb-4">
+              <Globe size={32} className="text-green-600 flex-shrink-0" />
+              <h3 className="text-2xl font-bold text-green-700">Particularité Unique</h3>
+            </div>
+            <p className="text-lg text-gray-800 font-semibold leading-relaxed">
+              Toute personne l'ayant appris peut s'en servir pour lire et/ou écrire aisément dans n'importe quelle langue sans forcément la parler.
+            </p>
+          </div>
+
+          {/* Point Important */}
+          <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl p-8 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <Award size={32} className="flex-shrink-0" />
+              <h3 className="text-2xl font-bold text-gray-900">Point Important</h3>
+            </div>
+            <p className="text-lg font-semibold leading-relaxed text-gray-900">
+              Gbekoun n'est donc pas une langue. Mais la dénomination d'une écriture qui permet d'écrire en toute langue.
+            </p>
+          </div>
+        </div>
+      </div>
       </section>
 
       {/* Origine et Héritage */}

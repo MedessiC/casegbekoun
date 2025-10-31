@@ -1,14 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { BookOpen, Keyboard, History, ArrowRight, Globe, Users, Award, Sparkles, School, FileText, Calendar } from 'lucide-react';
+import { BookOpen, Keyboard, History, ArrowRight, Globe, Users, Award, Sparkles, School, FileText, Calendar, Heart, Target, ExternalLink, Mail, Phone } from 'lucide-react';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
 
   const features = [
-  
-   
     {
       icon: History,
       title: t('history'),
@@ -18,10 +16,21 @@ const Home: React.FC = () => {
     }
   ];
 
-  
+  const ongPartner = {
+    id: 1,
+    slug: "aig-togo",
+    name: "Association Internationale Gbeku",
+    acronym: "A.I.G.",
+    logo: "https://i.imgur.com/yo1pI0q.jpeg",
+    country: "Togo",
+    founded: "2023",
+    email: "gbeku2023@gmail.com",
+    phone: "+228 90 01 38 86",
+    shortDescription: "Association apolitique à but non lucratif dédiée à la promotion des langues et cultures africaines.",
+    color: "blue"
+  };
 
   return (
-
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -29,10 +38,7 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20 z-10" />
 
         <div className="relative z-20 max-w-7xl mx-auto text-center text-white py-20">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold mb-8 shadow-lg">
-            <Sparkles size={18} />
-            Système d'écriture endogène d'origine Béninoise
-          </div>
+          
 
           <h1 className="text-5xl sm:text-7xl font-bold mb-6 leading-tight">
             <span>Bienvenue dans l'univers</span>
@@ -52,10 +58,10 @@ const Home: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a
-              href="#"
+              href="#ong-partner"
               className="inline-flex items-center px-10 py-5 bg-yellow-400 text-gray-900 rounded-full font-bold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-200 shadow-2xl"
             >
-              Découvir les ONG partenanires
+              Découvrir nos partenaires ONG
               <ArrowRight size={24} className="ml-3" />
             </a>
             <a
@@ -64,6 +70,22 @@ const Home: React.FC = () => {
             >
               Notre mission
             </a>
+          </div>
+
+          {/* Stats rapides */}
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-4xl font-bold mb-2">33</div>
+              <div className="text-sm opacity-90">Lettres uniques</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-4xl font-bold mb-2">1996</div>
+              <div className="text-sm opacity-90">Année de création</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-4xl font-bold mb-2">∞</div>
+              <div className="text-sm opacity-90">Langues compatibles</div>
+            </div>
           </div>
         </div>
       </section>
@@ -87,7 +109,7 @@ const Home: React.FC = () => {
           <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-8 sm:p-12 text-white mb-16 shadow-2xl">
             <h3 className="text-3xl font-bold mb-8 text-center">Nos Objectifs Statutaires</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
                 <div className="w-14 h-14 bg-yellow-400 rounded-xl flex items-center justify-center mb-6 mx-auto">
                   <BookOpen size={28} className="text-gray-900" />
                 </div>
@@ -97,7 +119,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
                 <div className="w-14 h-14 bg-yellow-400 rounded-xl flex items-center justify-center mb-6 mx-auto">
                   <School size={28} className="text-gray-900" />
                 </div>
@@ -107,7 +129,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
                 <div className="w-14 h-14 bg-yellow-400 rounded-xl flex items-center justify-center mb-6 mx-auto">
                   <FileText size={28} className="text-gray-900" />
                 </div>
@@ -128,43 +150,170 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Section Partenaire ONG - NOUVEAU */}
+      <section id="ong-partner" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-purple-100 text-purple-700 rounded-full text-sm font-bold mb-6">
+              <Heart size={18} />
+              Partenaire Officiel
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Notre Partenaire ONG
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Ensemble pour promouvoir l'autonomie éducative et linguistique de l'Afrique
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+    {/* Image section */}
+    <div className="relative h-80 lg:h-auto overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
+      <img 
+        src={ongPartner.logo}
+        alt={ongPartner.name}
+        className="max-w-full max-h-full object-contain"
+      />
+      <div className="absolute top-6 left-6">
+        <div className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+          {ongPartner.acronym}
+        </div>
+      </div>
+    </div>
+
+
+
+
+              {/* Contenu */}
+              <div className="p-8 sm:p-12 flex flex-col justify-center">
+                <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                  {ongPartner.name}
+                </h3>
+                
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  {ongPartner.shortDescription}
+                </p>
+
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                    <div className="flex items-center gap-2 text-blue-600 mb-2">
+                      <Globe size={20} />
+                      <span className="font-semibold text-sm">Pays</span>
+                    </div>
+                    <div className="text-gray-900 font-bold text-lg">{ongPartner.country}</div>
+                  </div>
+                  <div className="bg-purple-50 rounded-xl p-4 border border-purple-100">
+                    <div className="flex items-center gap-2 text-purple-600 mb-2">
+                      <Calendar size={20} />
+                      <span className="font-semibold text-sm">Fondée</span>
+                    </div>
+                    <div className="text-gray-900 font-bold text-lg">{ongPartner.founded}</div>
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  <a 
+                    href={`mailto:${ongPartner.email}`}
+                    className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
+                  >
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                      <Mail size={20} className="text-blue-600 group-hover:text-white" />
+                    </div>
+                    <span className="font-medium">{ongPartner.email}</span>
+                  </a>
+                  <a 
+                    href={`tel:${ongPartner.phone}`}
+                    className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors group"
+                  >
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                      <Phone size={20} className="text-blue-600 group-hover:text-white" />
+                    </div>
+                    <span className="font-medium">{ongPartner.phone}</span>
+                  </a>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="/ong"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                  >
+                    <span>En savoir plus</span>
+                    <ExternalLink size={20} />
+                  </a>
+                  <a
+                    href={`mailto:${ongPartner.email}`}
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200"
+                  >
+                    <span>Contacter</span>
+                    <Mail size={20} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Domaines de collaboration */}
+          <div className="mt-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl p-10 sm:p-12 text-white shadow-2xl">
+            <h3 className="text-3xl font-bold mb-8 text-center">Domaines de Collaboration</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <BookOpen size={32} className="text-yellow-400 mb-4" />
+                <h4 className="font-bold text-lg mb-2">Formation</h4>
+                <p className="text-sm opacity-90">Programmes éducatifs</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <Globe size={32} className="text-yellow-400 mb-4" />
+                <h4 className="font-bold text-lg mb-2">Culture</h4>
+                <p className="text-sm opacity-90">Promotion culturelle</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <Users size={32} className="text-yellow-400 mb-4" />
+                <h4 className="font-bold text-lg mb-2">Communauté</h4>
+                <p className="text-sm opacity-90">Sensibilisation sociale</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <Target size={32} className="text-yellow-400 mb-4" />
+                <h4 className="font-bold text-lg mb-2">Alphabétisation</h4>
+                <p className="text-sm opacity-90">Lutte contre l'analphabétisme</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Qu'est-ce que le Gbekoun */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-          Qu'est-ce que le Gbekoun ?
-        </h2>
-        <img
-          src="/gbk.jpg"
-          alt="Illustration du Gbekoun"
-          className="mx-auto w-full max-w-md h-auto rounded-2xl shadow-lg object-cover"
-        />
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Qu'est-ce que le Gbekoun ?
+            </h2>
+            <img
+              src="/gbk.jpg"
+              alt="Illustration du Gbekoun"
+              className="mx-auto w-full max-w-md h-auto rounded-2xl shadow-lg object-cover"
+            />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-2xl font-bold text-blue-600 mb-4">Définition</h3>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
                   <strong>Gbekoun</strong> en langues <em>Goun</em>, <em>Fon</em>, <em>Ayïzo</em> est le jumelage de deux mots, à savoir <strong>"graphique de langage ou son"</strong> et veut dire signe ou symbole de son de toute nature, de voix, de langue.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   En général c'est une lettre ou un ensemble de lettres, des signes et symboles scientifiques divers composant un ensemble des consonnes, des voyelles et des signes de commodités qui sert à écrire.
-                  
                 </p>
               </div>
 
-             
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-2xl font-bold text-green-600 mb-4">Essence Fédératrice</h3>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   D'essence fédératrice de langues, il sert à <strong>transcrire exactement tout phonème de toute nature et de toute langue</strong> et se lit textuellement dans les expressions écrites dans ces langues mêmes par celles et ceux qui ne parlent pas les langues en question mais qui savent écrire et lire avec le système d'écriture Gbekoun.
                 </p>
               </div>
-
-               
             </div>
 
             <div className="space-y-6">
@@ -204,7 +353,7 @@ const Home: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-2xl font-bold text-purple-600 mb-4">Comparaison</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   <strong>Systèmes unicaméraux</strong> (comme Gbekoun) : persan, kannara, tamoul, arabe, hébreu, géorgien et coréen
@@ -223,6 +372,7 @@ const Home: React.FC = () => {
                   Toute personne l'ayant appris peut s'en servir pour lire et/ou écrire aisément dans n'importe quelle langue sans forcément la parler.
                 </p>
               </div>
+
               <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl p-8 shadow-lg text-gray-900">
                 <div className="flex items-center gap-3 mb-4">
                   <Award size={32} />
@@ -309,7 +459,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <h3 className="text-2xl font-bold mb-6 text-yellow-400">Le Créateur</h3>
               <p className="text-lg leading-relaxed opacity-90 mb-4">
                 Système endogène d'écriture, le Gbekoun est conçu par notre compatriote <strong className="text-white">Feu ADIGBÈ Togbédji</strong>, originaire de la commune de Dangbo plus précisément du village de <strong>Mondotokpa</strong> dans le Département de l'Ouémé.
@@ -319,7 +469,7 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <h3 className="text-2xl font-bold mb-6 text-yellow-400">Le Successeur</h3>
               <p className="text-lg leading-relaxed opacity-90">
                 <strong className="text-white">HOUESSÈ AYÏGBÈDEKIN Vidéhouénou</strong>, successeur de ADIGBÈ Togbédji et premier inventeur avéré de théories scientifiques en langue nationale au Bénin à usage académique. Ce dernier a conçu des matériels académiques didactiques issus de nos réalités, débarrassés de toute allégeance à l'existant étranger.
@@ -418,7 +568,13 @@ const Home: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-           
+            <a
+              href="/ong"
+              className="inline-flex items-center px-10 py-5 bg-yellow-400 text-gray-900 rounded-full font-bold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-200 shadow-2xl"
+            >
+              Découvrir nos partenaires
+              <ArrowRight size={24} className="ml-3" />
+            </a>
             <a
               href="#mission"
               className="inline-flex items-center px-10 py-5 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-xl"

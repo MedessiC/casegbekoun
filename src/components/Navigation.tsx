@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
-import LanguageSelector from './LanguageSelector';
 import logoImage from '../assets/img/logo-case-gbekoun.png';
 
 const Navigation: React.FC = () => {
@@ -81,7 +80,7 @@ const Navigation: React.FC = () => {
                   {t(item.key)}
                 </a>
               ))}
-              <LanguageSelector />
+           
             </div>
           )}
 
@@ -92,10 +91,10 @@ const Navigation: React.FC = () => {
             }`}
           >
             {/* Sélecteur de langue - visible toujours */}
-            {isTogbeLanguage && <LanguageSelector />}
+            
             {!isTogbeLanguage && (
               <div className="md:hidden">
-                <LanguageSelector />
+              
               </div>
             )}
 
@@ -154,7 +153,7 @@ const Navigation: React.FC = () => {
               {/* Sélecteur de langue dans menu (non-Togbé) */}
               {!isTogbeLanguage && (
                 <div className="px-4 py-3 border-t border-gray-200">
-                  <LanguageSelector />
+                
                 </div>
               )}
             </div>

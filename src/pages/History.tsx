@@ -311,17 +311,10 @@ const History: React.FC = () => {
                 <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
                   "Dépourvue de toutes capacités inventives et productrices, l'Afrique aujourd'hui ne peut même pas authentiquement vêtir son peuple ; et ce peuple est complètement nu..."
                 </blockquote>
-                <p className="text-sm text-gray-600">{t('africaDiagnosis')}</p>
+                
               </div>
             
-          
-            <div className="space-y-8">
-              <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-8">
-                <blockquote className="text-lg text-gray-800 mb-4 leading-relaxed">
-                  "Dépourvue de toutes capacités inventives et productrices, l'Afrique aujourd'hui ne peut même pas authentiquement vêtir son peuple ; et ce peuple est complètement nu. Mirez-vous de la tête aux pieds, vous vous rendrez compte qu'en réalité, rien de tout ce que nous portons ne provient authentiquement d'un pays africain, encore moins de la République du Bénin."
-                </blockquote>
-              </div>
-
+            <div className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
                   <h4 className="font-bold text-gray-900 mb-3">Perte des Découvertes Ancestrales</h4>

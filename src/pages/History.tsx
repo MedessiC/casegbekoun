@@ -621,7 +621,7 @@ const History: React.FC = () => {
                     <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
                       <img 
                         src={figure.image} 
-                        alt={figure.name}
+             
                         className="w-full h-full object-cover"
                       />
                     </div>

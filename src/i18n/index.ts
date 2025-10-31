@@ -56,7 +56,7 @@ const resources = {
       
       // Chronologie
       chronologyTitle: 'Chronologie Complète de l\'Épopée',
-      chronologySubtitle: '47 années d\'histoire extraordinaire, de la révélation mystique de 1976 à la mission contemporaine des témoins gardiens.',
+      chronologySubtitle: '49 années d\'histoire extraordinaire, de la révélation mystique de 1976 à la mission contemporaine des témoins gardiens.',
       epicSynthesis: 'Synthèse de l\'Épopée Gbekoun',
       yearsOfEpic: 'Années d\'épopée',
       successiveGuardians: 'Gardiens successifs',
@@ -104,7 +104,7 @@ const resources = {
       
       // Footer
       authenticEpic: 'L\'Épopée Gbekoun',
-      epicDescription: '47 années d\'histoire authentique pour l\'autonomie éducative de l\'Afrique',
+      epicDescription: '49 années d\'histoire authentique pour l\'autonomie éducative de l\'Afrique',
       keyPeriods: 'Périodes Clés',
       mysticRevelation: 'Révélation mystique',
       scriptCompletion: 'Achèvement du script',
@@ -198,7 +198,7 @@ const resources = {
       
       // Chronology
       chronologyTitle: 'Complete Chronology of the Epic',
-      chronologySubtitle: '47 years of extraordinary history, from the 1976 mystical revelation to the contemporary mission of witness guardians.',
+      chronologySubtitle: '49 years of extraordinary history, from the 1976 mystical revelation to the contemporary mission of witness guardians.',
       epicSynthesis: 'Synthesis of the Gbekoun Epic',
       yearsOfEpic: 'Years of epic',
       successiveGuardians: 'Successive guardians',
@@ -246,7 +246,7 @@ const resources = {
       
       // Footer
       authenticEpic: 'The Gbekoun Epic',
-      epicDescription: '47 years of authentic history for African educational autonomy',
+      epicDescription: '49 years of authentic history for African educational autonomy',
       keyPeriods: 'Key Periods',
       mysticRevelation: 'Mystical revelation',
       scriptCompletion: 'Script completion',

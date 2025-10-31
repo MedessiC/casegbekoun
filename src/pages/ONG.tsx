@@ -58,7 +58,7 @@ const ONGPartners = () => {
       president: {
         name: "ADJODI Edem Kwaku",
         role: "Président",
-        profession: "Formateur des formateurs",
+        profession: "",
         age: 49
       },
       color: "blue"

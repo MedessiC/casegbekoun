@@ -468,7 +468,7 @@ const History: React.FC = () => {
               Chronologie Complète de l'Épopée
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              47 années d'histoire extraordinaire, de la révélation mystique de 1976 
+              49 années d'histoire extraordinaire, de la révélation mystique de 1976 
               à la mission contemporaine des témoins gardiens.
             </p>
           </div>
@@ -585,9 +585,9 @@ const History: React.FC = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-blue-600">47</div>
+                <div className="text-3xl font-bold text-blue-600">49</div>
                 <div className="font-semibold text-gray-800">Années d'épopée</div>
-                <div className="text-sm text-gray-600">1976 - présent</div>
+                <div className="text-sm text-gray-600">1976 - 2025</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-green-600">3</div>
@@ -748,7 +748,7 @@ const History: React.FC = () => {
           Le Système Gbekoun : Spécifications Complètes
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Plus qu'un simple , le Gbekoun est un système révolutionnaire 
+          Plus qu'un simple script , le Gbekoun est un système révolutionnaire 
           conçu pour l'autonomie éducative et civilisationnelle de l'Afrique.
         </p>
       </div>
@@ -886,7 +886,7 @@ const History: React.FC = () => {
                 </div>
                 <div className="bg-white rounded-lg p-4">
                   <p className="text-sm text-gray-700 font-medium mb-2">Hymne national</p>
-                  <p className="text-xs text-gray-600">"Comment pourrions-nous nous vanter d'une voie de développement lorsque l'hymne nationale est chantée dans une langue étrangère ?"</p>
+                  <p className="text-xs text-gray-600">"Comment pourrions-nous nous vanter d'une voie de développement lorsque l'hymne national est chanté dans une langue étrangère ?"</p>
                 </div>
               </div>
             </div>
@@ -1075,7 +1075,7 @@ const History: React.FC = () => {
                 
                 {/* Système actuel (à rejeter) */}
                 <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-                  <h5 className="font-bold text-red-800 mb-4 text-center">❌ SYSTÈME ACTUEL (À REJETER)</h5>
+                  <h5 className="font-bold text-red-800 mb-4 text-center">❌ SYSTÈME ACTUEL (À REVOIR)</h5>
                   <div className="space-y-3">
                     <div className="bg-red-600 text-white p-3 rounded text-center font-semibold">
                       LANGUES EUROPÉENNES
@@ -1094,7 +1094,7 @@ const History: React.FC = () => {
 
                 {/* Système révolutionnaire (à adopter) */}
                 <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-                  <h5 className="font-bold text-green-800 mb-4 text-center">✅ SYSTÈME RÉVOLUTIONNAIRE</h5>
+                  <h5 className="font-bold text-green-800 mb-4 text-center">✅ SYSTÈME AUTHENTIQUE</h5>
                   <div className="space-y-3">
                     <div className="bg-green-600 text-white p-3 rounded text-center font-semibold">
                       LANGUES MATERNELLES
@@ -1179,7 +1179,7 @@ const History: React.FC = () => {
         <div>
           <h4 className="font-bold mb-4">L'Épopée Gbekoun</h4>
           <p className="text-sm text-blue-200">
-            47 années d'histoire authentique pour l'autonomie éducative de l'Afrique
+            49 années d'histoire authentique pour l'autonomie éducative de l'Afrique
           </p>
         </div>
         <div>

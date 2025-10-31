@@ -52,10 +52,10 @@ const Home: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a
-              href="#alphabet"
+              href="#"
               className="inline-flex items-center px-10 py-5 bg-yellow-400 text-gray-900 rounded-full font-bold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-200 shadow-2xl"
             >
-              Explorer l'écriture
+              Découvir les ONG partenanires
               <ArrowRight size={24} className="ml-3" />
             </a>
             <a
@@ -151,18 +151,11 @@ const Home: React.FC = () => {
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   En général c'est une lettre ou un ensemble de lettres, des signes et symboles scientifiques divers composant un ensemble des consonnes, des voyelles et des signes de commodités qui sert à écrire.
+                  
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl p-8 shadow-lg text-gray-900">
-                <div className="flex items-center gap-3 mb-4">
-                  <Award size={32} />
-                  <h3 className="text-2xl font-bold">Point Important</h3>
-                </div>
-                <p className="text-lg font-semibold leading-relaxed">
-                  Gbekoun n'est donc pas une langue. Mais la dénomination d'une écriture qui permet d'écrire en toute langue.
-                </p>
-              </div>
+             
 
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
                 <h3 className="text-2xl font-bold text-green-600 mb-4">Essence Fédératrice</h3>
@@ -170,6 +163,8 @@ const Home: React.FC = () => {
                   D'essence fédératrice de langues, il sert à <strong>transcrire exactement tout phonème de toute nature et de toute langue</strong> et se lit textuellement dans les expressions écrites dans ces langues mêmes par celles et ceux qui ne parlent pas les langues en question mais qui savent écrire et lire avec le système d'écriture Gbekoun.
                 </p>
               </div>
+
+               
             </div>
 
             <div className="space-y-6">
@@ -226,6 +221,15 @@ const Home: React.FC = () => {
                 </div>
                 <p className="text-lg text-gray-800 font-semibold leading-relaxed">
                   Toute personne l'ayant appris peut s'en servir pour lire et/ou écrire aisément dans n'importe quelle langue sans forcément la parler.
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl p-8 shadow-lg text-gray-900">
+                <div className="flex items-center gap-3 mb-4">
+                  <Award size={32} />
+                  <h3 className="text-2xl font-bold">Point Important</h3>
+                </div>
+                <p className="text-lg font-semibold leading-relaxed">
+                  Gbekoun n'est donc pas une langue. Mais la dénomination d'une écriture qui permet d'écrire en toute langue.
                 </p>
               </div>
             </div>

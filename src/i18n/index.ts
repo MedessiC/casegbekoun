@@ -45,7 +45,7 @@ const resources = {
       
       // Contexte
       contextTitle: 'Contexte : La Théorie du "Couple Originel"',
-      contextSubtitle: 'Pour comprendre la mission du Gbekoun, il faut saisir la théorie authentique qui sous-tend cette épopée : l\'alliance sacrée entre la Terre et ses Langues maternelles.',
+      contextSubtitle: 'Pour comprendre la mission du Gbekoun, il faut saisir la théorie originelle qui sous-tend cette épopée : l\'alliance sacrée entre la Terre et ses Langues maternelles.',
       africaDiagnosis: 'Le Diagnostic : L\'Afrique "Complètement Nue"',
       seeCompleteDiagnosis: 'Voir le diagnostic complet : L\'Afrique \'Complètement Nue\'',
       originalCoupleTheory: 'La Théorie du "Couple Originel Ancestral"',

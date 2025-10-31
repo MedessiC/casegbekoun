@@ -90,7 +90,7 @@ const resources = {
       independenceFailure: 'L\'Échec des Indépendances : Analyse Historique',
       seeCompleteAnalysis: 'Voir l\'analyse complète : L\'Échec des Indépendances',
       propheticVision: 'Vision Prophétique : Préparer l\'Avenir',
-      revolutionaryInstructions: 'Instructions Révolutionnaires aux Dirigeants Africains',
+      revolutionaryInstructions: 'Conseils aux Dirigeants Africains',
       seeCompleteInstructions: 'Voir les instructions révolutionnaires complètes aux dirigeants africains',
       finalTestimony: 'Témoignage Final : "Nous Devons en Être Fiers"',
       urgencyToAct: 'L\'Urgence d\'Agir',

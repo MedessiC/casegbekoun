@@ -440,7 +440,7 @@ const History: React.FC = () => {
                   },
                   {
                     title: "Trahison des dirigeants",
-                    description: "Sacrifice de la souveraineté et des intérêts nationaux au profit de l'occident pour préserver leurs biens illicites",
+                    description: "Sacrifice de la souveraineté et des intérêts nationaux au profit de l'occident.",
                     icon: "6"
                   }
                 ].map((factor, index) => (
@@ -1022,7 +1022,7 @@ const History: React.FC = () => {
           </div>
     
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Instructions Révolutionnaires aux Dirigeants Africains</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">Conseils aux Dirigeants Africains</h3>
           
           <div className="space-y-8">
             

@@ -597,39 +597,48 @@ const BlogLibrary: React.FC = () => {
         {/* Pagination */}
         <Pagination />
 
-        {/* Newsletter Subscription */}
-        <div className="mt-20 bg-gradient-to-r from-blue-600 to-yellow-500 rounded-3xl p-8 md:p-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Restez informé
-          </h2>
-          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Abonnez-vous à notre newsletter pour recevoir les derniers articles et ressources sur l'écriture Gbekoun
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Votre adresse email"
-              className="w-full px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
-            />
-            <button className="w-full sm:w-auto px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
-              S'abonner
-            </button>
-          </div>
-        </div>
+        
 
-        {/* Lien vers le panel admin */}
-        <div className="fixed bottom-6 right-6">
-          <a
-            href="/admin"
-            className="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-200 text-sm"
-          >
-            Panel Admin
-          </a>
-        </div>
+            
+        
       </div>
 
-      {/* Post Detail Modal */}
-      <PostDetail />
+     <footer className="bg-gray-900 text-gray-300 py-10 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black text-white-400 mb-3 sm:mb-4">CASE-Gbekoun</h3>
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                Organisation à caractère social, areligieuse, apolitique et à but non lucratif
+
+
+              </p>
+            </div>
+            <div>
+              <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Liens Rapides</h4>
+              <ul className="space-y-2">
+                <li><a href="/" className="text-sm sm:text-base hover:text-white transition-colors">Acceuil</a></li>
+                <li><a href="/history" className="text-sm sm:text-base hover:text-white transition-colors">Histoire</a></li>
+                <li><a href="/Ong" className="text-sm sm:text-base hover:text-white transition-colors">Partenaires</a></li>
+                <li><a href="/About" className="text-sm sm:text-base hover:text-white transition-colors">A propos</a></li>
+                <li><a href ="/contact" className="text-sm sm:text-base hover:text-white transition-colors">Contact</a> </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Contact</h4>
+              <ul className="space-y-2">
+           <li><a href="/" className="text-sm sm:text-base hover:text-white transition-colors">CASE-Gbekoun</a></li>
+                <li><a href="/ong#ong-aig-togo" className="text-sm sm:text-base hover:text-white transition-colors">AIG</a></li>
+                </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+            <p className="text-xs sm:text-sm text-gray-500 px-2">
+              © 2025 Case-Gbekoun. Tous droits réservés. | Pour l'Autonomie de toute Nation des Continents sans le moindre Appui
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

@@ -1154,39 +1154,42 @@ const History: React.FC = () => {
 
   </div>
 
-  {/* Footer enrichi */}
-<footer className="bg-gradient-to-br from-sky-300 via-blue-500 to-sky-200 text-gray-900 py-16">
-    <div className="max-w-4xl mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        <div>
-          <h4 className="font-bold mb-4">L'Épopée Gbekoun</h4>
-          <p className="text-sm text-blue-200">
-            49 années d'histoire authentique pour l'autonomie éducative de l'Afrique
-          </p>
+        <footer className="bg-gray-900 text-gray-300 py-10 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black text-white-400 mb-3 sm:mb-4">CASE-Gbekoun</h3>
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                Organisation à caractère social, areligieuse, apolitique et à but non lucratif
+
+
+              </p>
+            </div>
+            <div>
+              <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Liens Rapides</h4>
+              <ul className="space-y-2">
+                <li><a href="/" className="text-sm sm:text-base hover:text-white transition-colors">Acceuil</a></li>
+                <li><a href="/history" className="text-sm sm:text-base hover:text-white transition-colors">Histoire</a></li>
+                <li><a href="/Ong" className="text-sm sm:text-base hover:text-white transition-colors">Partenaires</a></li>
+                <li><a href="/About" className="text-sm sm:text-base hover:text-white transition-colors">A propos</a></li>
+                <li><a href ="/contact" className="text-sm sm:text-base hover:text-white transition-colors">Contact</a> </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Contact</h4>
+              <ul className="space-y-2">
+           <li><a href="/" className="text-sm sm:text-base hover:text-white transition-colors">CASE-Gbekoun</a></li>
+                <li><a href="/ong#ong-aig-togo" className="text-sm sm:text-base hover:text-white transition-colors">AIG</a></li>
+                </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+            <p className="text-xs sm:text-sm text-gray-500 px-2">
+              © 2025 Case-Gbekoun. Tous droits réservés. | Pour l'Autonomie de toute Nation des Continents sans le moindre Appui
+            </p>
+          </div>
         </div>
-        <div>
-          <h4 className="font-bold mb-4">Périodes Clés</h4>
-          <ul className="text-sm text-blue-200 space-y-1">
-            <li>1976-1995 : Révélation mystique</li>
-            <li>1995-2007 : Achèvement du script</li>
-            <li>2007-2019 : Développement académique</li>
-            <li>2019-Présent : Héritage et mission</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-bold mb-4">Mission</h4>
-          <p className="text-sm text-blue-200">
-            "Script pour l'autonomie de chaque nation du monde sans le moindre appui"
-          </p>
-        </div>
-      </div>
-      <div className="text-center border-t border-blue-800 pt-8">
-        <p className="text-blue-200">
-          Histoire authentique du Script Gbekoun basée sur les témoignages originaux des gardiens successifs
-        </p>
-      </div>
-    </div>
-  </footer>
+      </footer>
 </div>
 );
 };

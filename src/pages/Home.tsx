@@ -552,16 +552,19 @@ const Home = () => {
             <div>
               <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Liens Rapides</h4>
               <ul className="space-y-2">
-                <li><a href="#what-is-gbekoun" className="text-sm sm:text-base hover:text-white transition-colors">Qu'est-ce que Gbekoun</a></li>
-                <li><a href="#case-gbekoun" className="text-sm sm:text-base hover:text-white transition-colors">CASE-GBEKOUN</a></li>
-                <li><a href="#ong-partner" className="text-sm sm:text-base hover:text-white transition-colors">Partenaires</a></li>
-                <li><a href="#history" className="text-sm sm:text-base hover:text-white transition-colors">Histoire</a></li>
+                <li><a href="/" className="text-sm sm:text-base hover:text-white transition-colors">Acceuil</a></li>
+                <li><a href="/history" className="text-sm sm:text-base hover:text-white transition-colors">Histoire</a></li>
+                <li><a href="/Ong" className="text-sm sm:text-base hover:text-white transition-colors">Partenaires</a></li>
+                <li><a href="/About" className="text-sm sm:text-base hover:text-white transition-colors">A propos</a></li>
+                <li><a href ="/contact" className="text-sm sm:text-base hover:text-white transition-colors">Contact</a> </li>
               </ul>
             </div>
             <div>
               <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Contact</h4>
-              <p className="text-sm sm:text-base text-gray-400">ONG CASE-GBEKOUN</p>
-              <p className="text-sm sm:text-base text-gray-400">Bénin</p>
+              <ul className="space-y-2">
+           <li><a href="/" className="text-sm sm:text-base hover:text-white transition-colors">CASE-Gbekoun</a></li>
+                <li><a href="/ong#ong-aig-togo" className="text-sm sm:text-base hover:text-white transition-colors">AIG</a></li>
+                </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center">

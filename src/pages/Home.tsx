@@ -22,11 +22,13 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20 z-10" />
 
-        <div className="relative z-20 max-w-7xl mx-auto text-center text-white py-12 sm:py-20">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
-            <span className="block mb-2">Bienvenue dans l'univers</span>
-            <span className="text-yellow-400">Gbekoun</span>
-          </h1>
+        <div className="relative z-20 max-w-7xl mx-auto text-center text-white pt-24 sm:pt-32">
+  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight px-2">
+    <span className="block mb-2">Bienvenue dans l'univers</span>
+    <span className="text-yellow-400">Gbekoun</span>
+  </h1>
+
+
 
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-3 sm:mb-4 max-w-4xl mx-auto leading-relaxed font-light px-4">
             Pour l'Autonomie de toute Nation des Continents
@@ -540,9 +542,11 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
             <div>
-              <h3 className="text-xl sm:text-2xl font-black text-yellow-400 mb-3 sm:mb-4">GBEKOUN</h3>
+              <h3 className="text-xl sm:text-2xl font-black text-white-400 mb-3 sm:mb-4">CASE-Gbekoun</h3>
               <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Système d'écriture universel pour l'autonomie linguistique africaine
+                Organisation à caractère social, areligieuse, apolitique et à but non lucratif
+
+
               </p>
             </div>
             <div>

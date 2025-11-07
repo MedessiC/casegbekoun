@@ -541,14 +541,17 @@ const Home = () => {
       <footer className="bg-gray-900 text-gray-300 py-10 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
-            <div>
-              <h3 className="text-xl sm:text-2xl font-black text-white-400 mb-3 sm:mb-4">CASE-Gbekoun</h3>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                Organisation à caractère social, areligieuse, apolitique et à but non lucratif
+           <div>
+  <h3 className="flex items-center gap-2 text-xl sm:text-2xl font-black text-white mb-3 sm:mb-4">
 
 
-              </p>
-            </div>
+  CASE-Gbekoun
+  </h3>
+  <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+    Organisation à caractère social, areligieuse, apolitique et à but non lucratif
+  </p>
+</div>
+
             <div>
               <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Liens Rapides</h4>
               <ul className="space-y-2">

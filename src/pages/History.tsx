@@ -178,6 +178,7 @@ const History: React.FC = () => {
     {
       name: 'ADIGBE Togbédji',
       role: 'Concepteur et Fondateur Mystique',
+      image: '/adigbe_togbedji.png',
       period: '1976-2007',
       birthPlace: 'Village de Mondotokpa, Dangbo',
       summary: 'Visionnaire choisi par le "consortium des langues africaines" pour créer le script d\'incarnation des langues maternelles.',
@@ -187,7 +188,7 @@ const History: React.FC = () => {
       achievement: 'Système de 33 lettres (24 consonnes, 9 voyelles) syllabique et phonétique',
       legacy: 'Fondation théorique et mystique de l\'autonomie linguistique africaine',
       famousQuote: '"Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra." (1989)',
-      image: ''
+     
     },
     {
       name: 'HOUESSE AYIGBEDEKIN Vidéhouénou',

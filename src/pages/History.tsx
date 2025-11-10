@@ -194,6 +194,7 @@ const History: React.FC = () => {
       name: 'HOUESSE AYIGBEDEKIN Vidéhouénou',
       role: 'Successeur Mystique et Développeur Académique',
       period: '2013-2019',
+      image: '/videhouenou.png',
       birthPlace: 'République du Bénin',
       summary: 'Figure mystérieuse apparue en 2013, transformateur du Gbekoun en système éducatif complet.',
       detailedBio: 'Son apparition en 2013 est décrite comme mystérieuse. Lors de sa première rencontre avec le groupe Gbekoun, cet homme enlève sa chemise pour montrer les multiples lésions de son corps, demandant s\'il peut être guéri. Rapidement, il développe des capacités extraordinaires, décodant des messages codés d\'ADIGBE Togbédji sans l\'avoir jamais rencontré.',
@@ -202,7 +203,7 @@ const History: React.FC = () => {
       achievement: 'Fondation du "Premier Centre d\'Éveil du Continent Noir" et formation de formateurs',
       legacy: 'Infrastructure académique et institutionnalisation de l\'enseignement en Gbekoun',
       famousQuote: 'Les témoins déclarent : "De façon spectaculaire, le successeur de Togbédji venait de naître."',
-      image: ''
+
     },
     {
       name: 'COOVI Azotêgnon',

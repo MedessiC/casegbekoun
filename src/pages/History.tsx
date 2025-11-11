@@ -208,6 +208,8 @@ const History: React.FC = () => {
     {
       name: 'COOVI Azotêgnon',
       role: 'Gardien Contemporain et Président du Conseil Académique',
+      image: '/coovi_azortegnon1.jpg',
+
       period: '2019-Présent',
       birthPlace: 'République du Bénin',
       summary: 'Premier Président du Conseil Académique et Pédagogique, gardien de l\'héritage et militant pour la reconnaissance officielle.',
@@ -217,7 +219,7 @@ const History: React.FC = () => {
       achievement: 'Organisation du Conseil Académique et documentation de l\'histoire complète',
       legacy: 'Préservation documentaire et continuité de la mission d\'éveil continental',
       famousQuote: '"Le monde a changé d\'ombre ; et le monde nouveau en cours, celui de développement et de l\'éveil du Continent Noir a établi son soleil levant au Bénin pour s\'étendre sur le reste du continent et sur le monde entier."',
-      image: ''
+
     }
   ];
 

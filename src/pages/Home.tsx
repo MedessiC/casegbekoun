@@ -37,7 +37,9 @@ const Home = () => {
           </p>
 
           <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed opacity-90 px-4">
-            Système unique d'écriture pour toute langue - Apprenez à lire et écrire dans n'importe quelle langue sans forcément la parler
+            Système unique d'écriture pour toute langue. Apprenez à lire et écrire
+dans n'importe quelle langue (de votre choix) sans forcément la parler ni
+l’écorcher…
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
@@ -79,7 +81,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 px-2">
-              Qu'est-ce que le Gbekoun ?
+              Qu'est-ce que Gbekoun ?
             </h2>
             <div className="flex justify-center mb-8 sm:mb-12">
               <img
@@ -96,18 +98,23 @@ const Home = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">Définition</h3>
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong>Gbekoun</strong> en langues <em>Goun</em>, <em>Fon</em>, <em>Ayïzo</em> est le jumelage de deux mots, à savoir <strong>"graphique de langage ou son"</strong> et veut dire signe ou symbole de son de toute nature, de voix, de langue.
+                  <strong>Gbekoun</strong> en langues <em>Goun</em>, <em>Fon</em>, <em>Ayïzo</em> est le jumelage de deux mots, à savoir <strong>savoir graphème de phonème ou son</strong> de toute nature.
                 </p>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  C'est une lettre ou un ensemble de lettres, des signes et symboles scientifiques divers composant un ensemble des consonnes, des voyelles et des signes de commodités qui sert à écrire.
+                  C'est une lettre ou un ensemble de lettres, des signes et symboles
+scientifiques divers composant un ensemble de consonnes, de voyelles et
+des signes de commodités qui servent à écrire.
                 </p>
               </div>
             </div>
 
             <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200">
-              <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">Essence Fédératrice</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-4 sm:mb-6">Caractère fédérateur de langues</h3>
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                D'essence fédératrice de langues, il sert à <strong>transcrire exactement tout phonème de toute nature et de toute langue</strong> et se lit textuellement dans les expressions écrites dans ces langues mêmes par celles et ceux qui ne parlent pas les langues en question mais qui savent écrire et lire avec le système d'écriture Gbekoun.
+                D'essence fédératrice de langues, Gbekoun  sert à <strong>transcrire exactement tout phonème de toute nature et de toute langue</strong> langue et se lit
+textuellement dans les expressions écrites dans ces langues mêmes par
+celles et ceux qui ne parlent pas les langues en question mais qui savent
+écrire et lire avec le système d'écriture Gbekoun.
               </p>
             </div>
           </div>
@@ -154,7 +161,7 @@ const Home = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-purple-600 mb-4 sm:mb-6">Comparaison</h3>
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong className="text-purple-600">Systèmes unicaméraux</strong> (comme Gbekoun) : persan, kannara, tamoul, arabe, hébreu, géorgien et coréen
+                  <strong className="text-purple-600">Autres systèmes d’écritures unicaméraux à l’instar de Gbekoun</strong>: persan, kannara, tamoul, arabe, hébreu, géorgien et coréen
                 </p>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   <strong className="text-purple-600">Systèmes bicaméraux</strong> (deux casses par lettre) : latin, grec, cyrillique et arménien
@@ -181,7 +188,9 @@ const Home = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Point Important</h3>
               </div>
               <p className="text-base sm:text-lg font-semibold leading-relaxed text-gray-900">
-                Gbekoun n'est donc pas une langue. Mais la dénomination d'une écriture qui permet d'écrire en toute langue.
+                Gbekoun n'est donc pas une langue à proprement parlé. Mais la
+dénomination d&#39;un système endogène d’écriture qui permet
+d'écrire en toute langue.
               </p>
             </div>
           </div>
@@ -192,17 +201,19 @@ const Home = () => {
       <section id="history" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">Origine et Héritage</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">Origine et Développement</h2>
             <p className="text-lg sm:text-xl opacity-90 max-w-3xl mx-auto leading-relaxed px-2">
-              L'histoire du système d'écriture endogène Gbekoun
+              L'histoire et le développement du système endogène d'écriture Gbekoun et le
+programme académique
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 mb-8 sm:mb-12">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-yellow-400">Le Créateur</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-yellow-400">Le Concepteur Gbekoun pour l’Autonomie de toute Nation des
+Continents sans le moindre Appui</h3>
               <p className="text-base sm:text-lg leading-relaxed opacity-90 mb-3 sm:mb-4">
-                Système endogène d'écriture, le Gbekoun est conçu par notre compatriote <strong className="text-white">Feu ADIGBÈ Togbédji</strong>, originaire de la commune de Dangbo plus précisément du village de <strong>Mondotokpa</strong> dans le Département de l'Ouémé.
+                Système endogène d'écriture, Gbekoun est conçu par le savant  <strong className="text-white">Feu ADIGBÈ Togbédji</strong>, originaire de la commune de Dangbo plus précisément du village de <strong>Mondotokpa</strong> dans le Département de l'Ouémé.
               </p>
               <p className="text-base sm:text-lg leading-relaxed opacity-90">
                 Composé de consonnes et de voyelles, sa numération et ses signes de commodités, Gbekoun sert à écrire et lire en toute langue.
@@ -210,9 +221,16 @@ const Home = () => {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-yellow-400">Le Successeur</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-yellow-400">Le premier inventeur avéré de théories scientifiques en langue nationale
+au Bénin à usage académique</h3>
               <p className="text-base sm:text-lg leading-relaxed opacity-90">
-                <strong className="text-white">HOUESSÈ AYÏGBÈDEKIN Vidéhouénou</strong>, successeur de ADIGBÈ Togbédji et premier inventeur avéré de théories scientifiques en langue nationale au Bénin à usage académique. Ce dernier a conçu des matériels académiques didactiques issus de nos réalités, débarrassés de toute allégeance à l'existant étranger.
+                <strong className="text-white">HOUESSÈ AYÏGBÈDEKIN Vidéhouénou</strong>, succéda à ADIGBÈ
+Togbédji, concevra des matériels académiques didactiques issus de nos
+réalités, débarrassés de toute allégeance à l&#39;existant étranger et mit en
+place un système académique d’éducation pluridisciplinaire en langue
+nationale Fon puis créa Le créa <strong>Le Premier Centre d’Eveil du Continent Noir
+</strong>. Ce qui se traduit dans sa langue maternelle comme suit :<br />
+<em>Fifontin Noukonton Mèwigbédji Ton</em>
               </p>
             </div>
           </div>
@@ -247,7 +265,11 @@ const Home = () => {
               <h3 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">Le Premier Centre d'Eveil du Continent Noir</h3>
             </div>
             <p className="text-base sm:text-lg leading-relaxed opacity-90 text-center max-w-4xl mx-auto">
-              Lieu de formations dans le <strong className="text-white">Système académique Gbekoun</strong> pour une éducation pluridisciplinaire authentique et endogène mise en place par <strong className="text-yellow-300">HOUESSÈ AYÏGBÈDEKIN Vidéhouénou</strong>, successeur de ADIGBÈ Togbédji et premier inventeur avéré de théories scientifiques en langue nationale au Bénin à usage académique.
+              Lieu de formations dans le <strong className="text-white">Système académique Gbekoun</strong> pour une éducation pluridisciplinaire authentique et endogène mise en place par <strong className="text-yellow-300">HOUESSÈ AYÏGBÈDEKIN Vidéhouénou</strong>, dans sa langue
+maternelle (Fongbë),une langue authentiquement béninoise et identitaire
+en raison de son oralité plus répandue, qu’il a dû d’abord rénover en la
+dépouillant de tout mixage pour la rendre plus apte et ainsi adaptée à
+l’usage éducationnel et scientifique et qu’il désigna sous le nom de :  <strong>« Tögbë »..</strong>
             </p>
           </div>
 

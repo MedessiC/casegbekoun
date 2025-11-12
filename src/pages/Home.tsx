@@ -210,7 +210,7 @@ programme académique
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 mb-8 sm:mb-12">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-yellow-400">Le Concepteur Gbekoun pour l’Autonomie de toute Nation des
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-yellow-400">Le Concepteur de Gbekoun pour l’Autonomie de toute Nation des
 Continents sans le moindre Appui</h3>
               <p className="text-base sm:text-lg leading-relaxed opacity-90 mb-3 sm:mb-4">
                 Système endogène d'écriture, Gbekoun est conçu par le savant  <strong className="text-white">Feu ADIGBÈ Togbédji</strong>, originaire de la commune de Dangbo plus précisément du village de <strong>Mondotokpa</strong> dans le Département de l'Ouémé.

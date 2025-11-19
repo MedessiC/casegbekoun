@@ -95,18 +95,18 @@ const History: React.FC = () => {
   const historicalPeriods = [
     {
       id: "revelation",
-      period: "1976-1995",
+      period: "1983-1995",
       title: "Révélation et Mission Transcendante",
       shortTitle: "Les origines mystiques",
-      description: "ADIGBE Togbédji, originaire du petit village de Mondotokpa à Dangbo, reçoit une mission transcendante pour créer le script d'incarnation des langues africaines. En 1976, il adresse un message prophétique aux gouvernants sur la sécheresse financière qui guetterait le pays. Cette prophétie lui vaut une incarcération de 7 années sans procès ni jugement. Paradoxalement, la crise annoncée frappe effectivement le Bénin en 1983.",
-      detailedStory: "Au cours de sa 7ème année d'emprisonnement, il réitère le même message aux mêmes gouvernants qui, cette fois, décident de l'amnistier et de le libérer. Après sa libération en 1983, ADIGBE Togbédji entreprend une quête spirituelle et scientifique extraordinaire. Pour découvrir la 'maquette de développement' qu'est le script d'incarnation, l'homme s'impose des conditions de vie extrêmes : il reste sans manger ni boire pendant plusieurs semaines. Quand il s'alimente, c'est comme les hommes de l'époque primitive : une boule d'akassa accompagnée d'huile rouge sans sel ni piment. Il parcourt toutes ses distances à pied, quelles qu'elles soient.",
+      description: "ADIGBE Togbédji, originaire du petit village de Mondotokpa à Dangbo, reçoit une mission transcendante pour créer le script d'incarnation des langues africaines. En 1983, il adresse un message prophétique aux gouvernants sur la sécheresse financière qui guetterait le pays. Cette prophétie lui vaut une incarcération de 6 années sans procès ni jugement. Paradoxalement, la crise annoncée frappe effectivement le Bénin en 1983.",
+      detailedStory: "Au cours de sa 6ème année d'emprisonnement, il réitère le même message aux mêmes gouvernants qui, cette fois, décident de l'amnistier et de le libérer. Après sa libération en Décembre 1989, ADIGBE Togbédji entreprend une quête spirituelle et scientifique extraordinaire. Pour découvrir la 'maquette de développement' qu'est le script d'incarnation, l'homme s'impose des conditions de vie extrêmes : il reste sans manger ni boire pendant plusieurs semaines. Quand il s'alimente, c'est comme les hommes de l'époque primitive : une boule d'akassa accompagnée d'huile rouge sans sel ni piment. Il parcourt toutes ses distances à pied, quelles qu'elles soient.",
       context: "Cette période s'inscrit dans la théorie développée selon laquelle l'Afrique a perdu sa souveraineté en adoptant des langues étrangères. Le 'couple originel ancestral' (Terre + Langues maternelles) s'est refermé comme une tortue face au danger, bloquant l'accès aux ressources. ADIGBE Togbédji est choisi par le 'consortium des langues en voie de disparition' pour briser cette malédiction.",
       keyPoint: "19 années de recherche dans des conditions mystiques",
       quote: "Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra.",
       author: "ADIGBE Togbédji (1989)",
       keyEvents: [
-        "1976 : Prophétie sur la crise financière - Incarcération de 7 ans sans procès",
-        "1983 : Confirmation de la prophétie - Libération",
+        "1983 : Prophétie sur la crise financière - Incarcération de 6 ans sans procès",
+        "1989 : Confirmation de la prophétie - Libération",
         "1983-1995 : 12 années de recherche ascétique et mystique",
         "Conditions de vie primitives volontaires (jeûnes prolongés, alimentation primitive)",
         "Quête du 'Script pour l'autonomie des nations'"
@@ -179,10 +179,10 @@ const History: React.FC = () => {
       name: 'ADIGBE Togbédji',
       role: 'Concepteur et Fondateur Mystique',
       image: '/adigbe_togbedji.png',
-      period: '1976-2007',
+      period: '1983-2007',
       birthPlace: 'Village de Mondotokpa, Dangbo',
       summary: 'Visionnaire choisi par le "consortium des langues africaines" pour créer le script d\'incarnation des langues maternelles.',
-      detailedBio: 'Originaire du petit village de Mondotokpa à Dangbo, ADIGBE Togbédji devient une figure prophétique de l\'histoire du Bénin. En 1976, il adresse un message d\'avertissement aux gouvernants sur une crise financière imminente, prophétie qui lui vaut 7 années d\'incarcération sans procès. La crise annoncée frappe effectivement le pays en 1983. Libéré la même année, il consacre 12 années à une quête spirituelle et scientifique exceptionnelle.',
+      detailedBio: 'Originaire du petit village de Mondotokpa à Dangbo, ADIGBE Togbédji devient une figure prophétique de l\'histoire du Bénin. En 1983, il adresse un message d\'avertissement aux gouvernants sur une crise financière imminente, prophétie qui lui vaut 7 années d\'incarcération sans procès. La crise annoncée frappe effectivement le pays en 1983. Libéré la même année, il consacre 12 années à une quête spirituelle et scientifique exceptionnelle.',
       researchMethod: 'Pour découvrir le script d\'incarnation, il s\'impose des conditions de vie extrêmes : jeûnes prolongés de plusieurs semaines, alimentation primitive (boule d\'akassa et huile rouge sans assaisonnement), déplacements exclusivement à pied. Ces pratiques ascétiques visent à atteindre un état de conscience transcendante nécessaire à sa mission.',
       philosophy: 'Sa vision authentique repose sur la théorie du "couple originel ancestral" : Terre + Langues maternelles. Selon lui, l\'adoption de langues étrangères a rompu cette alliance sacrée, privant l\'Afrique de l\'accès à ses ressources. Le Gbekoun doit restaurer cette connexion mystique.',
       achievement: 'Système de 33 lettres (24 consonnes, 9 voyelles) syllabique et phonétique',
@@ -259,7 +259,7 @@ const History: React.FC = () => {
             <div className="inline-flex flex-wrap gap-6 bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-4 mb-12">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar size={18} className="text-yellow-400" />
-                <span>1976 - {t('present')}</span>
+                <span>1983 - {t('present')}</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <MapPin size={18} className="text-yellow-400" />
@@ -330,7 +330,7 @@ const History: React.FC = () => {
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
                   <h4 className="font-bold text-gray-900 mb-3">Rupture du Lien Sacré</h4>
-                  <p className="text-sm text-gray-600">L'adoption des langues étrangères a brisé l'alliance entre la Terre et ses langues maternelles, provoquant la fermeture de l'accès aux ressources.</p>
+                  <p className="text-sm text-gray-600">L'adoption de toute langue étrangère  brise l'alliance entre la Terre et les langues maternelles du mileu et leur terre identitaire d'alliance, provoquant la fermeture des voies d'accès aux ressources autochtones et ces dernières</p>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
                   <h4 className="font-bold text-gray-900 mb-3">Conséquence Actuelle</h4>
@@ -415,20 +415,25 @@ const History: React.FC = () => {
                     icon: "3"
                   },
                   {
-                    title: "Impérialisme et colonisation",
+                    title: "Impérialisme, colonisation et néocolonisation",
                     description: "Outil qui a permis au colonisateur de se sentir seul Maître de la terre et de parler au nom des pays les moins avancés",
                     icon: "4"
                   },
                   {
                     title: "Adoption de langues étrangères",
-                    description: "Facteur principal : langues européennes imposées comme seules langues officielles de travail",
+                    description: "Facteur principal : langues étrangères imposées comme seules langues officielles de travail",
                     icon: "5"
                   },
                   {
                     title: "Trahison des dirigeants",
-                    description: "Sacrifice de la souveraineté et des intérêts nationaux au profit de l'occident.",
+                    description: "Sacrifice de la souveraineté et des intérêts nationaux au profit de l'étranger.",
                     icon: "6"
-                  }
+                  },
+                   {
+                    title: "L'incapacité des gouvernants africains à identitifier une langue identitaire officielle de travail dans chacune de leur nation",
+                    description: "Il s'agit là d'une faiblesse qui a désarmé nos langues maternelles face à la mission de développement de leur Nation respêctive qui leur a été assigné de façon originelle et pour laquelle elles existent. L'hérésie de nos gouvernants africains c'est d'avoir pas compris que seule la langue identitaire de travail désignée par une Nation est le seul support apte à recevoir de la terre toutes les formes de ressources natureles dont regorge cette dernière qui  au fait ne joue que le rôle de porte parole dans l'unité sacrée que forme l'ensemble des langues maternelles de la dite Terre  ",
+                    icon: "7"
+                  },
                 ].map((factor, index) => (
                   <div key={index} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
                     <div className="flex items-start gap-4">
@@ -454,7 +459,7 @@ const History: React.FC = () => {
               Chronologie Complète de l'Épopée
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              49 années d'histoire extraordinaire, de la révélation mystique de 1976 
+              42 années d'histoire extraordinaire, de la révélation mythique de 1983 
               à la mission contemporaine des témoins gardiens.
             </p>
           </div>
@@ -571,9 +576,9 @@ const History: React.FC = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-blue-600">49</div>
+                <div className="text-3xl font-bold text-blue-600">42</div>
                 <div className="font-semibold text-gray-800">Années d'épopée</div>
-                <div className="text-sm text-gray-600">1976 - 2025</div>
+                <div className="text-sm text-gray-600">1983 - 2025</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-green-600">3</div>
@@ -710,7 +715,7 @@ const History: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div className="space-y-3">
                 <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto flex items-center justify-center text-white font-bold text-xl">1</div>
-                <h4 className="font-bold text-gray-800">Révélation (1976-2007)</h4>
+                <h4 className="font-bold text-gray-800">Révélation (1983-2007)</h4>
                 <p className="text-sm text-gray-600">Conception mystique du script par ADIGBE Togbédji après 19 années de quête spirituelle</p>
               </div>
               <div className="space-y-3">

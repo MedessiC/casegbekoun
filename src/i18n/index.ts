@@ -24,7 +24,7 @@ const resources = {
       learnMore: 'En savoir plus',
       
       // History page
-      historyTitle: 'Histoire du Gbekoun',
+      historyTitle: 'Histoire de Gbekoun',
       origin: 'Origines',
       originText: 'Le Gbekoun est né de la nécessité de créer un système d\'écriture adapté aux langues africaines.',
       evolution: 'Évolution',
@@ -33,14 +33,14 @@ const resources = {
       impactText: 'Le Gbekoun a révolutionné l\'écriture et la préservation des langues africaines.',
       
       // Histoire complète - Nouvelles clés
-      authenticHistoryTitle: 'Histoire Authentique du Gbekoun',
-      epicSubtitle: 'L\'épopée mystique du script authentique pour l\'autonomie éducative de l\'Afrique',
+      authenticHistoryTitle: 'Histoire Authentique de Gbekoun',
+      epicSubtitle: 'L\'épopée mythique du script authentique pour l\'autonomie éducative en langues africaines et autres.',
       years: 'années',
       present: 'Présent',
       generations: 'générations',
       letters: 'lettres',
-      officialDefinition: 'Définition officielle du Gbekoun',
-      scriptDefinition: 'Le Script des peuples pour l\'autonomie de chaque nation du monde sans le moindre appui',
+      officialDefinition: 'Dénomination officielle du Gbekoun',
+      scriptDefinition: 'Le Script des peuples pour l\'autonomie de toute nationdes continents sans le moindre appui',
       discoverEpic: 'Découvrir l\'épopée complète',
       
       // Contexte
@@ -56,7 +56,7 @@ const resources = {
       
       // Chronologie
       chronologyTitle: 'Chronologie Complète de l\'Épopée',
-      chronologySubtitle: '49 années d\'histoire extraordinaire, de la révélation mystique de 1976 à la mission contemporaine des témoins gardiens.',
+      chronologySubtitle: '42 années d\'histoire extraordinaire, de la révélation mystique de 1983 à la mission contemporaine des témoins gardiens.',
       epicSynthesis: 'Synthèse de l\'Épopée Gbekoun',
       yearsOfEpic: 'Années d\'épopée',
       successiveGuardians: 'Gardiens successifs',
@@ -104,7 +104,7 @@ const resources = {
       
       // Footer
       authenticEpic: 'L\'Épopée Gbekoun',
-      epicDescription: '49 années d\'histoire authentique pour l\'autonomie éducative de l\'Afrique',
+      epicDescription: '42 années d\'histoire authentique pour l\'autonomie éducative de l\'Afrique',
       keyPeriods: 'Périodes Clés',
       mysticRevelation: 'Révélation mystique',
       scriptCompletion: 'Achèvement du script',
@@ -198,7 +198,7 @@ const resources = {
       
       // Chronology
       chronologyTitle: 'Complete Chronology of the Epic',
-      chronologySubtitle: '49 years of extraordinary history, from the 1976 mystical revelation to the contemporary mission of witness guardians.',
+      chronologySubtitle: '42 years of extraordinary history, from the 1983 mystical revelation to the contemporary mission of witness guardians.',
       epicSynthesis: 'Synthesis of the Gbekoun Epic',
       yearsOfEpic: 'Years of epic',
       successiveGuardians: 'Successive guardians',
@@ -244,30 +244,9 @@ const resources = {
       seeLess: 'See less',
       backToTop: 'Back to top',
       
-      // Footer
-      authenticEpic: 'The Gbekoun Epic',
-      epicDescription: '49 years of authentic history for African educational autonomy',
-      keyPeriods: 'Key Periods',
-      mysticRevelation: 'Mystical revelation',
-      scriptCompletion: 'Script completion',
-      academicDevelopment: 'Academic development',
-      heritageAndMission: 'Heritage and mission',
-      mission: 'Mission',
-      footerDescription: 'Authentic history of the Gbekoun Script based on original testimonies of successive guardians',
-
-      // Alphabet page
-      alphabetTitle: 'The Gbekoun Alphabet',
-      alphabetDescription: 'Discover each letter with its pronunciation and usage examples',
-      pronunciation: 'Pronunciation',
-      examples: 'Examples',
-      downloadFont: 'Download font',
       
-      // Keyboard page
-      keyboardTitle: 'Gbekoun Virtual Keyboard',
-      keyboardDescription: 'Type directly in Gbekoun with our virtual keyboard',
-      textArea: 'Type your text here...',
-      copyText: 'Copy text',
-      clearText: 'Clear',
+      
+    
       
       // Blog page
       resourceCentertitle: 'Blog & News',

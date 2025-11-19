@@ -92,10 +92,10 @@ l’écorcher…
             </div>
           </div>
 
-          {/* Définition et Essence */}
+          {/* Dénomination et Essence */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
             <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200">
-              <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">Définition</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">Dénomination</h3>
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   <strong>Gbekoun</strong> en langues <em>Goun</em>, <em>Fon</em>, <em>Ayïzo</em> est le jumelage de deux mots, à savoir <strong>savoir graphème de phonème ou son</strong> de toute nature.

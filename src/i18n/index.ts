@@ -40,7 +40,7 @@ const resources = {
       generations: 'générations',
       letters: 'lettres',
       officialDefinition: 'Dénomination officielle du Gbekoun',
-      scriptDefinition: 'Le Script des peuples pour l\'autonomie de toute nationdes continents sans le moindre appui',
+      scriptDefinition: 'Le Script des peuples pour l\'autonomie de toute nation des continents sans le moindre appui',
       discoverEpic: 'Découvrir l\'épopée complète',
       
       // Contexte

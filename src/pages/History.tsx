@@ -101,7 +101,7 @@ const History: React.FC = () => {
       description: "ADIGBE Togbédji, originaire du petit village de Mondotokpa à Dangbo, reçoit une mission transcendante pour créer le script d'incarnation des langues africaines. En 1983, il adresse un message prophétique aux gouvernants sur la sécheresse financière qui guetterait le pays. Cette prophétie lui vaut une incarcération de 6 années sans procès ni jugement. Paradoxalement, la crise annoncée frappe effectivement le Bénin en 1983.",
       detailedStory: "Au cours de sa 6ème année d'emprisonnement, il réitère le même message aux mêmes gouvernants qui, cette fois, décident de l'amnistier et de le libérer. Après sa libération en Décembre 1989, ADIGBE Togbédji entreprend une quête spirituelle et scientifique extraordinaire. Pour découvrir la 'maquette de développement' qu'est le script d'incarnation, l'homme s'impose des conditions de vie extrêmes : il reste sans manger ni boire pendant plusieurs semaines. Quand il s'alimente, c'est comme les hommes de l'époque primitive : une boule d'akassa accompagnée d'huile rouge sans sel ni piment. Il parcourt toutes ses distances à pied, quelles qu'elles soient.",
       context: "Cette période s'inscrit dans la théorie développée selon laquelle l'Afrique a perdu sa souveraineté en adoptant des langues étrangères. Le 'couple originel ancestral' (Terre + Langues maternelles) s'est refermé comme une tortue face au danger, bloquant l'accès aux ressources. ADIGBE Togbédji est choisi par le 'consortium des langues en voie de disparition' pour briser cette malédiction.",
-      keyPoint: "19 années de recherche dans des conditions mystiques",
+      keyPoint: "12 années de recherche dans des conditions mystiques",
       quote: "Mes frères, notre époque est historique à nulle autre pareille... Quand la nature parlera à partir de ce petit pays le monde entier entendra.",
       author: "ADIGBE Togbédji (1989)",
       keyEvents: [
@@ -117,7 +117,7 @@ const History: React.FC = () => {
       period: '1995-2007',
       title: 'Achèvement et Transmission du Gbekoun',
       shortTitle: 'La révélation finale',
-      description: 'En 1995, après 19 années de recherche, ADIGBE Togbédji fait une annonce historique : "ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles." Le système Gbekoun est né, conçu comme un script à la fois syllabique et phonétique, doté de chiffres décimaux, de ponctuation et de diacritiques.',
+      description: 'En 1995, après 12 années de recherche, ADIGBE Togbédji fait une annonce historique : "ça y est, ce que tout le monde attend de mes œuvres est là : le Script des peuples pour l\'autonomie de chaque nation est conçu. Il a 33 lettres dont 24 consonnes et 9 voyelles." Le système Gbekoun est né, conçu comme un script à la fois syllabique et phonétique, doté de chiffres décimaux, de ponctuation et de diacritiques.',
       detailedStory: 'Pendant 13 années consécutives, ADIGBE Togbédji enseigne le script Gbekoun et utilise ce système pour écrire de nombreux livres aux titres variés. Il établit deux groupes d\'instruction : l\'un à Dangbo dans son village natal de Mondoto, l\'autre à Cotonou. Le système est présenté comme capable de transcrire fidèlement toutes les langues nationales du Bénin et, par extension, toutes les langues maternelles africaines. L\'objectif déclaré est de permettre l\'éducation en langues maternelles pour reconquérir la souveraineté des nations africaines.',
       context: 'Cette période marque la matérialisation concrète de la vision. Le Gbekoun est présenté non pas comme un simple écriture , mais comme un "Script pour l\'autonomie de chaque nation du monde sans le moindre appui". Il s\'inscrit dans une philosophie authentique qui inverse la hiérarchie linguistique : les langues maternelles deviennent les "propriétaires" et les langues européennes les simples "locataires".',
       keyPoint: '13 années d\'enseignement et formation de disciples',
@@ -434,20 +434,31 @@ const History: React.FC = () => {
                     description: "Il s’agit là d’une faiblesse qui a désarmé nos langues maternelles face à la mission de développement de leur nation respective, mission qui leur a été assignée de façon originelle et pour laquelle elles existent. L’hérésie de nos gouvernants africains est de n’avoir pas compris que seule la langue identitaire de travail désignée par une nation est le véritable support apte à recevoir de la terre toutes les formes de ressources naturelles dont elle regorge, et qui ne joue en réalité que le rôle de porte-parole dans l’unité sacrée que forme l’ensemble des langues maternelles de ladite terre. ",
                     icon: "7"
                   },
-                ].map((factor, index) => (
-                  <div key={index} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
-                        {factor.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-900 mb-2">{factor.title}</h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">{factor.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              ].map((factor, index) => (
+  <div
+    key={index}
+    className={`bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow h-auto 
+      ${index === 6 ? "col-span-full flex justify-center items-end text-center" : ""}`}
+  >
+    <div className="flex items-start gap-4">
+      <div className="flex items-center justify-center w-12 h-12 bg-red-600 text-white rounded-full font-bold text-sm flex-shrink-0">
+        {factor.icon}
+      </div>
+      <div className="flex-1">
+        <h4 className="font-bold text-gray-900 mb-2">{factor.title}</h4>
+        <p className="text-sm text-gray-600 leading-relaxed">
+          {factor.description}
+        </p>
+      </div>
+    </div>
+  </div>
+))}
+
+
+</div>
+
+
+
            
           </div>
         </section>

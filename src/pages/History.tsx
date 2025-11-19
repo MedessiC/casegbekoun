@@ -430,8 +430,8 @@ const History: React.FC = () => {
                     icon: "6"
                   },
                    {
-                    title: "L'incapacité des gouvernants africains à identitifier une langue identitaire officielle de travail dans chacune de leur nation",
-                    description: "Il s'agit là d'une faiblesse qui a désarmé nos langues maternelles face à la mission de développement de leur Nation respêctive qui leur a été assigné de façon originelle et pour laquelle elles existent. L'hérésie de nos gouvernants africains c'est d'avoir pas compris que seule la langue identitaire de travail désignée par une Nation est le seul support apte à recevoir de la terre toutes les formes de ressources natureles dont regorge cette dernière qui  au fait ne joue que le rôle de porte parole dans l'unité sacrée que forme l'ensemble des langues maternelles de la dite Terre  ",
+                    title: "L’incapacité des gouvernants africains à identifier une langue identitaire officielle de travail dans chacune de leurs nations",
+                    description: "Il s’agit là d’une faiblesse qui a désarmé nos langues maternelles face à la mission de développement de leur nation respective, mission qui leur a été assignée de façon originelle et pour laquelle elles existent. L’hérésie de nos gouvernants africains est de n’avoir pas compris que seule la langue identitaire de travail désignée par une nation est le véritable support apte à recevoir de la terre toutes les formes de ressources naturelles dont elle regorge, et qui ne joue en réalité que le rôle de porte-parole dans l’unité sacrée que forme l’ensemble des langues maternelles de ladite terre. ",
                     icon: "7"
                   },
                 ].map((factor, index) => (
